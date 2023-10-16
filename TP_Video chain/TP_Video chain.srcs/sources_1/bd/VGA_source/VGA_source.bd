@@ -1,0 +1,260 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x4EE9A21554C860A2",
+      "device": "xc7z020clg484-1",
+      "name": "VGA_source",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clk_wiz_0": "",
+      "c_counter_binary_0": "",
+      "proc_sys_reset_0": "",
+      "xlslice_0": "",
+      "v_tc_0": ""
+    },
+    "ports": {
+      "reset_n": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "VGA_source_clk_in1_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "hsync_out_0": {
+        "direction": "O"
+      },
+      "vsync_out_0": {
+        "direction": "O"
+      },
+      "R": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "B": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "G": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "VGA_source_clk_wiz_0_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "114.767"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "87.466"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "108.000"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "155.403"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "87.466"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "25.2"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "11.875"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "11.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "47"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "1"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "2"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          },
+          "USE_LOCKED": {
+            "value": "true"
+          }
+        }
+      },
+      "c_counter_binary_0": {
+        "vlnv": "xilinx.com:ip:c_counter_binary:12.0",
+        "xci_name": "VGA_source_c_counter_binary_0_0",
+        "parameters": {
+          "CE": {
+            "value": "true"
+          },
+          "Load": {
+            "value": "false"
+          },
+          "Output_Width": {
+            "value": "8"
+          },
+          "Restrict_Count": {
+            "value": "false"
+          },
+          "SCLR": {
+            "value": "true"
+          },
+          "Sync_Threshold_Output": {
+            "value": "false"
+          }
+        }
+      },
+      "proc_sys_reset_0": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "VGA_source_proc_sys_reset_0_0"
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "VGA_source_xlslice_0_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "7"
+          },
+          "DIN_TO": {
+            "value": "4"
+          },
+          "DIN_WIDTH": {
+            "value": "8"
+          },
+          "DOUT_WIDTH": {
+            "value": "4"
+          }
+        }
+      },
+      "v_tc_0": {
+        "vlnv": "xilinx.com:ip:v_tc:6.2",
+        "xci_name": "VGA_source_v_tc_0_0",
+        "parameters": {
+          "HAS_AXI4_LITE": {
+            "value": "false"
+          },
+          "active_video_generation": {
+            "value": "false"
+          },
+          "enable_detection": {
+            "value": "false"
+          },
+          "horizontal_blank_generation": {
+            "value": "true"
+          },
+          "vertical_blank_generation": {
+            "value": "true"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_wiz_0_clk_out2": {
+        "ports": [
+          "clk_wiz_0/clk_out2",
+          "proc_sys_reset_0/slowest_sync_clk",
+          "c_counter_binary_0/CLK",
+          "v_tc_0/clk"
+        ]
+      },
+      "resetn_0_1": {
+        "ports": [
+          "reset_n",
+          "clk_wiz_0/resetn",
+          "proc_sys_reset_0/ext_reset_in"
+        ]
+      },
+      "clk_in1_0_1": {
+        "ports": [
+          "clk",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "clk_wiz_0_locked": {
+        "ports": [
+          "clk_wiz_0/locked",
+          "proc_sys_reset_0/dcm_locked"
+        ]
+      },
+      "c_counter_binary_0_Q": {
+        "ports": [
+          "c_counter_binary_0/Q",
+          "xlslice_0/Din"
+        ]
+      },
+      "v_tc_0_hsync_out": {
+        "ports": [
+          "v_tc_0/hsync_out",
+          "hsync_out_0",
+          "c_counter_binary_0/SCLR"
+        ]
+      },
+      "v_tc_0_vsync_out": {
+        "ports": [
+          "v_tc_0/vsync_out",
+          "vsync_out_0"
+        ]
+      },
+      "proc_sys_reset_0_peripheral_aresetn": {
+        "ports": [
+          "proc_sys_reset_0/peripheral_aresetn",
+          "v_tc_0/resetn"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "R",
+          "B",
+          "G"
+        ]
+      }
+    }
+  }
+}
