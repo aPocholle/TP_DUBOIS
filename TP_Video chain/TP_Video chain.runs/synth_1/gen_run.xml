@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1697438438">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1697439489">
   <File Type="PA-TCL" Name="VGA_source_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="VGA_source_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="VGA_source_wrapper_reports.tcl"/>

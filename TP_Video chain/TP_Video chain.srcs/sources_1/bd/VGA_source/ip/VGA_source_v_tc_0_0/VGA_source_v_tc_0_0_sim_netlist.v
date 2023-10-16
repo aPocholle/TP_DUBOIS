@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Mon Oct 16 08:41:54 2023
+// Date        : Mon Oct 16 08:59:02 2023
 // Host        : gs21-09 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim {c:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video
 //               chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_v_tc_0_0/VGA_source_v_tc_0_0_sim_netlist.v}
@@ -106,32 +106,32 @@ module VGA_source_v_tc_0_0
   (* C_GEN_AVIDEO_EN = "0" *) 
   (* C_GEN_AVIDEO_POLARITY = "1" *) 
   (* C_GEN_CPARITY = "0" *) 
-  (* C_GEN_F0_VBLANK_HEND = "1280" *) 
-  (* C_GEN_F0_VBLANK_HSTART = "1280" *) 
-  (* C_GEN_F0_VFRAME_SIZE = "750" *) 
-  (* C_GEN_F0_VSYNC_HEND = "1280" *) 
-  (* C_GEN_F0_VSYNC_HSTART = "1280" *) 
-  (* C_GEN_F0_VSYNC_VEND = "729" *) 
-  (* C_GEN_F0_VSYNC_VSTART = "724" *) 
-  (* C_GEN_F1_VBLANK_HEND = "1280" *) 
-  (* C_GEN_F1_VBLANK_HSTART = "1280" *) 
-  (* C_GEN_F1_VFRAME_SIZE = "750" *) 
-  (* C_GEN_F1_VSYNC_HEND = "1280" *) 
-  (* C_GEN_F1_VSYNC_HSTART = "1280" *) 
-  (* C_GEN_F1_VSYNC_VEND = "729" *) 
-  (* C_GEN_F1_VSYNC_VSTART = "724" *) 
+  (* C_GEN_F0_VBLANK_HEND = "640" *) 
+  (* C_GEN_F0_VBLANK_HSTART = "640" *) 
+  (* C_GEN_F0_VFRAME_SIZE = "525" *) 
+  (* C_GEN_F0_VSYNC_HEND = "695" *) 
+  (* C_GEN_F0_VSYNC_HSTART = "695" *) 
+  (* C_GEN_F0_VSYNC_VEND = "491" *) 
+  (* C_GEN_F0_VSYNC_VSTART = "489" *) 
+  (* C_GEN_F1_VBLANK_HEND = "640" *) 
+  (* C_GEN_F1_VBLANK_HSTART = "640" *) 
+  (* C_GEN_F1_VFRAME_SIZE = "525" *) 
+  (* C_GEN_F1_VSYNC_HEND = "695" *) 
+  (* C_GEN_F1_VSYNC_HSTART = "695" *) 
+  (* C_GEN_F1_VSYNC_VEND = "491" *) 
+  (* C_GEN_F1_VSYNC_VSTART = "489" *) 
   (* C_GEN_FIELDID_EN = "0" *) 
   (* C_GEN_FIELDID_POLARITY = "1" *) 
-  (* C_GEN_HACTIVE_SIZE = "1280" *) 
+  (* C_GEN_HACTIVE_SIZE = "640" *) 
   (* C_GEN_HBLANK_EN = "1" *) 
   (* C_GEN_HBLANK_POLARITY = "1" *) 
-  (* C_GEN_HFRAME_SIZE = "1650" *) 
+  (* C_GEN_HFRAME_SIZE = "800" *) 
   (* C_GEN_HSYNC_EN = "1" *) 
-  (* C_GEN_HSYNC_END = "1430" *) 
+  (* C_GEN_HSYNC_END = "752" *) 
   (* C_GEN_HSYNC_POLARITY = "1" *) 
-  (* C_GEN_HSYNC_START = "1390" *) 
+  (* C_GEN_HSYNC_START = "656" *) 
   (* C_GEN_INTERLACED = "0" *) 
-  (* C_GEN_VACTIVE_SIZE = "720" *) 
+  (* C_GEN_VACTIVE_SIZE = "480" *) 
   (* C_GEN_VBLANK_EN = "1" *) 
   (* C_GEN_VBLANK_POLARITY = "1" *) 
   (* C_GEN_VIDEO_FORMAT = "2" *) 
@@ -3270,15 +3270,15 @@ endmodule
 (* C_FSYNC_VSTART7 = "0" *) (* C_FSYNC_VSTART8 = "0" *) (* C_FSYNC_VSTART9 = "0" *) 
 (* C_GENERATE_EN = "1" *) (* C_GEN_ACHROMA_EN = "0" *) (* C_GEN_ACHROMA_POLARITY = "1" *) 
 (* C_GEN_AUTO_SWITCH = "0" *) (* C_GEN_AVIDEO_EN = "0" *) (* C_GEN_AVIDEO_POLARITY = "1" *) 
-(* C_GEN_CPARITY = "0" *) (* C_GEN_F0_VBLANK_HEND = "1280" *) (* C_GEN_F0_VBLANK_HSTART = "1280" *) 
-(* C_GEN_F0_VFRAME_SIZE = "750" *) (* C_GEN_F0_VSYNC_HEND = "1280" *) (* C_GEN_F0_VSYNC_HSTART = "1280" *) 
-(* C_GEN_F0_VSYNC_VEND = "729" *) (* C_GEN_F0_VSYNC_VSTART = "724" *) (* C_GEN_F1_VBLANK_HEND = "1280" *) 
-(* C_GEN_F1_VBLANK_HSTART = "1280" *) (* C_GEN_F1_VFRAME_SIZE = "750" *) (* C_GEN_F1_VSYNC_HEND = "1280" *) 
-(* C_GEN_F1_VSYNC_HSTART = "1280" *) (* C_GEN_F1_VSYNC_VEND = "729" *) (* C_GEN_F1_VSYNC_VSTART = "724" *) 
-(* C_GEN_FIELDID_EN = "0" *) (* C_GEN_FIELDID_POLARITY = "1" *) (* C_GEN_HACTIVE_SIZE = "1280" *) 
-(* C_GEN_HBLANK_EN = "1" *) (* C_GEN_HBLANK_POLARITY = "1" *) (* C_GEN_HFRAME_SIZE = "1650" *) 
-(* C_GEN_HSYNC_EN = "1" *) (* C_GEN_HSYNC_END = "1430" *) (* C_GEN_HSYNC_POLARITY = "1" *) 
-(* C_GEN_HSYNC_START = "1390" *) (* C_GEN_INTERLACED = "0" *) (* C_GEN_VACTIVE_SIZE = "720" *) 
+(* C_GEN_CPARITY = "0" *) (* C_GEN_F0_VBLANK_HEND = "640" *) (* C_GEN_F0_VBLANK_HSTART = "640" *) 
+(* C_GEN_F0_VFRAME_SIZE = "525" *) (* C_GEN_F0_VSYNC_HEND = "695" *) (* C_GEN_F0_VSYNC_HSTART = "695" *) 
+(* C_GEN_F0_VSYNC_VEND = "491" *) (* C_GEN_F0_VSYNC_VSTART = "489" *) (* C_GEN_F1_VBLANK_HEND = "640" *) 
+(* C_GEN_F1_VBLANK_HSTART = "640" *) (* C_GEN_F1_VFRAME_SIZE = "525" *) (* C_GEN_F1_VSYNC_HEND = "695" *) 
+(* C_GEN_F1_VSYNC_HSTART = "695" *) (* C_GEN_F1_VSYNC_VEND = "491" *) (* C_GEN_F1_VSYNC_VSTART = "489" *) 
+(* C_GEN_FIELDID_EN = "0" *) (* C_GEN_FIELDID_POLARITY = "1" *) (* C_GEN_HACTIVE_SIZE = "640" *) 
+(* C_GEN_HBLANK_EN = "1" *) (* C_GEN_HBLANK_POLARITY = "1" *) (* C_GEN_HFRAME_SIZE = "800" *) 
+(* C_GEN_HSYNC_EN = "1" *) (* C_GEN_HSYNC_END = "752" *) (* C_GEN_HSYNC_POLARITY = "1" *) 
+(* C_GEN_HSYNC_START = "656" *) (* C_GEN_INTERLACED = "0" *) (* C_GEN_VACTIVE_SIZE = "480" *) 
 (* C_GEN_VBLANK_EN = "1" *) (* C_GEN_VBLANK_POLARITY = "1" *) (* C_GEN_VIDEO_FORMAT = "2" *) 
 (* C_GEN_VSYNC_EN = "1" *) (* C_GEN_VSYNC_POLARITY = "1" *) (* C_HAS_AXI4_LITE = "0" *) 
 (* C_HAS_INTC_IF = "0" *) (* C_INTERLACE_EN = "0" *) (* C_IRQEN = "0" *) 
@@ -3631,7 +3631,7 @@ module VGA_source_v_tc_0_0_v_tc
   (* C_TIMEOUT_MINS = "0" *) 
   (* C_TIME_AXI_WRITE = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111000111111111111100000000000000000000000000000000000000000000000000000011110011110000000000000000000000000111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111" *) 
   (* C_TIME_DBUFFER = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111000111111111111100000000000000000000000000000000000000000000000000000011100000000000000000000000000000000011111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111" *) 
-  (* C_TIME_DEFAULT = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001011010000000001010000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000111111100000000000000000000011001110010000000101110111000000010111011100000010110010110000001010110111000000101000000000000010100000000000000101101100100000010110101000000010100000000000001010000000000000101000000000000010100000000000000101101100100000010110101000000010100000000000001010000000000000010110100000000010100000000" *) 
+  (* C_TIME_DEFAULT = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111100000000000101000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000111111100000000000000000000001100100000000000100000110100000010000011010000001011110000000000101001000000000010100000000000001010000000000000011110101100000001111010010000001010110111000000101011011100000010100000000000001010000000000000011110101100000001111010010000001010110111000000101011011100000001111000000000001010000000" *) 
   (* C_TIME_NUM_REGS = "30" *) 
   (* C_VERSION_MAJOR = "6" *) 
   (* C_VERSION_MINOR = "2" *) 
@@ -3798,7 +3798,7 @@ endmodule
 (* C_HAS_IRQ = "0" *) (* C_IS_EVAL = "FALSE" *) (* C_REVISION_NUMBER = "11" *) 
 (* C_SRESET_LENGTH = "2" *) (* C_S_AXI_ADDR_WIDTH = "9" *) (* C_S_AXI_DATA_WIDTH = "32" *) 
 (* C_TIMEOUT_HOURS = "8" *) (* C_TIMEOUT_MINS = "0" *) (* C_TIME_AXI_WRITE = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111000111111111111100000000000000000000000000000000000000000000000000000011110011110000000000000000000000000111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111" *) 
-(* C_TIME_DBUFFER = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111000111111111111100000000000000000000000000000000000000000000000000000011100000000000000000000000000000000011111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111" *) (* C_TIME_DEFAULT = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001011010000000001010000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000111111100000000000000000000011001110010000000101110111000000010111011100000010110010110000001010110111000000101000000000000010100000000000000101101100100000010110101000000010100000000000001010000000000000101000000000000010100000000000000101101100100000010110101000000010100000000000001010000000000000010110100000000010100000000" *) (* C_TIME_NUM_REGS = "30" *) 
+(* C_TIME_DBUFFER = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111000111111111111100000000000000000000000000000000000000000000000000000011100000000000000000000000000000000011111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111" *) (* C_TIME_DEFAULT = "960'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111100000000000101000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000111111100000000000000000000001100100000000000100000110100000010000011010000001011110000000000101001000000000010100000000000001010000000000000011110101100000001111010010000001010110111000000101011011100000010100000000000001010000000000000011110101100000001111010010000001010110111000000101011011100000001111000000000001010000000" *) (* C_TIME_NUM_REGS = "30" *) 
 (* C_VERSION_MAJOR = "6" *) (* C_VERSION_MINOR = "2" *) (* C_VERSION_REVISION = "0" *) 
 (* ORIG_REF_NAME = "video_ctrl" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module VGA_source_v_tc_0_0_video_ctrl
@@ -5098,12 +5098,12 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[16] [28] = \<const0> ;
   assign \time_control_regs[16] [27] = \<const0> ;
   assign \time_control_regs[16] [26] = \<const0> ;
-  assign \time_control_regs[16] [25] = \<const1> ;
-  assign \time_control_regs[16] [24] = \<const0> ;
+  assign \time_control_regs[16] [25] = \<const0> ;
+  assign \time_control_regs[16] [24] = \<const1> ;
   assign \time_control_regs[16] [23] = \<const1> ;
   assign \time_control_regs[16] [22] = \<const1> ;
-  assign \time_control_regs[16] [21] = \<const0> ;
-  assign \time_control_regs[16] [20] = \<const1> ;
+  assign \time_control_regs[16] [21] = \<const1> ;
+  assign \time_control_regs[16] [20] = \<const0> ;
   assign \time_control_regs[16] [19] = \<const0> ;
   assign \time_control_regs[16] [18] = \<const0> ;
   assign \time_control_regs[16] [17] = \<const0> ;
@@ -5113,10 +5113,10 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[16] [13] = \<const0> ;
   assign \time_control_regs[16] [12] = \<const0> ;
   assign \time_control_regs[16] [11] = \<const0> ;
-  assign \time_control_regs[16] [10] = \<const1> ;
-  assign \time_control_regs[16] [9] = \<const0> ;
-  assign \time_control_regs[16] [8] = \<const1> ;
-  assign \time_control_regs[16] [7] = \<const0> ;
+  assign \time_control_regs[16] [10] = \<const0> ;
+  assign \time_control_regs[16] [9] = \<const1> ;
+  assign \time_control_regs[16] [8] = \<const0> ;
+  assign \time_control_regs[16] [7] = \<const1> ;
   assign \time_control_regs[16] [6] = \<const0> ;
   assign \time_control_regs[16] [5] = \<const0> ;
   assign \time_control_regs[16] [4] = \<const0> ;
@@ -5273,16 +5273,16 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[20] [13] = \<const0> ;
   assign \time_control_regs[20] [12] = \<const0> ;
   assign \time_control_regs[20] [11] = \<const0> ;
-  assign \time_control_regs[20] [10] = \<const1> ;
+  assign \time_control_regs[20] [10] = \<const0> ;
   assign \time_control_regs[20] [9] = \<const1> ;
-  assign \time_control_regs[20] [8] = \<const0> ;
+  assign \time_control_regs[20] [8] = \<const1> ;
   assign \time_control_regs[20] [7] = \<const0> ;
-  assign \time_control_regs[20] [6] = \<const1> ;
+  assign \time_control_regs[20] [6] = \<const0> ;
   assign \time_control_regs[20] [5] = \<const1> ;
-  assign \time_control_regs[20] [4] = \<const1> ;
+  assign \time_control_regs[20] [4] = \<const0> ;
   assign \time_control_regs[20] [3] = \<const0> ;
   assign \time_control_regs[20] [2] = \<const0> ;
-  assign \time_control_regs[20] [1] = \<const1> ;
+  assign \time_control_regs[20] [1] = \<const0> ;
   assign \time_control_regs[20] [0] = \<const0> ;
   assign \time_control_regs[21] [31] = \<const0> ;
   assign \time_control_regs[21] [30] = \<const0> ;
@@ -5292,14 +5292,14 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[21] [26] = \<const0> ;
   assign \time_control_regs[21] [25] = \<const1> ;
   assign \time_control_regs[21] [24] = \<const0> ;
-  assign \time_control_regs[21] [23] = \<const1> ;
-  assign \time_control_regs[21] [22] = \<const1> ;
-  assign \time_control_regs[21] [21] = \<const1> ;
+  assign \time_control_regs[21] [23] = \<const0> ;
+  assign \time_control_regs[21] [22] = \<const0> ;
+  assign \time_control_regs[21] [21] = \<const0> ;
   assign \time_control_regs[21] [20] = \<const0> ;
   assign \time_control_regs[21] [19] = \<const1> ;
   assign \time_control_regs[21] [18] = \<const1> ;
-  assign \time_control_regs[21] [17] = \<const1> ;
-  assign \time_control_regs[21] [16] = \<const0> ;
+  assign \time_control_regs[21] [17] = \<const0> ;
+  assign \time_control_regs[21] [16] = \<const1> ;
   assign \time_control_regs[21] [15] = \<const0> ;
   assign \time_control_regs[21] [14] = \<const0> ;
   assign \time_control_regs[21] [13] = \<const0> ;
@@ -5308,55 +5308,55 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[21] [10] = \<const0> ;
   assign \time_control_regs[21] [9] = \<const1> ;
   assign \time_control_regs[21] [8] = \<const0> ;
-  assign \time_control_regs[21] [7] = \<const1> ;
-  assign \time_control_regs[21] [6] = \<const1> ;
-  assign \time_control_regs[21] [5] = \<const1> ;
+  assign \time_control_regs[21] [7] = \<const0> ;
+  assign \time_control_regs[21] [6] = \<const0> ;
+  assign \time_control_regs[21] [5] = \<const0> ;
   assign \time_control_regs[21] [4] = \<const0> ;
   assign \time_control_regs[21] [3] = \<const1> ;
   assign \time_control_regs[21] [2] = \<const1> ;
-  assign \time_control_regs[21] [1] = \<const1> ;
-  assign \time_control_regs[21] [0] = \<const0> ;
+  assign \time_control_regs[21] [1] = \<const0> ;
+  assign \time_control_regs[21] [0] = \<const1> ;
   assign \time_control_regs[22] [31] = \<const0> ;
   assign \time_control_regs[22] [30] = \<const0> ;
   assign \time_control_regs[22] [29] = \<const0> ;
   assign \time_control_regs[22] [28] = \<const0> ;
   assign \time_control_regs[22] [27] = \<const0> ;
-  assign \time_control_regs[22] [26] = \<const1> ;
-  assign \time_control_regs[22] [25] = \<const0> ;
-  assign \time_control_regs[22] [24] = \<const1> ;
+  assign \time_control_regs[22] [26] = \<const0> ;
+  assign \time_control_regs[22] [25] = \<const1> ;
+  assign \time_control_regs[22] [24] = \<const0> ;
   assign \time_control_regs[22] [23] = \<const1> ;
-  assign \time_control_regs[22] [22] = \<const0> ;
-  assign \time_control_regs[22] [21] = \<const0> ;
+  assign \time_control_regs[22] [22] = \<const1> ;
+  assign \time_control_regs[22] [21] = \<const1> ;
   assign \time_control_regs[22] [20] = \<const1> ;
   assign \time_control_regs[22] [19] = \<const0> ;
-  assign \time_control_regs[22] [18] = \<const1> ;
-  assign \time_control_regs[22] [17] = \<const1> ;
+  assign \time_control_regs[22] [18] = \<const0> ;
+  assign \time_control_regs[22] [17] = \<const0> ;
   assign \time_control_regs[22] [16] = \<const0> ;
   assign \time_control_regs[22] [15] = \<const0> ;
   assign \time_control_regs[22] [14] = \<const0> ;
   assign \time_control_regs[22] [13] = \<const0> ;
   assign \time_control_regs[22] [12] = \<const0> ;
   assign \time_control_regs[22] [11] = \<const0> ;
-  assign \time_control_regs[22] [10] = \<const1> ;
-  assign \time_control_regs[22] [9] = \<const0> ;
-  assign \time_control_regs[22] [8] = \<const1> ;
-  assign \time_control_regs[22] [7] = \<const0> ;
-  assign \time_control_regs[22] [6] = \<const1> ;
-  assign \time_control_regs[22] [5] = \<const1> ;
-  assign \time_control_regs[22] [4] = \<const0> ;
-  assign \time_control_regs[22] [3] = \<const1> ;
-  assign \time_control_regs[22] [2] = \<const1> ;
-  assign \time_control_regs[22] [1] = \<const1> ;
+  assign \time_control_regs[22] [10] = \<const0> ;
+  assign \time_control_regs[22] [9] = \<const1> ;
+  assign \time_control_regs[22] [8] = \<const0> ;
+  assign \time_control_regs[22] [7] = \<const1> ;
+  assign \time_control_regs[22] [6] = \<const0> ;
+  assign \time_control_regs[22] [5] = \<const0> ;
+  assign \time_control_regs[22] [4] = \<const1> ;
+  assign \time_control_regs[22] [3] = \<const0> ;
+  assign \time_control_regs[22] [2] = \<const0> ;
+  assign \time_control_regs[22] [1] = \<const0> ;
   assign \time_control_regs[22] [0] = \<const0> ;
   assign \time_control_regs[23] [31] = \<const0> ;
   assign \time_control_regs[23] [30] = \<const0> ;
   assign \time_control_regs[23] [29] = \<const0> ;
   assign \time_control_regs[23] [28] = \<const0> ;
   assign \time_control_regs[23] [27] = \<const0> ;
-  assign \time_control_regs[23] [26] = \<const1> ;
-  assign \time_control_regs[23] [25] = \<const0> ;
-  assign \time_control_regs[23] [24] = \<const1> ;
-  assign \time_control_regs[23] [23] = \<const0> ;
+  assign \time_control_regs[23] [26] = \<const0> ;
+  assign \time_control_regs[23] [25] = \<const1> ;
+  assign \time_control_regs[23] [24] = \<const0> ;
+  assign \time_control_regs[23] [23] = \<const1> ;
   assign \time_control_regs[23] [22] = \<const0> ;
   assign \time_control_regs[23] [21] = \<const0> ;
   assign \time_control_regs[23] [20] = \<const0> ;
@@ -5369,10 +5369,10 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[23] [13] = \<const0> ;
   assign \time_control_regs[23] [12] = \<const0> ;
   assign \time_control_regs[23] [11] = \<const0> ;
-  assign \time_control_regs[23] [10] = \<const1> ;
-  assign \time_control_regs[23] [9] = \<const0> ;
-  assign \time_control_regs[23] [8] = \<const1> ;
-  assign \time_control_regs[23] [7] = \<const0> ;
+  assign \time_control_regs[23] [10] = \<const0> ;
+  assign \time_control_regs[23] [9] = \<const1> ;
+  assign \time_control_regs[23] [8] = \<const0> ;
+  assign \time_control_regs[23] [7] = \<const1> ;
   assign \time_control_regs[23] [6] = \<const0> ;
   assign \time_control_regs[23] [5] = \<const0> ;
   assign \time_control_regs[23] [4] = \<const0> ;
@@ -5386,15 +5386,15 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[24] [28] = \<const0> ;
   assign \time_control_regs[24] [27] = \<const0> ;
   assign \time_control_regs[24] [26] = \<const0> ;
-  assign \time_control_regs[24] [25] = \<const1> ;
-  assign \time_control_regs[24] [24] = \<const0> ;
+  assign \time_control_regs[24] [25] = \<const0> ;
+  assign \time_control_regs[24] [24] = \<const1> ;
   assign \time_control_regs[24] [23] = \<const1> ;
   assign \time_control_regs[24] [22] = \<const1> ;
-  assign \time_control_regs[24] [21] = \<const0> ;
-  assign \time_control_regs[24] [20] = \<const1> ;
+  assign \time_control_regs[24] [21] = \<const1> ;
+  assign \time_control_regs[24] [20] = \<const0> ;
   assign \time_control_regs[24] [19] = \<const1> ;
   assign \time_control_regs[24] [18] = \<const0> ;
-  assign \time_control_regs[24] [17] = \<const0> ;
+  assign \time_control_regs[24] [17] = \<const1> ;
   assign \time_control_regs[24] [16] = \<const1> ;
   assign \time_control_regs[24] [15] = \<const0> ;
   assign \time_control_regs[24] [14] = \<const0> ;
@@ -5402,57 +5402,57 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[24] [12] = \<const0> ;
   assign \time_control_regs[24] [11] = \<const0> ;
   assign \time_control_regs[24] [10] = \<const0> ;
-  assign \time_control_regs[24] [9] = \<const1> ;
-  assign \time_control_regs[24] [8] = \<const0> ;
+  assign \time_control_regs[24] [9] = \<const0> ;
+  assign \time_control_regs[24] [8] = \<const1> ;
   assign \time_control_regs[24] [7] = \<const1> ;
   assign \time_control_regs[24] [6] = \<const1> ;
-  assign \time_control_regs[24] [5] = \<const0> ;
-  assign \time_control_regs[24] [4] = \<const1> ;
-  assign \time_control_regs[24] [3] = \<const0> ;
-  assign \time_control_regs[24] [2] = \<const1> ;
+  assign \time_control_regs[24] [5] = \<const1> ;
+  assign \time_control_regs[24] [4] = \<const0> ;
+  assign \time_control_regs[24] [3] = \<const1> ;
+  assign \time_control_regs[24] [2] = \<const0> ;
   assign \time_control_regs[24] [1] = \<const0> ;
-  assign \time_control_regs[24] [0] = \<const0> ;
+  assign \time_control_regs[24] [0] = \<const1> ;
   assign \time_control_regs[25] [31] = \<const0> ;
   assign \time_control_regs[25] [30] = \<const0> ;
   assign \time_control_regs[25] [29] = \<const0> ;
   assign \time_control_regs[25] [28] = \<const0> ;
   assign \time_control_regs[25] [27] = \<const0> ;
-  assign \time_control_regs[25] [26] = \<const1> ;
-  assign \time_control_regs[25] [25] = \<const0> ;
-  assign \time_control_regs[25] [24] = \<const1> ;
-  assign \time_control_regs[25] [23] = \<const0> ;
+  assign \time_control_regs[25] [26] = \<const0> ;
+  assign \time_control_regs[25] [25] = \<const1> ;
+  assign \time_control_regs[25] [24] = \<const0> ;
+  assign \time_control_regs[25] [23] = \<const1> ;
   assign \time_control_regs[25] [22] = \<const0> ;
-  assign \time_control_regs[25] [21] = \<const0> ;
-  assign \time_control_regs[25] [20] = \<const0> ;
+  assign \time_control_regs[25] [21] = \<const1> ;
+  assign \time_control_regs[25] [20] = \<const1> ;
   assign \time_control_regs[25] [19] = \<const0> ;
-  assign \time_control_regs[25] [18] = \<const0> ;
-  assign \time_control_regs[25] [17] = \<const0> ;
-  assign \time_control_regs[25] [16] = \<const0> ;
+  assign \time_control_regs[25] [18] = \<const1> ;
+  assign \time_control_regs[25] [17] = \<const1> ;
+  assign \time_control_regs[25] [16] = \<const1> ;
   assign \time_control_regs[25] [15] = \<const0> ;
   assign \time_control_regs[25] [14] = \<const0> ;
   assign \time_control_regs[25] [13] = \<const0> ;
   assign \time_control_regs[25] [12] = \<const0> ;
   assign \time_control_regs[25] [11] = \<const0> ;
-  assign \time_control_regs[25] [10] = \<const1> ;
-  assign \time_control_regs[25] [9] = \<const0> ;
-  assign \time_control_regs[25] [8] = \<const1> ;
-  assign \time_control_regs[25] [7] = \<const0> ;
+  assign \time_control_regs[25] [10] = \<const0> ;
+  assign \time_control_regs[25] [9] = \<const1> ;
+  assign \time_control_regs[25] [8] = \<const0> ;
+  assign \time_control_regs[25] [7] = \<const1> ;
   assign \time_control_regs[25] [6] = \<const0> ;
-  assign \time_control_regs[25] [5] = \<const0> ;
-  assign \time_control_regs[25] [4] = \<const0> ;
+  assign \time_control_regs[25] [5] = \<const1> ;
+  assign \time_control_regs[25] [4] = \<const1> ;
   assign \time_control_regs[25] [3] = \<const0> ;
-  assign \time_control_regs[25] [2] = \<const0> ;
-  assign \time_control_regs[25] [1] = \<const0> ;
-  assign \time_control_regs[25] [0] = \<const0> ;
+  assign \time_control_regs[25] [2] = \<const1> ;
+  assign \time_control_regs[25] [1] = \<const1> ;
+  assign \time_control_regs[25] [0] = \<const1> ;
   assign \time_control_regs[26] [31] = \<const0> ;
   assign \time_control_regs[26] [30] = \<const0> ;
   assign \time_control_regs[26] [29] = \<const0> ;
   assign \time_control_regs[26] [28] = \<const0> ;
   assign \time_control_regs[26] [27] = \<const0> ;
-  assign \time_control_regs[26] [26] = \<const1> ;
-  assign \time_control_regs[26] [25] = \<const0> ;
-  assign \time_control_regs[26] [24] = \<const1> ;
-  assign \time_control_regs[26] [23] = \<const0> ;
+  assign \time_control_regs[26] [26] = \<const0> ;
+  assign \time_control_regs[26] [25] = \<const1> ;
+  assign \time_control_regs[26] [24] = \<const0> ;
+  assign \time_control_regs[26] [23] = \<const1> ;
   assign \time_control_regs[26] [22] = \<const0> ;
   assign \time_control_regs[26] [21] = \<const0> ;
   assign \time_control_regs[26] [20] = \<const0> ;
@@ -5465,10 +5465,10 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[26] [13] = \<const0> ;
   assign \time_control_regs[26] [12] = \<const0> ;
   assign \time_control_regs[26] [11] = \<const0> ;
-  assign \time_control_regs[26] [10] = \<const1> ;
-  assign \time_control_regs[26] [9] = \<const0> ;
-  assign \time_control_regs[26] [8] = \<const1> ;
-  assign \time_control_regs[26] [7] = \<const0> ;
+  assign \time_control_regs[26] [10] = \<const0> ;
+  assign \time_control_regs[26] [9] = \<const1> ;
+  assign \time_control_regs[26] [8] = \<const0> ;
+  assign \time_control_regs[26] [7] = \<const1> ;
   assign \time_control_regs[26] [6] = \<const0> ;
   assign \time_control_regs[26] [5] = \<const0> ;
   assign \time_control_regs[26] [4] = \<const0> ;
@@ -5482,15 +5482,15 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[27] [28] = \<const0> ;
   assign \time_control_regs[27] [27] = \<const0> ;
   assign \time_control_regs[27] [26] = \<const0> ;
-  assign \time_control_regs[27] [25] = \<const1> ;
-  assign \time_control_regs[27] [24] = \<const0> ;
+  assign \time_control_regs[27] [25] = \<const0> ;
+  assign \time_control_regs[27] [24] = \<const1> ;
   assign \time_control_regs[27] [23] = \<const1> ;
   assign \time_control_regs[27] [22] = \<const1> ;
-  assign \time_control_regs[27] [21] = \<const0> ;
-  assign \time_control_regs[27] [20] = \<const1> ;
+  assign \time_control_regs[27] [21] = \<const1> ;
+  assign \time_control_regs[27] [20] = \<const0> ;
   assign \time_control_regs[27] [19] = \<const1> ;
   assign \time_control_regs[27] [18] = \<const0> ;
-  assign \time_control_regs[27] [17] = \<const0> ;
+  assign \time_control_regs[27] [17] = \<const1> ;
   assign \time_control_regs[27] [16] = \<const1> ;
   assign \time_control_regs[27] [15] = \<const0> ;
   assign \time_control_regs[27] [14] = \<const0> ;
@@ -5498,60 +5498,60 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[27] [12] = \<const0> ;
   assign \time_control_regs[27] [11] = \<const0> ;
   assign \time_control_regs[27] [10] = \<const0> ;
-  assign \time_control_regs[27] [9] = \<const1> ;
-  assign \time_control_regs[27] [8] = \<const0> ;
+  assign \time_control_regs[27] [9] = \<const0> ;
+  assign \time_control_regs[27] [8] = \<const1> ;
   assign \time_control_regs[27] [7] = \<const1> ;
   assign \time_control_regs[27] [6] = \<const1> ;
-  assign \time_control_regs[27] [5] = \<const0> ;
-  assign \time_control_regs[27] [4] = \<const1> ;
-  assign \time_control_regs[27] [3] = \<const0> ;
-  assign \time_control_regs[27] [2] = \<const1> ;
+  assign \time_control_regs[27] [5] = \<const1> ;
+  assign \time_control_regs[27] [4] = \<const0> ;
+  assign \time_control_regs[27] [3] = \<const1> ;
+  assign \time_control_regs[27] [2] = \<const0> ;
   assign \time_control_regs[27] [1] = \<const0> ;
-  assign \time_control_regs[27] [0] = \<const0> ;
+  assign \time_control_regs[27] [0] = \<const1> ;
   assign \time_control_regs[28] [31] = \<const0> ;
   assign \time_control_regs[28] [30] = \<const0> ;
   assign \time_control_regs[28] [29] = \<const0> ;
   assign \time_control_regs[28] [28] = \<const0> ;
   assign \time_control_regs[28] [27] = \<const0> ;
-  assign \time_control_regs[28] [26] = \<const1> ;
-  assign \time_control_regs[28] [25] = \<const0> ;
-  assign \time_control_regs[28] [24] = \<const1> ;
-  assign \time_control_regs[28] [23] = \<const0> ;
+  assign \time_control_regs[28] [26] = \<const0> ;
+  assign \time_control_regs[28] [25] = \<const1> ;
+  assign \time_control_regs[28] [24] = \<const0> ;
+  assign \time_control_regs[28] [23] = \<const1> ;
   assign \time_control_regs[28] [22] = \<const0> ;
-  assign \time_control_regs[28] [21] = \<const0> ;
-  assign \time_control_regs[28] [20] = \<const0> ;
+  assign \time_control_regs[28] [21] = \<const1> ;
+  assign \time_control_regs[28] [20] = \<const1> ;
   assign \time_control_regs[28] [19] = \<const0> ;
-  assign \time_control_regs[28] [18] = \<const0> ;
-  assign \time_control_regs[28] [17] = \<const0> ;
-  assign \time_control_regs[28] [16] = \<const0> ;
+  assign \time_control_regs[28] [18] = \<const1> ;
+  assign \time_control_regs[28] [17] = \<const1> ;
+  assign \time_control_regs[28] [16] = \<const1> ;
   assign \time_control_regs[28] [15] = \<const0> ;
   assign \time_control_regs[28] [14] = \<const0> ;
   assign \time_control_regs[28] [13] = \<const0> ;
   assign \time_control_regs[28] [12] = \<const0> ;
   assign \time_control_regs[28] [11] = \<const0> ;
-  assign \time_control_regs[28] [10] = \<const1> ;
-  assign \time_control_regs[28] [9] = \<const0> ;
-  assign \time_control_regs[28] [8] = \<const1> ;
-  assign \time_control_regs[28] [7] = \<const0> ;
+  assign \time_control_regs[28] [10] = \<const0> ;
+  assign \time_control_regs[28] [9] = \<const1> ;
+  assign \time_control_regs[28] [8] = \<const0> ;
+  assign \time_control_regs[28] [7] = \<const1> ;
   assign \time_control_regs[28] [6] = \<const0> ;
-  assign \time_control_regs[28] [5] = \<const0> ;
-  assign \time_control_regs[28] [4] = \<const0> ;
+  assign \time_control_regs[28] [5] = \<const1> ;
+  assign \time_control_regs[28] [4] = \<const1> ;
   assign \time_control_regs[28] [3] = \<const0> ;
-  assign \time_control_regs[28] [2] = \<const0> ;
-  assign \time_control_regs[28] [1] = \<const0> ;
-  assign \time_control_regs[28] [0] = \<const0> ;
+  assign \time_control_regs[28] [2] = \<const1> ;
+  assign \time_control_regs[28] [1] = \<const1> ;
+  assign \time_control_regs[28] [0] = \<const1> ;
   assign \time_control_regs[29] [31] = \<const0> ;
   assign \time_control_regs[29] [30] = \<const0> ;
   assign \time_control_regs[29] [29] = \<const0> ;
   assign \time_control_regs[29] [28] = \<const0> ;
   assign \time_control_regs[29] [27] = \<const0> ;
   assign \time_control_regs[29] [26] = \<const0> ;
-  assign \time_control_regs[29] [25] = \<const1> ;
-  assign \time_control_regs[29] [24] = \<const0> ;
+  assign \time_control_regs[29] [25] = \<const0> ;
+  assign \time_control_regs[29] [24] = \<const1> ;
   assign \time_control_regs[29] [23] = \<const1> ;
   assign \time_control_regs[29] [22] = \<const1> ;
-  assign \time_control_regs[29] [21] = \<const0> ;
-  assign \time_control_regs[29] [20] = \<const1> ;
+  assign \time_control_regs[29] [21] = \<const1> ;
+  assign \time_control_regs[29] [20] = \<const0> ;
   assign \time_control_regs[29] [19] = \<const0> ;
   assign \time_control_regs[29] [18] = \<const0> ;
   assign \time_control_regs[29] [17] = \<const0> ;
@@ -5561,10 +5561,10 @@ module VGA_source_v_tc_0_0_video_ctrl
   assign \time_control_regs[29] [13] = \<const0> ;
   assign \time_control_regs[29] [12] = \<const0> ;
   assign \time_control_regs[29] [11] = \<const0> ;
-  assign \time_control_regs[29] [10] = \<const1> ;
-  assign \time_control_regs[29] [9] = \<const0> ;
-  assign \time_control_regs[29] [8] = \<const1> ;
-  assign \time_control_regs[29] [7] = \<const0> ;
+  assign \time_control_regs[29] [10] = \<const0> ;
+  assign \time_control_regs[29] [9] = \<const1> ;
+  assign \time_control_regs[29] [8] = \<const0> ;
+  assign \time_control_regs[29] [7] = \<const1> ;
   assign \time_control_regs[29] [6] = \<const0> ;
   assign \time_control_regs[29] [5] = \<const0> ;
   assign \time_control_regs[29] [4] = \<const0> ;

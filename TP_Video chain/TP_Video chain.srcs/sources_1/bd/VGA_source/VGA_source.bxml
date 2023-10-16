@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="VGA_source" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1697438435"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1697438435"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1697438435"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1697438435"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1697439488"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1697439488"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1697439488"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1697439488"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\VGA_source_clk_wiz_0_0\VGA_source_clk_wiz_0_0.xci" Type="IP">
         <Instance HierarchyPath="clk_wiz_0"/>

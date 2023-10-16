@@ -18,21 +18,21 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13260 
+INFO: Helper process launched with PID 10080 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 872.113 ; gain = 233.898
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 873.605 ; gain = 236.027
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'VGA_source_wrapper' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/hdl/VGA_source_wrapper.vhd:26]
 INFO: [Synth 8-3491] module 'VGA_source' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:14' bound to instance 'VGA_source_i' of component 'VGA_source' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/hdl/VGA_source_wrapper.vhd:39]
 INFO: [Synth 8-638] synthesizing module 'VGA_source' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:30]
-INFO: [Synth 8-3491] module 'VGA_source_c_counter_binary_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_c_counter_binary_0_0_stub.vhdl:5' bound to instance 'c_counter_binary_0' of component 'VGA_source_c_counter_binary_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:112]
-INFO: [Synth 8-638] synthesizing module 'VGA_source_c_counter_binary_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_c_counter_binary_0_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'VGA_source_clk_wiz_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'VGA_source_clk_wiz_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:119]
-INFO: [Synth 8-638] synthesizing module 'VGA_source_clk_wiz_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_clk_wiz_0_0_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'VGA_source_proc_sys_reset_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'VGA_source_proc_sys_reset_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:127]
-INFO: [Synth 8-638] synthesizing module 'VGA_source_proc_sys_reset_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_proc_sys_reset_0_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'VGA_source_v_tc_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_v_tc_0_0_stub.vhdl:5' bound to instance 'v_tc_0' of component 'VGA_source_v_tc_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:140]
-INFO: [Synth 8-638] synthesizing module 'VGA_source_v_tc_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12692-gs21-09/realtime/VGA_source_v_tc_0_0_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'VGA_source_c_counter_binary_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_c_counter_binary_0_0_stub.vhdl:5' bound to instance 'c_counter_binary_0' of component 'VGA_source_c_counter_binary_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:112]
+INFO: [Synth 8-638] synthesizing module 'VGA_source_c_counter_binary_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_c_counter_binary_0_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'VGA_source_clk_wiz_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'VGA_source_clk_wiz_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:119]
+INFO: [Synth 8-638] synthesizing module 'VGA_source_clk_wiz_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_clk_wiz_0_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'VGA_source_proc_sys_reset_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'VGA_source_proc_sys_reset_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:127]
+INFO: [Synth 8-638] synthesizing module 'VGA_source_proc_sys_reset_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'VGA_source_v_tc_0_0' declared at 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_v_tc_0_0_stub.vhdl:5' bound to instance 'v_tc_0' of component 'VGA_source_v_tc_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:140]
+INFO: [Synth 8-638] synthesizing module 'VGA_source_v_tc_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/.Xil/Vivado-12336-gs21-09/realtime/VGA_source_v_tc_0_0_stub.vhdl:20]
 INFO: [Synth 8-3491] module 'VGA_source_xlslice_0_0' declared at 'c:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_xlslice_0_0/synth/VGA_source_xlslice_0_0.v:57' bound to instance 'xlslice_0' of component 'VGA_source_xlslice_0_0' [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/synth/VGA_source.vhd:152]
 INFO: [Synth 8-6157] synthesizing module 'VGA_source_xlslice_0_0' [c:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_xlslice_0_0/synth/VGA_source_xlslice_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice' [c:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/sources_1/bd/VGA_source/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
@@ -48,7 +48,7 @@ WARNING: [Synth 8-3331] design xlslice_v1_0_2_xlslice has unconnected port Din[2
 WARNING: [Synth 8-3331] design xlslice_v1_0_2_xlslice has unconnected port Din[1]
 WARNING: [Synth 8-3331] design xlslice_v1_0_2_xlslice has unconnected port Din[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 946.184 ; gain = 307.969
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 947.531 ; gain = 309.953
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -61,12 +61,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 946.184 ; gain = 307.969
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 947.531 ; gain = 309.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 946.184 ; gain = 307.969
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 947.531 ; gain = 309.953
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 946.184 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 947.531 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -90,20 +90,20 @@ Parsing XDC File [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video
 Finished Parsing XDC File [C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 981.977 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 984.219 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 981.977 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 984.219 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 981.977 ; gain = 343.762
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 984.219 ; gain = 346.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 981.977 ; gain = 343.762
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 984.219 ; gain = 346.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -117,10 +117,10 @@ Applied set_property DONT_TOUCH = true for VGA_source_i/proc_sys_reset_0. (const
 Applied set_property DONT_TOUCH = true for VGA_source_i/xlslice_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for VGA_source_i/v_tc_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 981.977 ; gain = 343.762
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 984.219 ; gain = 346.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 981.977 ; gain = 343.762
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 984.219 ; gain = 346.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -160,7 +160,7 @@ WARNING: [Synth 8-3331] design VGA_source_xlslice_0_0 has unconnected port Din[2
 WARNING: [Synth 8-3331] design VGA_source_xlslice_0_0 has unconnected port Din[1]
 WARNING: [Synth 8-3331] design VGA_source_xlslice_0_0 has unconnected port Din[0]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 981.977 ; gain = 343.762
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 984.219 ; gain = 346.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -172,13 +172,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1007.820 ; gain = 369.605
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1007.590 ; gain = 370.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1007.820 ; gain = 369.605
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1007.590 ; gain = 370.012
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -190,7 +190,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1017.352 ; gain = 379.137
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1017.891 ; gain = 380.313
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -214,13 +214,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1032.703 ; gain = 395.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1032.703 ; gain = 395.125
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -239,25 +239,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1032.703 ; gain = 395.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1032.703 ; gain = 395.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1032.703 ; gain = 395.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1032.703 ; gain = 395.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -294,26 +294,26 @@ Report Instance Areas:
 |3     |    xlslice_0  |VGA_source_xlslice_0_0 |     0|
 +------+---------------+-----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1032.703 ; gain = 395.125
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1033.152 ; gain = 359.145
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1033.152 ; gain = 394.938
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 1032.703 ; gain = 358.438
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1032.703 ; gain = 395.125
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1033.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1032.703 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1044.699 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1045.250 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 31 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1044.699 ; gain = 710.762
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1044.699 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1045.250 ; gain = 708.949
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1045.250 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/VGA_source_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file VGA_source_wrapper_utilization_synth.rpt -pb VGA_source_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 16 08:42:44 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 16 08:59:50 2023...

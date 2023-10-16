@@ -179,6 +179,9 @@
           "HAS_AXI4_LITE": {
             "value": "false"
           },
+          "VIDEO_MODE": {
+            "value": "480p"
+          },
           "active_video_generation": {
             "value": "false"
           },
