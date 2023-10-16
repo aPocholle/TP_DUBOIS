@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -75,7 +76,7 @@ set rc [catch {
   set_property parent.project_path {C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.xpr} [current_project]
   set_property ip_output_repo {{C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO} [current_project]
   add_files -quiet {{C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/synth_1/VGA_source_wrapper.dcp}}
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
@@ -180,7 +181,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO} [current_project]
   catch { write_mem_info -force VGA_source_wrapper.mmi }
   write_bitstream -force VGA_source_wrapper.bit 
   catch {write_debug_probes -quiet -force VGA_source_wrapper}

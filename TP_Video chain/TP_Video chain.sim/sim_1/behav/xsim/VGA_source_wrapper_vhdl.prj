@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../TP_Video chain.srcs/sources_1/new/mux_video.vhd" \
+"../../../../TP_Video chain.ip_user_files/bd/VGA_source/ip/VGA_source_c_counter_binary_0_0/sim/VGA_source_c_counter_binary_0_0.vhd" \
+"../../../../TP_Video chain.ip_user_files/bd/VGA_source/ip/VGA_source_proc_sys_reset_0_0/sim/VGA_source_proc_sys_reset_0_0.vhd" \
+"../../../../TP_Video chain.ip_user_files/bd/VGA_source/ip/VGA_source_v_tc_0_0/sim/VGA_source_v_tc_0_0.vhd" \
+"../../../../TP_Video chain.ip_user_files/bd/VGA_source/sim/VGA_source.vhd" \
+"../../../../TP_Video chain.srcs/sources_1/bd/VGA_source/hdl/VGA_source_wrapper.vhd" \
+
+# Do not sort compile order
+nosort

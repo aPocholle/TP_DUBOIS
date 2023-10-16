@@ -1,0 +1,7 @@
+vhdl xil_defaultlib  \
+"../../../../TP_Video chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_c_counter_binary_0_0/sim/VGA_source_c_counter_binary_0_0.vhd" \
+"../../../../TP_Video chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_proc_sys_reset_0_0/sim/VGA_source_proc_sys_reset_0_0.vhd" \
+"../../../../TP_Video chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_v_tc_0_0/sim/VGA_source_v_tc_0_0.vhd" \
+"../../../../TP_Video chain.srcs/sources_1/bd/VGA_source/sim/VGA_source.vhd" \
+
+nosort

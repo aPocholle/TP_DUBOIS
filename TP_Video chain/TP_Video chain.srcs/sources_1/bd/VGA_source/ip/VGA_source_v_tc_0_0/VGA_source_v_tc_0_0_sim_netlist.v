@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Mon Oct 16 08:59:02 2023
+// Date        : Mon Oct 16 09:59:31 2023
 // Host        : gs21-09 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim {c:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video
 //               chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_v_tc_0_0/VGA_source_v_tc_0_0_sim_netlist.v}
@@ -22,6 +22,7 @@ module VGA_source_v_tc_0_0
     hblank_out,
     vsync_out,
     vblank_out,
+    active_video_out,
     resetn,
     fsync_out);
   (* x_interface_info = "xilinx.com:signal:clock:1.0 clk_intf CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF vtiming_in:vtiming_out, ASSOCIATED_RESET resetn, ASSOCIATED_CLKEN clken, FREQ_HZ 25265957, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
@@ -31,9 +32,11 @@ module VGA_source_v_tc_0_0
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out HBLANK" *) output hblank_out;
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out VSYNC" *) output vsync_out;
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out VBLANK" *) output vblank_out;
+  (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out ACTIVE_VIDEO" *) output active_video_out;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 resetn_intf RST" *) (* x_interface_parameter = "XIL_INTERFACENAME resetn_intf, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
   output [0:0]fsync_out;
 
+  wire active_video_out;
   wire clk;
   wire clken;
   wire [0:0]fsync_out;
@@ -44,7 +47,6 @@ module VGA_source_v_tc_0_0
   wire vblank_out;
   wire vsync_out;
   wire NLW_U0_active_chroma_out_UNCONNECTED;
-  wire NLW_U0_active_video_out_UNCONNECTED;
   wire NLW_U0_field_id_out_UNCONNECTED;
   wire NLW_U0_irq_UNCONNECTED;
   wire NLW_U0_s_axi_arready_UNCONNECTED;
@@ -103,7 +105,7 @@ module VGA_source_v_tc_0_0
   (* C_GEN_ACHROMA_EN = "0" *) 
   (* C_GEN_ACHROMA_POLARITY = "1" *) 
   (* C_GEN_AUTO_SWITCH = "0" *) 
-  (* C_GEN_AVIDEO_EN = "0" *) 
+  (* C_GEN_AVIDEO_EN = "1" *) 
   (* C_GEN_AVIDEO_POLARITY = "1" *) 
   (* C_GEN_CPARITY = "0" *) 
   (* C_GEN_F0_VBLANK_HEND = "640" *) 
@@ -155,7 +157,7 @@ module VGA_source_v_tc_0_0
        (.active_chroma_in(1'b0),
         .active_chroma_out(NLW_U0_active_chroma_out_UNCONNECTED),
         .active_video_in(1'b0),
-        .active_video_out(NLW_U0_active_video_out_UNCONNECTED),
+        .active_video_out(active_video_out),
         .clk(clk),
         .clken(clken),
         .det_clken(1'b1),
@@ -203,10 +205,13 @@ module VGA_source_v_tc_0_0_tc_generator
     hsync_out,
     hblank_out,
     vsync_out,
-    vblank_out,
+    vblank_reg_0,
+    active_video_reg_0,
     active_chroma_out,
     reg_update,
+    gen_vblank_d_reg,
     \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0 ,
+    gen_active_video_d_reg,
     clk,
     \genr_control_regs[0] ,
     fsync_in,
@@ -215,42 +220,55 @@ module VGA_source_v_tc_0_0_tc_generator
     clken,
     gen_clken,
     \core_control_regs[0] ,
+    gen_vblank_d,
+    gen_active_video_d,
     resetn_out,
+    p_5_in,
     D,
     \time_control_regs[21] ,
     \time_control_regs[22] ,
     \time_control_regs[16] ,
-    \time_control_regs[24] ,
     \time_control_regs[25] ,
+    \time_control_regs[24] ,
     \time_control_regs[23] );
   output [0:0]fsync_out;
   output hsync_out;
   output hblank_out;
   output vsync_out;
-  output vblank_out;
+  output vblank_reg_0;
+  output active_video_reg_0;
   output active_chroma_out;
   output reg_update;
+  output gen_vblank_d_reg;
   output \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0 ;
+  output gen_active_video_d_reg;
   input clk;
   input [2:0]\genr_control_regs[0] ;
   input fsync_in;
-  input [4:0]\time_control_regs[19] ;
+  input [5:0]\time_control_regs[19] ;
   input core_d_out;
   input clken;
   input gen_clken;
   input [23:0]\core_control_regs[0] ;
+  input gen_vblank_d;
+  input gen_active_video_d;
   input resetn_out;
+  input p_5_in;
   input [11:0]D;
   input [11:0]\time_control_regs[21] ;
   input [23:0]\time_control_regs[22] ;
   input [23:0]\time_control_regs[16] ;
-  input [23:0]\time_control_regs[24] ;
   input [23:0]\time_control_regs[25] ;
+  input [23:0]\time_control_regs[24] ;
   input [23:0]\time_control_regs[23] ;
 
   wire [11:0]D;
   wire active_chroma_i_1_n_0;
   wire active_chroma_out;
+  wire active_video0;
+  wire active_video_int_i_1_n_0;
+  wire active_video_int_reg_n_0;
+  wire active_video_reg_0;
   wire all_cfg_i_1_n_0;
   wire all_cfg_reg_n_0;
   wire clk;
@@ -262,6 +280,7 @@ module VGA_source_v_tc_0_0_tc_generator
   wire eqOp11_out;
   wire eqOp12_out;
   wire eqOp13_out;
+  wire eqOp14_out;
   wire eqOp1_out;
   wire eqOp2_out;
   wire eqOp3_out;
@@ -299,6 +318,9 @@ module VGA_source_v_tc_0_0_tc_generator
   wire \eqOp_inferred__15/i__carry_n_1 ;
   wire \eqOp_inferred__15/i__carry_n_2 ;
   wire \eqOp_inferred__15/i__carry_n_3 ;
+  wire \eqOp_inferred__16/i__carry_n_1 ;
+  wire \eqOp_inferred__16/i__carry_n_2 ;
+  wire \eqOp_inferred__16/i__carry_n_3 ;
   wire \eqOp_inferred__2/i__carry_n_1 ;
   wire \eqOp_inferred__2/i__carry_n_2 ;
   wire \eqOp_inferred__2/i__carry_n_3 ;
@@ -324,8 +346,12 @@ module VGA_source_v_tc_0_0_tc_generator
   wire fsync_in;
   wire [0:0]fsync_out;
   wire fsync_out0;
+  wire gen_active_video_d;
+  wire gen_active_video_d_reg;
   wire gen_ce;
   wire gen_clken;
+  wire gen_vblank_d;
+  wire gen_vblank_d_reg;
   wire \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0 ;
   wire [2:0]\genr_control_regs[0] ;
   wire \h_count[0]_i_1_n_0 ;
@@ -394,6 +420,7 @@ module VGA_source_v_tc_0_0_tc_generator
   wire i__carry_i_1__10_n_0;
   wire i__carry_i_1__11_n_0;
   wire i__carry_i_1__12_n_0;
+  wire i__carry_i_1__13_n_0;
   wire i__carry_i_1__1_n_0;
   wire i__carry_i_1__2_n_0;
   wire i__carry_i_1__3_n_0;
@@ -408,6 +435,7 @@ module VGA_source_v_tc_0_0_tc_generator
   wire i__carry_i_2__10_n_0;
   wire i__carry_i_2__11_n_0;
   wire i__carry_i_2__12_n_0;
+  wire i__carry_i_2__13_n_0;
   wire i__carry_i_2__1_n_0;
   wire i__carry_i_2__2_n_0;
   wire i__carry_i_2__3_n_0;
@@ -422,6 +450,7 @@ module VGA_source_v_tc_0_0_tc_generator
   wire i__carry_i_3__10_n_0;
   wire i__carry_i_3__11_n_0;
   wire i__carry_i_3__12_n_0;
+  wire i__carry_i_3__13_n_0;
   wire i__carry_i_3__1_n_0;
   wire i__carry_i_3__2_n_0;
   wire i__carry_i_3__3_n_0;
@@ -436,6 +465,7 @@ module VGA_source_v_tc_0_0_tc_generator
   wire i__carry_i_4__10_n_0;
   wire i__carry_i_4__11_n_0;
   wire i__carry_i_4__12_n_0;
+  wire i__carry_i_4__13_n_0;
   wire i__carry_i_4__1_n_0;
   wire i__carry_i_4__2_n_0;
   wire i__carry_i_4__3_n_0;
@@ -454,13 +484,14 @@ module VGA_source_v_tc_0_0_tc_generator
   wire line_end_v_i_1_n_0;
   wire [11:0]minusOp;
   wire p_3_in;
+  wire p_5_in;
   wire \param_cfg_reg_n_0_[4] ;
   wire reg_update;
   wire resetn_out;
   wire sw_enable_d;
   wire sw_enable_d_i_1_n_0;
   wire [23:0]\time_control_regs[16] ;
-  wire [4:0]\time_control_regs[19] ;
+  wire [5:0]\time_control_regs[19] ;
   wire [11:0]\time_control_regs[21] ;
   wire [23:0]\time_control_regs[22] ;
   wire [23:0]\time_control_regs[23] ;
@@ -518,7 +549,7 @@ module VGA_source_v_tc_0_0_tc_generator
   wire \v0total_reg[8]_i_1_n_1 ;
   wire \v0total_reg[8]_i_1_n_2 ;
   wire \v0total_reg[8]_i_1_n_3 ;
-  wire v_count045_out;
+  wire v_count058_out;
   wire \v_count[0]_i_1_n_0 ;
   wire \v_count[0]_i_4_n_0 ;
   wire [11:0]v_count_reg;
@@ -546,12 +577,10 @@ module VGA_source_v_tc_0_0_tc_generator
   wire \v_count_reg[8]_i_1_n_6 ;
   wire \v_count_reg[8]_i_1_n_7 ;
   wire vblank0;
-  wire vblank_int030_out;
   wire vblank_int_i_1_n_0;
   wire vblank_int_reg_n_0;
-  wire vblank_out;
+  wire vblank_reg_0;
   wire vsync0;
-  wire vsync_int035_out;
   wire vsync_int_i_1_n_0;
   wire vsync_int_reg_n_0;
   wire vsync_out;
@@ -563,6 +592,7 @@ module VGA_source_v_tc_0_0_tc_generator
   wire [3:0]\NLW_eqOp_inferred__13/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__14/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__15/i__carry_O_UNCONNECTED ;
+  wire [3:0]\NLW_eqOp_inferred__16/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__2/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__3/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__4/i__carry_O_UNCONNECTED ;
@@ -590,13 +620,43 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT1 #(
     .INIT(2'h1)) 
     active_chroma_i_1
-       (.I0(\time_control_regs[19] [4]),
+       (.I0(\time_control_regs[19] [5]),
         .O(active_chroma_i_1_n_0));
   FDRE active_chroma_reg
        (.C(clk),
         .CE(gen_ce),
         .D(active_chroma_i_1_n_0),
         .Q(active_chroma_out),
+        .R(p_3_in));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'h59)) 
+    active_video_i_1
+       (.I0(\time_control_regs[19] [4]),
+        .I1(hblank_int_reg_n_0),
+        .I2(active_video_int_reg_n_0),
+        .O(active_video0));
+  LUT6 #(
+    .INIT(64'hFF7F7F7FAA000000)) 
+    active_video_int_i_1
+       (.I0(gen_ce),
+        .I1(eqOp9_out),
+        .I2(eqOp1_out),
+        .I3(eqOp4_out),
+        .I4(eqOp10_out),
+        .I5(active_video_int_reg_n_0),
+        .O(active_video_int_i_1_n_0));
+  FDSE active_video_int_reg
+       (.C(clk),
+        .CE(1'b1),
+        .D(active_video_int_i_1_n_0),
+        .Q(active_video_int_reg_n_0),
+        .S(p_3_in));
+  FDRE active_video_reg
+       (.C(clk),
+        .CE(gen_ce),
+        .D(active_video0),
+        .Q(active_video_reg_0),
         .R(p_3_in));
   LUT6 #(
     .INIT(64'h00000000EEAE2222)) 
@@ -616,7 +676,7 @@ module VGA_source_v_tc_0_0_tc_generator
         .R(1'b0));
   CARRY4 eqOp_carry
        (.CI(1'b0),
-        .CO({eqOp13_out,eqOp_carry_n_1,eqOp_carry_n_2,eqOp_carry_n_3}),
+        .CO({eqOp14_out,eqOp_carry_n_1,eqOp_carry_n_2,eqOp_carry_n_3}),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(NLW_eqOp_carry_O_UNCONNECTED[3:0]),
@@ -663,53 +723,60 @@ module VGA_source_v_tc_0_0_tc_generator
         .O(eqOp_carry_i_4_n_0));
   CARRY4 \eqOp_inferred__0/i__carry 
        (.CI(1'b0),
-        .CO({eqOp12_out,\eqOp_inferred__0/i__carry_n_1 ,\eqOp_inferred__0/i__carry_n_2 ,\eqOp_inferred__0/i__carry_n_3 }),
+        .CO({eqOp13_out,\eqOp_inferred__0/i__carry_n_1 ,\eqOp_inferred__0/i__carry_n_2 ,\eqOp_inferred__0/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__0/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0,i__carry_i_4_n_0}));
   CARRY4 \eqOp_inferred__10/i__carry 
        (.CI(1'b0),
-        .CO({eqOp4_out,\eqOp_inferred__10/i__carry_n_1 ,\eqOp_inferred__10/i__carry_n_2 ,\eqOp_inferred__10/i__carry_n_3 }),
+        .CO({eqOp6_out,\eqOp_inferred__10/i__carry_n_1 ,\eqOp_inferred__10/i__carry_n_2 ,\eqOp_inferred__10/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__10/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__6_n_0,i__carry_i_2__6_n_0,i__carry_i_3__6_n_0,i__carry_i_4__6_n_0}));
   CARRY4 \eqOp_inferred__11/i__carry 
        (.CI(1'b0),
-        .CO({eqOp6_out,\eqOp_inferred__11/i__carry_n_1 ,\eqOp_inferred__11/i__carry_n_2 ,\eqOp_inferred__11/i__carry_n_3 }),
+        .CO({eqOp7_out,\eqOp_inferred__11/i__carry_n_1 ,\eqOp_inferred__11/i__carry_n_2 ,\eqOp_inferred__11/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__11/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__7_n_0,i__carry_i_2__7_n_0,i__carry_i_3__7_n_0,i__carry_i_4__7_n_0}));
   CARRY4 \eqOp_inferred__12/i__carry 
        (.CI(1'b0),
-        .CO({eqOp7_out,\eqOp_inferred__12/i__carry_n_1 ,\eqOp_inferred__12/i__carry_n_2 ,\eqOp_inferred__12/i__carry_n_3 }),
+        .CO({eqOp8_out,\eqOp_inferred__12/i__carry_n_1 ,\eqOp_inferred__12/i__carry_n_2 ,\eqOp_inferred__12/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__12/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__8_n_0,i__carry_i_2__8_n_0,i__carry_i_3__8_n_0,i__carry_i_4__8_n_0}));
   CARRY4 \eqOp_inferred__13/i__carry 
        (.CI(1'b0),
-        .CO({eqOp1_out,\eqOp_inferred__13/i__carry_n_1 ,\eqOp_inferred__13/i__carry_n_2 ,\eqOp_inferred__13/i__carry_n_3 }),
+        .CO({eqOp2_out,\eqOp_inferred__13/i__carry_n_1 ,\eqOp_inferred__13/i__carry_n_2 ,\eqOp_inferred__13/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__13/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__9_n_0,i__carry_i_2__9_n_0,i__carry_i_3__9_n_0,i__carry_i_4__9_n_0}));
   CARRY4 \eqOp_inferred__14/i__carry 
        (.CI(1'b0),
-        .CO({eqOp3_out,\eqOp_inferred__14/i__carry_n_1 ,\eqOp_inferred__14/i__carry_n_2 ,\eqOp_inferred__14/i__carry_n_3 }),
+        .CO({eqOp4_out,\eqOp_inferred__14/i__carry_n_1 ,\eqOp_inferred__14/i__carry_n_2 ,\eqOp_inferred__14/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__14/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__10_n_0,i__carry_i_2__10_n_0,i__carry_i_3__10_n_0,i__carry_i_4__10_n_0}));
   CARRY4 \eqOp_inferred__15/i__carry 
        (.CI(1'b0),
-        .CO({eqOp2_out,\eqOp_inferred__15/i__carry_n_1 ,\eqOp_inferred__15/i__carry_n_2 ,\eqOp_inferred__15/i__carry_n_3 }),
+        .CO({eqOp3_out,\eqOp_inferred__15/i__carry_n_1 ,\eqOp_inferred__15/i__carry_n_2 ,\eqOp_inferred__15/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__15/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__11_n_0,i__carry_i_2__11_n_0,i__carry_i_3__11_n_0,i__carry_i_4__11_n_0}));
+  CARRY4 \eqOp_inferred__16/i__carry 
+       (.CI(1'b0),
+        .CO({eqOp1_out,\eqOp_inferred__16/i__carry_n_1 ,\eqOp_inferred__16/i__carry_n_2 ,\eqOp_inferred__16/i__carry_n_3 }),
+        .CYINIT(1'b1),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(\NLW_eqOp_inferred__16/i__carry_O_UNCONNECTED [3:0]),
+        .S({i__carry_i_1__13_n_0,i__carry_i_2__13_n_0,i__carry_i_3__13_n_0,i__carry_i_4__13_n_0}));
   CARRY4 \eqOp_inferred__2/i__carry 
        (.CI(1'b0),
         .CO({eqOp0_out,\eqOp_inferred__2/i__carry_n_1 ,\eqOp_inferred__2/i__carry_n_2 ,\eqOp_inferred__2/i__carry_n_3 }),
@@ -726,28 +793,28 @@ module VGA_source_v_tc_0_0_tc_generator
         .S({i__carry_i_1__1_n_0,i__carry_i_2__1_n_0,i__carry_i_3__1_n_0,i__carry_i_4__1_n_0}));
   CARRY4 \eqOp_inferred__4/i__carry 
        (.CI(1'b0),
-        .CO({eqOp11_out,\eqOp_inferred__4/i__carry_n_1 ,\eqOp_inferred__4/i__carry_n_2 ,\eqOp_inferred__4/i__carry_n_3 }),
+        .CO({eqOp12_out,\eqOp_inferred__4/i__carry_n_1 ,\eqOp_inferred__4/i__carry_n_2 ,\eqOp_inferred__4/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__4/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__2_n_0,i__carry_i_2__2_n_0,i__carry_i_3__2_n_0,i__carry_i_4__2_n_0}));
   CARRY4 \eqOp_inferred__5/i__carry 
        (.CI(1'b0),
-        .CO({eqOp10_out,\eqOp_inferred__5/i__carry_n_1 ,\eqOp_inferred__5/i__carry_n_2 ,\eqOp_inferred__5/i__carry_n_3 }),
+        .CO({eqOp11_out,\eqOp_inferred__5/i__carry_n_1 ,\eqOp_inferred__5/i__carry_n_2 ,\eqOp_inferred__5/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__5/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__3_n_0,i__carry_i_2__3_n_0,i__carry_i_3__3_n_0,i__carry_i_4__3_n_0}));
   CARRY4 \eqOp_inferred__6/i__carry 
        (.CI(1'b0),
-        .CO({eqOp8_out,\eqOp_inferred__6/i__carry_n_1 ,\eqOp_inferred__6/i__carry_n_2 ,\eqOp_inferred__6/i__carry_n_3 }),
+        .CO({eqOp9_out,\eqOp_inferred__6/i__carry_n_1 ,\eqOp_inferred__6/i__carry_n_2 ,\eqOp_inferred__6/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__6/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__12_n_0,i__carry_i_2__12_n_0,i__carry_i_3__12_n_0,i__carry_i_4__12_n_0}));
   CARRY4 \eqOp_inferred__7/i__carry 
        (.CI(1'b0),
-        .CO({eqOp9_out,\eqOp_inferred__7/i__carry_n_1 ,\eqOp_inferred__7/i__carry_n_2 ,\eqOp_inferred__7/i__carry_n_3 }),
+        .CO({eqOp10_out,\eqOp_inferred__7/i__carry_n_1 ,\eqOp_inferred__7/i__carry_n_2 ,\eqOp_inferred__7/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__7/i__carry_O_UNCONNECTED [3:0]),
@@ -899,28 +966,27 @@ module VGA_source_v_tc_0_0_tc_generator
         .D(\h_count_reg[8]_i_1_n_6 ),
         .Q(h_count_reg[9]),
         .R(\h_count[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h6)) 
     hblank_i_1
        (.I0(\time_control_regs[19] [1]),
         .I1(hblank_int_reg_n_0),
         .O(hblank0));
-  LUT6 #(
-    .INIT(64'h00000000E2EA0000)) 
+  LUT4 #(
+    .INIT(16'hDFC0)) 
     hblank_int_i_1
-       (.I0(hblank_int_reg_n_0),
-        .I1(gen_ce),
-        .I2(eqOp8_out),
-        .I3(eqOp9_out),
-        .I4(all_cfg_reg_n_0),
-        .I5(\htotal[11]_i_1_n_0 ),
+       (.I0(eqOp10_out),
+        .I1(eqOp9_out),
+        .I2(gen_ce),
+        .I3(hblank_int_reg_n_0),
         .O(hblank_int_i_1_n_0));
   FDRE hblank_int_reg
        (.C(clk),
         .CE(1'b1),
         .D(hblank_int_i_1_n_0),
         .Q(hblank_int_reg_n_0),
-        .R(1'b0));
+        .R(p_3_in));
   FDRE hblank_reg
        (.C(clk),
         .CE(gen_ce),
@@ -1080,9 +1146,9 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT6 #(
     .INIT(64'hFFFFF4CCFFFFFFFF)) 
     hsync_int_i_1
-       (.I0(eqOp11_out),
+       (.I0(eqOp12_out),
         .I1(hsync_int_reg_n_0),
-        .I2(eqOp10_out),
+        .I2(eqOp11_out),
         .I3(gen_ce),
         .I4(\htotal[11]_i_1_n_0 ),
         .I5(all_cfg_reg_n_0),
@@ -1478,6 +1544,13 @@ module VGA_source_v_tc_0_0_tc_generator
         .I1(h_count_reg[10]),
         .I2(h_count_reg[9]),
         .O(i__carry_i_1__12_n_0));
+  LUT3 #(
+    .INIT(8'h01)) 
+    i__carry_i_1__13
+       (.I0(v_count_reg[11]),
+        .I1(v_count_reg[10]),
+        .I2(v_count_reg[9]),
+        .O(i__carry_i_1__13_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_1__2
@@ -1511,22 +1584,22 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_1__5
-       (.I0(v_count_reg[9]),
-        .I1(v0bp_start[9]),
-        .I2(v0bp_start[11]),
-        .I3(v_count_reg[11]),
-        .I4(v0bp_start[10]),
-        .I5(v_count_reg[10]),
-        .O(i__carry_i_1__5_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    i__carry_i_1__6
        (.I0(h_count_reg[9]),
         .I1(v0bp_start_hori[9]),
         .I2(v0bp_start_hori[11]),
         .I3(h_count_reg[11]),
         .I4(v0bp_start_hori[10]),
         .I5(h_count_reg[10]),
+        .O(i__carry_i_1__5_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    i__carry_i_1__6
+       (.I0(v_count_reg[9]),
+        .I1(v0bp_start[9]),
+        .I2(v0bp_start[11]),
+        .I3(v_count_reg[11]),
+        .I4(v0bp_start[10]),
+        .I5(v_count_reg[10]),
         .O(i__carry_i_1__6_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -1615,6 +1688,13 @@ module VGA_source_v_tc_0_0_tc_generator
         .I1(h_count_reg[7]),
         .I2(h_count_reg[6]),
         .O(i__carry_i_2__12_n_0));
+  LUT3 #(
+    .INIT(8'h01)) 
+    i__carry_i_2__13
+       (.I0(v_count_reg[8]),
+        .I1(v_count_reg[7]),
+        .I2(v_count_reg[6]),
+        .O(i__carry_i_2__13_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_2__2
@@ -1648,22 +1728,22 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_2__5
-       (.I0(v_count_reg[6]),
-        .I1(v0bp_start[6]),
-        .I2(v0bp_start[8]),
-        .I3(v_count_reg[8]),
-        .I4(v0bp_start[7]),
-        .I5(v_count_reg[7]),
-        .O(i__carry_i_2__5_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    i__carry_i_2__6
        (.I0(h_count_reg[6]),
         .I1(v0bp_start_hori[6]),
         .I2(v0bp_start_hori[8]),
         .I3(h_count_reg[8]),
         .I4(v0bp_start_hori[7]),
         .I5(h_count_reg[7]),
+        .O(i__carry_i_2__5_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    i__carry_i_2__6
+       (.I0(v_count_reg[6]),
+        .I1(v0bp_start[6]),
+        .I2(v0bp_start[8]),
+        .I3(v_count_reg[8]),
+        .I4(v0bp_start[7]),
+        .I5(v_count_reg[7]),
         .O(i__carry_i_2__6_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -1752,6 +1832,13 @@ module VGA_source_v_tc_0_0_tc_generator
         .I1(h_count_reg[4]),
         .I2(h_count_reg[3]),
         .O(i__carry_i_3__12_n_0));
+  LUT3 #(
+    .INIT(8'h01)) 
+    i__carry_i_3__13
+       (.I0(v_count_reg[5]),
+        .I1(v_count_reg[4]),
+        .I2(v_count_reg[3]),
+        .O(i__carry_i_3__13_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_3__2
@@ -1785,22 +1872,22 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_3__5
-       (.I0(v_count_reg[3]),
-        .I1(v0bp_start[3]),
-        .I2(v0bp_start[5]),
-        .I3(v_count_reg[5]),
-        .I4(v0bp_start[4]),
-        .I5(v_count_reg[4]),
-        .O(i__carry_i_3__5_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    i__carry_i_3__6
        (.I0(h_count_reg[3]),
         .I1(v0bp_start_hori[3]),
         .I2(v0bp_start_hori[5]),
         .I3(h_count_reg[5]),
         .I4(v0bp_start_hori[4]),
         .I5(h_count_reg[4]),
+        .O(i__carry_i_3__5_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    i__carry_i_3__6
+       (.I0(v_count_reg[3]),
+        .I1(v0bp_start[3]),
+        .I2(v0bp_start[5]),
+        .I3(v_count_reg[5]),
+        .I4(v0bp_start[4]),
+        .I5(v_count_reg[4]),
         .O(i__carry_i_3__6_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -1889,6 +1976,13 @@ module VGA_source_v_tc_0_0_tc_generator
         .I1(h_count_reg[1]),
         .I2(h_count_reg[0]),
         .O(i__carry_i_4__12_n_0));
+  LUT3 #(
+    .INIT(8'h01)) 
+    i__carry_i_4__13
+       (.I0(v_count_reg[2]),
+        .I1(v_count_reg[1]),
+        .I2(v_count_reg[0]),
+        .O(i__carry_i_4__13_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_4__2
@@ -1922,22 +2016,22 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_4__5
-       (.I0(v_count_reg[0]),
-        .I1(v0bp_start[0]),
-        .I2(v0bp_start[2]),
-        .I3(v_count_reg[2]),
-        .I4(v0bp_start[1]),
-        .I5(v_count_reg[1]),
-        .O(i__carry_i_4__5_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    i__carry_i_4__6
        (.I0(h_count_reg[0]),
         .I1(v0bp_start_hori[0]),
         .I2(v0bp_start_hori[2]),
         .I3(h_count_reg[2]),
         .I4(v0bp_start_hori[1]),
         .I5(h_count_reg[1]),
+        .O(i__carry_i_4__5_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    i__carry_i_4__6
+       (.I0(v_count_reg[0]),
+        .I1(v0bp_start[0]),
+        .I2(v0bp_start[2]),
+        .I3(v_count_reg[2]),
+        .I4(v0bp_start[1]),
+        .I5(v_count_reg[1]),
         .O(i__carry_i_4__6_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -1969,12 +2063,31 @@ module VGA_source_v_tc_0_0_tc_generator
         .I4(v0active_start_hori[1]),
         .I5(h_count_reg[1]),
         .O(i__carry_i_4__9_n_0));
+  LUT5 #(
+    .INIT(32'h24000000)) 
+    \intr_status_int[13]_i_2 
+       (.I0(\time_control_regs[19] [4]),
+        .I1(gen_active_video_d),
+        .I2(active_video_reg_0),
+        .I3(p_5_in),
+        .I4(resetn_out),
+        .O(gen_active_video_d_reg));
+  LUT6 #(
+    .INIT(64'h2424FF2424FF2424)) 
+    \intr_status_int[13]_i_3 
+       (.I0(\time_control_regs[19] [0]),
+        .I1(gen_vblank_d),
+        .I2(vblank_reg_0),
+        .I3(active_video_reg_0),
+        .I4(gen_active_video_d),
+        .I5(\time_control_regs[19] [4]),
+        .O(gen_vblank_d_reg));
   LUT6 #(
     .INIT(64'h0000000000E2E2E2)) 
     last_line_i_1
        (.I0(last_line),
         .I1(gen_ce),
-        .I2(eqOp12_out),
+        .I2(eqOp13_out),
         .I3(\genr_control_regs[0] [2]),
         .I4(fsync_in),
         .I5(p_3_in),
@@ -1988,7 +2101,7 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT6 #(
     .INIT(64'h0000002C002C002C)) 
     line_end_i_1
-       (.I0(eqOp13_out),
+       (.I0(eqOp14_out),
         .I1(line_end),
         .I2(gen_ce),
         .I3(p_3_in),
@@ -2004,7 +2117,7 @@ module VGA_source_v_tc_0_0_tc_generator
   LUT6 #(
     .INIT(64'h0000002C002C002C)) 
     line_end_v_i_1
-       (.I0(eqOp13_out),
+       (.I0(eqOp14_out),
         .I1(line_end_v),
         .I2(gen_ce),
         .I3(p_3_in),
@@ -2027,8 +2140,8 @@ module VGA_source_v_tc_0_0_tc_generator
     .INIT(32'hFF2A0000)) 
     sw_enable_d_i_1
        (.I0(sw_enable_d),
-        .I1(last_line),
-        .I2(line_end_v),
+        .I1(line_end_v),
+        .I2(last_line),
         .I3(\generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0 ),
         .I4(resetn_out),
         .O(sw_enable_d_i_1_n_0));
@@ -2789,8 +2902,8 @@ module VGA_source_v_tc_0_0_tc_generator
         .I1(fsync_in),
         .I2(p_3_in),
         .I3(gen_ce),
-        .I4(last_line),
-        .I5(line_end_v),
+        .I4(line_end_v),
+        .I5(last_line),
         .O(\v_count[0]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'h08)) 
@@ -2798,7 +2911,7 @@ module VGA_source_v_tc_0_0_tc_generator
        (.I0(gen_ce),
         .I1(line_end_v),
         .I2(last_line),
-        .O(v_count045_out));
+        .O(v_count058_out));
   LUT1 #(
     .INIT(2'h1)) 
     \v_count[0]_i_4 
@@ -2806,7 +2919,7 @@ module VGA_source_v_tc_0_0_tc_generator
         .O(\v_count[0]_i_4_n_0 ));
   FDRE \v_count_reg[0] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[0]_i_3_n_7 ),
         .Q(v_count_reg[0]),
         .R(\v_count[0]_i_1_n_0 ));
@@ -2819,37 +2932,37 @@ module VGA_source_v_tc_0_0_tc_generator
         .S({v_count_reg[3:1],\v_count[0]_i_4_n_0 }));
   FDRE \v_count_reg[10] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[8]_i_1_n_5 ),
         .Q(v_count_reg[10]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[11] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[8]_i_1_n_4 ),
         .Q(v_count_reg[11]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[1] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[0]_i_3_n_6 ),
         .Q(v_count_reg[1]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[2] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[0]_i_3_n_5 ),
         .Q(v_count_reg[2]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[3] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[0]_i_3_n_4 ),
         .Q(v_count_reg[3]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[4] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[4]_i_1_n_7 ),
         .Q(v_count_reg[4]),
         .R(\v_count[0]_i_1_n_0 ));
@@ -2862,25 +2975,25 @@ module VGA_source_v_tc_0_0_tc_generator
         .S(v_count_reg[7:4]));
   FDRE \v_count_reg[5] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[4]_i_1_n_6 ),
         .Q(v_count_reg[5]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[6] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[4]_i_1_n_5 ),
         .Q(v_count_reg[6]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[7] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[4]_i_1_n_4 ),
         .Q(v_count_reg[7]),
         .R(\v_count[0]_i_1_n_0 ));
   FDRE \v_count_reg[8] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[8]_i_1_n_7 ),
         .Q(v_count_reg[8]),
         .R(\v_count[0]_i_1_n_0 ));
@@ -2893,7 +3006,7 @@ module VGA_source_v_tc_0_0_tc_generator
         .S(v_count_reg[11:8]));
   FDRE \v_count_reg[9] 
        (.C(clk),
-        .CE(v_count045_out),
+        .CE(v_count058_out),
         .D(\v_count_reg[8]_i_1_n_6 ),
         .Q(v_count_reg[9]),
         .R(\v_count[0]_i_1_n_0 ));
@@ -2904,32 +3017,26 @@ module VGA_source_v_tc_0_0_tc_generator
         .I1(vblank_int_reg_n_0),
         .O(vblank0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFE2EAEAEA)) 
+    .INIT(64'hF777FFFFF0000000)) 
     vblank_int_i_1
-       (.I0(vblank_int_reg_n_0),
-        .I1(gen_ce),
-        .I2(vblank_int030_out),
-        .I3(eqOp3_out),
-        .I4(eqOp2_out),
-        .I5(p_3_in),
+       (.I0(eqOp3_out),
+        .I1(eqOp4_out),
+        .I2(last_line),
+        .I3(eqOp2_out),
+        .I4(gen_ce),
+        .I5(vblank_int_reg_n_0),
         .O(vblank_int_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h8)) 
-    vblank_int_i_2
-       (.I0(eqOp1_out),
-        .I1(last_line),
-        .O(vblank_int030_out));
-  FDRE vblank_int_reg
+  FDSE vblank_int_reg
        (.C(clk),
         .CE(1'b1),
         .D(vblank_int_i_1_n_0),
         .Q(vblank_int_reg_n_0),
-        .R(1'b0));
+        .S(p_3_in));
   FDRE vblank_reg
        (.C(clk),
         .CE(gen_ce),
         .D(vblank0),
-        .Q(vblank_out),
+        .Q(vblank_reg_0),
         .R(p_3_in));
   LUT2 #(
     .INIT(4'h6)) 
@@ -2938,27 +3045,21 @@ module VGA_source_v_tc_0_0_tc_generator
         .I1(vsync_int_reg_n_0),
         .O(vsync0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFE2EAEAEA)) 
+    .INIT(64'hF777FFFFF0000000)) 
     vsync_int_i_1
-       (.I0(vsync_int_reg_n_0),
-        .I1(gen_ce),
-        .I2(vsync_int035_out),
-        .I3(eqOp6_out),
-        .I4(eqOp7_out),
-        .I5(p_3_in),
+       (.I0(eqOp8_out),
+        .I1(eqOp7_out),
+        .I2(eqOp6_out),
+        .I3(eqOp5_out),
+        .I4(gen_ce),
+        .I5(vsync_int_reg_n_0),
         .O(vsync_int_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h8)) 
-    vsync_int_i_2
-       (.I0(eqOp4_out),
-        .I1(eqOp5_out),
-        .O(vsync_int035_out));
-  FDRE vsync_int_reg
+  FDSE vsync_int_reg
        (.C(clk),
         .CE(1'b1),
         .D(vsync_int_i_1_n_0),
         .Q(vsync_int_reg_n_0),
-        .R(1'b0));
+        .S(p_3_in));
   FDRE vsync_reg
        (.C(clk),
         .CE(gen_ce),
@@ -2973,10 +3074,11 @@ module VGA_source_v_tc_0_0_tc_top
     hsync_out,
     hblank_out,
     vsync_out,
-    vblank_out,
+    vblank_reg,
+    active_video_reg,
     active_chroma_out,
     reg_update,
-    intc_if,
+    \genr_status_regs[1] ,
     clk,
     clken,
     \genr_control_regs[0] ,
@@ -2990,22 +3092,23 @@ module VGA_source_v_tc_0_0_tc_top
     \time_control_regs[21] ,
     \time_control_regs[22] ,
     \time_control_regs[16] ,
-    \time_control_regs[24] ,
     \time_control_regs[25] ,
+    \time_control_regs[24] ,
     \time_control_regs[23] );
   output [0:0]fsync_out;
   output hsync_out;
   output hblank_out;
   output vsync_out;
-  output vblank_out;
+  output vblank_reg;
+  output active_video_reg;
   output active_chroma_out;
   output reg_update;
-  output [4:0]intc_if;
+  output [5:0]\genr_status_regs[1] ;
   input clk;
   input clken;
   input [3:0]\genr_control_regs[0] ;
   input fsync_in;
-  input [4:0]\time_control_regs[19] ;
+  input [5:0]\time_control_regs[19] ;
   input core_d_out;
   input gen_clken;
   input resetn_out;
@@ -3014,13 +3117,16 @@ module VGA_source_v_tc_0_0_tc_top
   input [11:0]\time_control_regs[21] ;
   input [23:0]\time_control_regs[22] ;
   input [23:0]\time_control_regs[16] ;
-  input [23:0]\time_control_regs[24] ;
   input [23:0]\time_control_regs[25] ;
+  input [23:0]\time_control_regs[24] ;
   input [23:0]\time_control_regs[23] ;
 
   wire [11:0]D;
-  wire \GEN_GENERATOR.U_TC_GEN_n_7 ;
+  wire \GEN_GENERATOR.U_TC_GEN_n_10 ;
+  wire \GEN_GENERATOR.U_TC_GEN_n_8 ;
+  wire \GEN_GENERATOR.U_TC_GEN_n_9 ;
   wire active_chroma_out;
+  wire active_video_reg;
   wire clk;
   wire clken;
   wire [23:0]\core_control_regs[0] ;
@@ -3034,17 +3140,20 @@ module VGA_source_v_tc_0_0_tc_top
   wire detect_en_d_reg_r_n_0;
   wire fsync_in;
   wire [0:0]fsync_out;
+  wire gen_active_video_d;
   wire gen_clken;
+  wire gen_vblank_d;
   wire \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_n_0 ;
   wire \generate_en_d_reg[2]_U_TC_TOP_detect_en_d_reg_r_1_n_0 ;
   wire generate_en_d_reg_gate_n_0;
   wire [3:0]\genr_control_regs[0] ;
+  wire [5:0]\genr_status_regs[1] ;
   wire hblank_out;
   wire hsync_out;
-  wire [4:0]intc_if;
   wire \intr_status_int[10]_i_1_n_0 ;
   wire \intr_status_int[11]_i_1_n_0 ;
   wire \intr_status_int[12]_i_1_n_0 ;
+  wire \intr_status_int[13]_i_1_n_0 ;
   wire \intr_status_int[16]_i_1_n_0 ;
   wire \intr_status_int[9]_i_1_n_0 ;
   wire p_0_in;
@@ -3053,29 +3162,35 @@ module VGA_source_v_tc_0_0_tc_top
   wire reset;
   wire resetn_out;
   wire [23:0]\time_control_regs[16] ;
-  wire [4:0]\time_control_regs[19] ;
+  wire [5:0]\time_control_regs[19] ;
   wire [11:0]\time_control_regs[21] ;
   wire [23:0]\time_control_regs[22] ;
   wire [23:0]\time_control_regs[23] ;
   wire [23:0]\time_control_regs[24] ;
   wire [23:0]\time_control_regs[25] ;
-  wire vblank_out;
+  wire vblank_reg;
   wire vsync_out;
 
   VGA_source_v_tc_0_0_tc_generator \GEN_GENERATOR.U_TC_GEN 
        (.D(D),
         .active_chroma_out(active_chroma_out),
+        .active_video_reg_0(active_video_reg),
         .clk(clk),
         .clken(clken),
         .\core_control_regs[0] (\core_control_regs[0] ),
         .core_d_out(core_d_out),
         .fsync_in(fsync_in),
         .fsync_out(fsync_out),
+        .gen_active_video_d(gen_active_video_d),
+        .gen_active_video_d_reg(\GEN_GENERATOR.U_TC_GEN_n_10 ),
         .gen_clken(gen_clken),
-        .\generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0 (\GEN_GENERATOR.U_TC_GEN_n_7 ),
+        .gen_vblank_d(gen_vblank_d),
+        .gen_vblank_d_reg(\GEN_GENERATOR.U_TC_GEN_n_8 ),
+        .\generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0 (\GEN_GENERATOR.U_TC_GEN_n_9 ),
         .\genr_control_regs[0] ({\genr_control_regs[0] [3],\genr_control_regs[0] [1:0]}),
         .hblank_out(hblank_out),
         .hsync_out(hsync_out),
+        .p_5_in(p_5_in),
         .reg_update(reg_update),
         .resetn_out(resetn_out),
         .\time_control_regs[16] (\time_control_regs[16] ),
@@ -3085,13 +3200,8 @@ module VGA_source_v_tc_0_0_tc_top
         .\time_control_regs[23] (\time_control_regs[23] ),
         .\time_control_regs[24] (\time_control_regs[24] ),
         .\time_control_regs[25] (\time_control_regs[25] ),
-        .vblank_out(vblank_out),
+        .vblank_reg_0(vblank_reg),
         .vsync_out(vsync_out));
-  LUT1 #(
-    .INIT(2'h1)) 
-    detect_en_d_r_i_1
-       (.I0(resetn_out),
-        .O(reset));
   (* srl_bus_name = "U0/\U_TC_TOP/detect_en_d_reg " *) 
   (* srl_name = "U0/\U_TC_TOP/detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0 " *) 
   SRL16E \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0 
@@ -3122,7 +3232,7 @@ module VGA_source_v_tc_0_0_tc_top
         .D(detect_en_d_reg_gate_n_0),
         .Q(p_0_in),
         .R(reset));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h8)) 
     detect_en_d_reg_gate
@@ -3147,6 +3257,23 @@ module VGA_source_v_tc_0_0_tc_top
         .D(detect_en_d_reg_r_0_n_0),
         .Q(detect_en_d_reg_r_1_n_0),
         .R(reset));
+  FDRE gen_active_video_d_reg
+       (.C(clk),
+        .CE(clken),
+        .D(active_video_reg),
+        .Q(gen_active_video_d),
+        .R(reset));
+  LUT1 #(
+    .INIT(2'h1)) 
+    gen_vblank_d_i_1
+       (.I0(resetn_out),
+        .O(reset));
+  FDRE gen_vblank_d_reg
+       (.C(clk),
+        .CE(clken),
+        .D(vblank_reg),
+        .Q(gen_vblank_d),
+        .R(reset));
   (* srl_bus_name = "U0/\U_TC_TOP/generate_en_d_reg " *) 
   (* srl_name = "U0/\U_TC_TOP/generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0 " *) 
   SRL16E \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0 
@@ -3156,7 +3283,7 @@ module VGA_source_v_tc_0_0_tc_top
         .A3(1'b0),
         .CE(clken),
         .CLK(clk),
-        .D(\GEN_GENERATOR.U_TC_GEN_n_7 ),
+        .D(\GEN_GENERATOR.U_TC_GEN_n_9 ),
         .Q(\generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_n_0 ));
   FDRE \generate_en_d_reg[2]_U_TC_TOP_detect_en_d_reg_r_1 
        (.C(clk),
@@ -3170,54 +3297,64 @@ module VGA_source_v_tc_0_0_tc_top
         .D(generate_en_d_reg_gate_n_0),
         .Q(p_5_in),
         .R(reset));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h8)) 
     generate_en_d_reg_gate
        (.I0(\generate_en_d_reg[2]_U_TC_TOP_detect_en_d_reg_r_1_n_0 ),
         .I1(detect_en_d_reg_r_1_n_0),
         .O(generate_en_d_reg_gate_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'hB000)) 
     \intr_status_int[10]_i_1 
        (.I0(p_0_in),
         .I1(clken),
         .I2(resetn_out),
-        .I3(intc_if[1]),
+        .I3(\genr_status_regs[1] [1]),
         .O(\intr_status_int[10]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'hB000)) 
     \intr_status_int[11]_i_1 
        (.I0(p_0_in),
         .I1(clken),
         .I2(resetn_out),
-        .I3(intc_if[2]),
+        .I3(\genr_status_regs[1] [2]),
         .O(\intr_status_int[11]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hC3000000AAAA0000)) 
     \intr_status_int[12]_i_1 
-       (.I0(intc_if[3]),
+       (.I0(\genr_status_regs[1] [3]),
         .I1(\time_control_regs[19] [0]),
-        .I2(vblank_out),
+        .I2(vblank_reg),
         .I3(p_5_in),
         .I4(resetn_out),
         .I5(clken),
         .O(\intr_status_int[12]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hBAFFAAAA8A00AAAA)) 
+    \intr_status_int[13]_i_1 
+       (.I0(\GEN_GENERATOR.U_TC_GEN_n_10 ),
+        .I1(\GEN_GENERATOR.U_TC_GEN_n_8 ),
+        .I2(p_5_in),
+        .I3(clken),
+        .I4(resetn_out),
+        .I5(\genr_status_regs[1] [4]),
+        .O(\intr_status_int[13]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hC000AA00)) 
     \intr_status_int[16]_i_1 
-       (.I0(intc_if[4]),
+       (.I0(\genr_status_regs[1] [5]),
         .I1(fsync_out),
         .I2(p_5_in),
         .I3(resetn_out),
         .I4(clken),
         .O(\intr_status_int[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'hC0A0)) 
     \intr_status_int[9]_i_1 
-       (.I0(intc_if[0]),
+       (.I0(\genr_status_regs[1] [0]),
         .I1(p_0_in),
         .I2(resetn_out),
         .I3(clken),
@@ -3226,31 +3363,37 @@ module VGA_source_v_tc_0_0_tc_top
        (.C(clk),
         .CE(1'b1),
         .D(\intr_status_int[10]_i_1_n_0 ),
-        .Q(intc_if[1]),
+        .Q(\genr_status_regs[1] [1]),
         .R(1'b0));
   FDRE \intr_status_int_reg[11] 
        (.C(clk),
         .CE(1'b1),
         .D(\intr_status_int[11]_i_1_n_0 ),
-        .Q(intc_if[2]),
+        .Q(\genr_status_regs[1] [2]),
         .R(1'b0));
   FDRE \intr_status_int_reg[12] 
        (.C(clk),
         .CE(1'b1),
         .D(\intr_status_int[12]_i_1_n_0 ),
-        .Q(intc_if[3]),
+        .Q(\genr_status_regs[1] [3]),
+        .R(1'b0));
+  FDRE \intr_status_int_reg[13] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\intr_status_int[13]_i_1_n_0 ),
+        .Q(\genr_status_regs[1] [4]),
         .R(1'b0));
   FDRE \intr_status_int_reg[16] 
        (.C(clk),
         .CE(1'b1),
         .D(\intr_status_int[16]_i_1_n_0 ),
-        .Q(intc_if[4]),
+        .Q(\genr_status_regs[1] [5]),
         .R(1'b0));
   FDRE \intr_status_int_reg[9] 
        (.C(clk),
         .CE(1'b1),
         .D(\intr_status_int[9]_i_1_n_0 ),
-        .Q(intc_if[0]),
+        .Q(\genr_status_regs[1] [0]),
         .R(1'b0));
 endmodule
 
@@ -3269,7 +3412,7 @@ endmodule
 (* C_FSYNC_VSTART4 = "0" *) (* C_FSYNC_VSTART5 = "0" *) (* C_FSYNC_VSTART6 = "0" *) 
 (* C_FSYNC_VSTART7 = "0" *) (* C_FSYNC_VSTART8 = "0" *) (* C_FSYNC_VSTART9 = "0" *) 
 (* C_GENERATE_EN = "1" *) (* C_GEN_ACHROMA_EN = "0" *) (* C_GEN_ACHROMA_POLARITY = "1" *) 
-(* C_GEN_AUTO_SWITCH = "0" *) (* C_GEN_AVIDEO_EN = "0" *) (* C_GEN_AVIDEO_POLARITY = "1" *) 
+(* C_GEN_AUTO_SWITCH = "0" *) (* C_GEN_AVIDEO_EN = "1" *) (* C_GEN_AVIDEO_POLARITY = "1" *) 
 (* C_GEN_CPARITY = "0" *) (* C_GEN_F0_VBLANK_HEND = "640" *) (* C_GEN_F0_VBLANK_HSTART = "640" *) 
 (* C_GEN_F0_VFRAME_SIZE = "525" *) (* C_GEN_F0_VSYNC_HEND = "695" *) (* C_GEN_F0_VSYNC_HSTART = "695" *) 
 (* C_GEN_F0_VSYNC_VEND = "491" *) (* C_GEN_F0_VSYNC_VSTART = "489" *) (* C_GEN_F1_VBLANK_HEND = "640" *) 
@@ -3441,6 +3584,7 @@ module VGA_source_v_tc_0_0_v_tc
   wire U_VIDEO_CTRL_n_992;
   wire U_VIDEO_CTRL_n_993;
   wire active_chroma_out;
+  wire active_video_out;
   wire clk;
   wire clken;
   wire [27:0]\core_control_regs[0] ;
@@ -3551,7 +3695,6 @@ module VGA_source_v_tc_0_0_v_tc
   wire [31:0]\NLW_U_VIDEO_CTRL_time_control_regs[8]_UNCONNECTED ;
   wire [31:0]\NLW_U_VIDEO_CTRL_time_control_regs[9]_UNCONNECTED ;
 
-  assign active_video_out = \<const0> ;
   assign field_id_out = \<const0> ;
   assign intc_if[31] = \<const0> ;
   assign intc_if[30] = \<const0> ;
@@ -3571,8 +3714,7 @@ module VGA_source_v_tc_0_0_v_tc
   assign intc_if[16] = \^intc_if [16];
   assign intc_if[15] = \<const0> ;
   assign intc_if[14] = \<const0> ;
-  assign intc_if[13] = \<const0> ;
-  assign intc_if[12:9] = \^intc_if [12:9];
+  assign intc_if[13:9] = \^intc_if [13:9];
   assign intc_if[8] = \<const0> ;
   assign intc_if[7] = \<const0> ;
   assign intc_if[6] = \<const0> ;
@@ -3587,6 +3729,7 @@ module VGA_source_v_tc_0_0_v_tc
   VGA_source_v_tc_0_0_tc_top U_TC_TOP
        (.D(\time_control_regs[20] ),
         .active_chroma_out(active_chroma_out),
+        .active_video_reg(active_video_out),
         .clk(clk),
         .clken(clken),
         .\core_control_regs[0] ({\core_control_regs[0] [27:16],\core_control_regs[0] [11:0]}),
@@ -3595,19 +3738,19 @@ module VGA_source_v_tc_0_0_v_tc
         .fsync_out(fsync_out),
         .gen_clken(gen_clken),
         .\genr_control_regs[0] ({\genr_control_regs[0] [5],\genr_control_regs[0] [3:2],\genr_control_regs[0] [0]}),
+        .\genr_status_regs[1] ({\^intc_if [16],\^intc_if [13:9]}),
         .hblank_out(hblank_out),
         .hsync_out(hsync_out),
-        .intc_if({\^intc_if [16],\^intc_if [12:9]}),
         .reg_update(reg_update),
         .resetn_out(vresetn),
         .\time_control_regs[16] ({\time_control_regs[16] [27:16],\time_control_regs[16] [11:0]}),
-        .\time_control_regs[19] ({\time_control_regs[19] [5],\time_control_regs[19] [3:0]}),
+        .\time_control_regs[19] (\time_control_regs[19] [5:0]),
         .\time_control_regs[21] (\time_control_regs[21] [11:0]),
         .\time_control_regs[22] ({\time_control_regs[22] [27:16],\time_control_regs[22] [11:0]}),
         .\time_control_regs[23] ({\time_control_regs[23] [27:16],\time_control_regs[23] [11:0]}),
         .\time_control_regs[24] ({\time_control_regs[24] [27:16],\time_control_regs[24] [11:0]}),
         .\time_control_regs[25] ({\time_control_regs[25] [27:16],\time_control_regs[25] [11:0]}),
-        .vblank_out(vblank_out),
+        .vblank_reg(vblank_out),
         .vsync_out(vsync_out));
   (* C_COREGEN_PATCH = "0" *) 
   (* C_CORE_AXI_WRITE = "544'b0000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111000011111111111100001111111111110000111111111111" *) 
@@ -3682,7 +3825,7 @@ module VGA_source_v_tc_0_0_v_tc
         .\genr_control_regs[3] (\NLW_U_VIDEO_CTRL_genr_control_regs[3]_UNCONNECTED [31:0]),
         .\genr_control_regs[4] (\NLW_U_VIDEO_CTRL_genr_control_regs[4]_UNCONNECTED [31:0]),
         .\genr_status_regs[0] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .\genr_status_regs[1] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,\^intc_if [16],1'b0,1'b0,1'b0,\^intc_if [12:9],1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .\genr_status_regs[1] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,\^intc_if [16],1'b0,1'b0,\^intc_if [13:9],1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .\genr_status_regs[2] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .\genr_status_regs[3] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .\genr_status_regs[4] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
@@ -3748,7 +3891,7 @@ module VGA_source_v_tc_0_0_v_tc
         .\time_status_regs[14] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .\time_status_regs[15] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .\time_status_regs[16] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .\time_status_regs[17] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,\^intc_if [12],1'b0}),
+        .\time_status_regs[17] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,\^intc_if [13:12],1'b0}),
         .\time_status_regs[18] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .\time_status_regs[19] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .\time_status_regs[1] ({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,\^intc_if [11:10],1'b0}),

@@ -41,5 +41,6 @@ architecture mux_video_arch of mux_video is
 
 begin
 
+DOUT <= DIN(7 downto 4) when (Sel_ActVideo = '1') else "0000";
 
 end mux_video_arch;
