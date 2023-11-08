@@ -14,6 +14,7 @@ set_property PACKAGE_PIN V19 [get_ports {R[2]}]
 set_property PACKAGE_PIN U20 [get_ports {R[1]}]
 set_property PACKAGE_PIN V20 [get_ports {R[0]}]
 
+set_property PACKAGE_PIN G22 [get_ports sw1]
 set_property PACKAGE_PIN F22 [get_ports reset_n]
 set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]];
 set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]];

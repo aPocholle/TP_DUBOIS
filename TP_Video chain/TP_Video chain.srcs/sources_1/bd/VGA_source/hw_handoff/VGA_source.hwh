@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct 16 09:57:59 2023" VIVADOVERSION="2019.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov  8 12:03:21 2023" VIVADOVERSION="2019.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.4" DEVICE="7z020" NAME="VGA_source" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -41,6 +41,7 @@
         <CONNECTION INSTANCE="mux_video_0" PORT="DOUT"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="sw1" SIGIS="undef"/>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -148,7 +149,11 @@
             <CONNECTION INSTANCE="v_tc_0" PORT="active_video_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="SCLR" SIGIS="rst"/>
+        <PORT DIR="I" NAME="SCLR" SIGIS="rst" SIGNAME="v_tc_0_hsync_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="v_tc_0" PORT="hsync_out"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="7" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="c_counter_binary_0_Q">
           <CONNECTIONS>
             <CONNECTION INSTANCE="v_vid_in_axi4s_0" PORT="vid_data"/>
@@ -1273,6 +1278,7 @@
         <PORT DIR="O" NAME="hsync_out" SIGIS="undef" SIGNAME="v_tc_0_hsync_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="v_vid_in_axi4s_0" PORT="vid_hsync"/>
+            <CONNECTION INSTANCE="c_counter_binary_0" PORT="SCLR"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="hblank_out" SIGIS="undef" SIGNAME="v_tc_0_hblank_out">

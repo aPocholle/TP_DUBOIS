@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/VGA_source_mux_video_0_0_synth_1'
+HD_PWD='C:/Users/ap576391/Documents/TP_DUBOIS/TP_Video chain/TP_Video chain.runs/VGA_source_mux_video_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

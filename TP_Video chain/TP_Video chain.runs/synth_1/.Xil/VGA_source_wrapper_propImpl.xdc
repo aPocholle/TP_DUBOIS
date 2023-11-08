@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:{C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.srcs/constrs_1/imports/TP1/Base_line_top.xdc} rfile:{../../../TP_Video chain.srcs/constrs_1/imports/TP1/Base_line_top.xdc} id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/ap576391/Documents/TP_DUBOIS/TP_Video chain/TP_Video chain.srcs/constrs_1/imports/TP1/Base_line_top.xdc} rfile:{../../../TP_Video chain.srcs/constrs_1/imports/TP1/Base_line_top.xdc} id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y9 [get_ports clk]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
@@ -30,10 +30,12 @@ set_property PACKAGE_PIN U20 [get_ports {R[1]}]
 set_property src_info {type:XDC file:1 line:15 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN V20 [get_ports {R[0]}]
 set_property src_info {type:XDC file:1 line:17 export:INPUT save:INPUT read:READ} [current_design]
-set_property PACKAGE_PIN F22 [get_ports reset_n]
+set_property PACKAGE_PIN G22 [get_ports sw1]
 set_property src_info {type:XDC file:1 line:18 export:INPUT save:INPUT read:READ} [current_design]
-set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]];
+set_property PACKAGE_PIN F22 [get_ports reset_n]
 set_property src_info {type:XDC file:1 line:19 export:INPUT save:INPUT read:READ} [current_design]
-set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]];
+set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]];
 set_property src_info {type:XDC file:1 line:20 export:INPUT save:INPUT read:READ} [current_design]
+set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]];
+set_property src_info {type:XDC file:1 line:21 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD LVCMOS18 [get_ports -of_objects [get_iobanks 35]];

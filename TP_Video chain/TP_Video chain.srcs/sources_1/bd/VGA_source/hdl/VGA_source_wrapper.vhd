@@ -1,8 +1,8 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
---Date        : Mon Oct 16 09:57:58 2023
---Host        : gs21-09 running 64-bit major release  (build 9200)
+--Date        : Wed Nov  8 12:03:21 2023
+--Host        : gs21-06 running 64-bit major release  (build 9200)
 --Command     : generate_target VGA_source_wrapper.bd
 --Design      : VGA_source_wrapper
 --Purpose     : IP block netlist
@@ -19,6 +19,7 @@ entity VGA_source_wrapper is
     clk : in STD_LOGIC;
     hsync_out_0 : out STD_LOGIC;
     reset_n : in STD_LOGIC;
+    sw1 : in STD_LOGIC;
     vsync_out_0 : out STD_LOGIC
   );
 end VGA_source_wrapper;
@@ -32,7 +33,8 @@ architecture STRUCTURE of VGA_source_wrapper is
     vsync_out_0 : out STD_LOGIC;
     R : out STD_LOGIC_VECTOR ( 3 downto 0 );
     B : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    G : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    G : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    sw1 : in STD_LOGIC
   );
   end component VGA_source;
 begin
@@ -44,6 +46,7 @@ VGA_source_i: component VGA_source
       clk => clk,
       hsync_out_0 => hsync_out_0,
       reset_n => reset_n,
+      sw1 => sw1,
       vsync_out_0 => vsync_out_0
     );
 end STRUCTURE;

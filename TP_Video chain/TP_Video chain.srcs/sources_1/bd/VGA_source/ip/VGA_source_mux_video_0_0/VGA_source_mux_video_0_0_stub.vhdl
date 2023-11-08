@@ -1,9 +1,9 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Mon Oct 16 09:59:21 2023
--- Host        : gs21-09 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub {c:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video
+-- Date        : Wed Nov  8 10:46:35 2023
+-- Host        : gs21-06 running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub {C:/Users/ap576391/Documents/TP_DUBOIS/TP_Video chain/TP_Video
 --               chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_mux_video_0_0/VGA_source_mux_video_0_0_stub.vhdl}
 -- Design      : VGA_source_mux_video_0_0
 -- Purpose     : Stub declaration of top-level module interface

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x4EE9A21554C860A2",
+      "boundary_crc": "0x4ADFB97BBDDE9DFE",
       "device": "xc7z020clg484-1",
       "name": "VGA_source",
       "synth_flow_mode": "Hierarchical",
@@ -13,13 +13,13 @@
       "c_counter_binary_0": "",
       "proc_sys_reset_0": "",
       "v_tc_0": "",
-      "mux_video_0": "",
       "v_axi4s_vid_out_0": "",
       "v_tc_1": "",
       "proc_sys_reset_1": "",
       "v_vid_in_axi4s_0": "",
       "VDD": "",
-      "GND": ""
+      "GND": "",
+      "mux_video_0": ""
     },
     "ports": {
       "reset_n": {
@@ -78,6 +78,9 @@
         "direction": "O",
         "left": "3",
         "right": "0"
+      },
+      "sw1": {
+        "direction": "I"
       }
     },
     "components": {
@@ -184,30 +187,6 @@
           }
         }
       },
-      "mux_video_0": {
-        "vlnv": "xilinx.com:module_ref:mux_video:1.0",
-        "xci_name": "VGA_source_mux_video_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "mux_video",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "DIN": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "DOUT": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "Sel_ActVideo": {
-            "direction": "I"
-          }
-        }
-      },
       "v_axi4s_vid_out_0": {
         "vlnv": "xilinx.com:ip:v_axi4s_vid_out:4.0",
         "xci_name": "VGA_source_v_axi4s_vid_out_0_0",
@@ -217,6 +196,9 @@
           },
           "C_HAS_ASYNC_CLK": {
             "value": "1"
+          },
+          "C_S_AXIS_VIDEO_DATA_WIDTH": {
+            "value": "8"
           },
           "C_S_AXIS_VIDEO_FORMAT": {
             "value": "12"
@@ -293,6 +275,30 @@
             "value": "0"
           }
         }
+      },
+      "mux_video_0": {
+        "vlnv": "xilinx.com:module_ref:mux_video:1.0",
+        "xci_name": "VGA_source_mux_video_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mux_video",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "DIN": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "DOUT": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "Sel_ActVideo": {
+            "direction": "I"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -302,16 +308,16 @@
           "v_axi4s_vid_out_0/vtiming_in"
         ]
       },
-      "v_vid_in_axi4s_0_video_out": {
-        "interface_ports": [
-          "v_vid_in_axi4s_0/video_out",
-          "v_axi4s_vid_out_0/video_in"
-        ]
-      },
       "v_vid_in_axi4s_0_vtiming_out": {
         "interface_ports": [
           "v_tc_1/vtiming_in",
           "v_vid_in_axi4s_0/vtiming_out"
+        ]
+      },
+      "v_vid_in_axi4s_0_video_out": {
+        "interface_ports": [
+          "v_vid_in_axi4s_0/video_out",
+          "v_axi4s_vid_out_0/video_in"
         ]
       }
     },
@@ -447,7 +453,8 @@
       "v_tc_0_hsync_out": {
         "ports": [
           "v_tc_0/hsync_out",
-          "v_vid_in_axi4s_0/vid_hsync"
+          "v_vid_in_axi4s_0/vid_hsync",
+          "c_counter_binary_0/SCLR"
         ]
       },
       "v_tc_0_vblank_out": {

@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="VGA_source" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1697443079"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1697443079"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1697443079"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1697443079"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1699441401"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1699441401"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1699441401"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1699441401"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\VGA_source_clk_wiz_0_0\VGA_source_clk_wiz_0_0.xci" Type="IP">
         <Instance HierarchyPath="clk_wiz_0"/>
@@ -37,16 +37,6 @@
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="synth\VGA_source.vhd" Type="VHDL">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-      </File>
-      <File Name="sim\VGA_source.vhd" Type="VHDL">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip\VGA_source_mux_video_0_0\VGA_source_mux_video_0_0.xci" Type="IP">
@@ -103,6 +93,16 @@
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="synth\VGA_source.vhd" Type="VHDL">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+      </File>
+      <File Name="sim\VGA_source.vhd" Type="VHDL">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="VGA_source_ooc.xdc" Type="XDC">

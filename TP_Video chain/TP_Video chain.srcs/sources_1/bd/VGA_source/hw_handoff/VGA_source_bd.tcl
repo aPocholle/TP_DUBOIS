@@ -171,6 +171,7 @@ proc create_root_design { parentCell } {
   set clk [ create_bd_port -dir I -type clk clk ]
   set hsync_out_0 [ create_bd_port -dir O hsync_out_0 ]
   set reset_n [ create_bd_port -dir I -type rst reset_n ]
+  set sw1 [ create_bd_port -dir I sw1 ]
   set vsync_out_0 [ create_bd_port -dir O vsync_out_0 ]
 
   # Create instance: GND, and set properties
@@ -235,6 +236,7 @@ proc create_root_design { parentCell } {
   set_property -dict [ list \
    CONFIG.C_ADDR_WIDTH {11} \
    CONFIG.C_HAS_ASYNC_CLK {1} \
+   CONFIG.C_S_AXIS_VIDEO_DATA_WIDTH {8} \
    CONFIG.C_S_AXIS_VIDEO_FORMAT {12} \
  ] $v_axi4s_vid_out_0
 
@@ -325,7 +327,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net v_axi4s_vid_out_0_vtg_ce [get_bd_pins v_axi4s_vid_out_0/vtg_ce] [get_bd_pins v_tc_1/gen_clken]
   connect_bd_net -net v_tc_0_active_video_out [get_bd_pins c_counter_binary_0/CE] [get_bd_pins v_tc_0/active_video_out] [get_bd_pins v_vid_in_axi4s_0/vid_active_video]
   connect_bd_net -net v_tc_0_hblank_out [get_bd_pins v_tc_0/hblank_out] [get_bd_pins v_vid_in_axi4s_0/vid_hblank]
-  connect_bd_net -net v_tc_0_hsync_out [get_bd_pins v_tc_0/hsync_out] [get_bd_pins v_vid_in_axi4s_0/vid_hsync]
+  connect_bd_net -net v_tc_0_hsync_out [get_bd_pins c_counter_binary_0/SCLR] [get_bd_pins v_tc_0/hsync_out] [get_bd_pins v_vid_in_axi4s_0/vid_hsync]
   connect_bd_net -net v_tc_0_vblank_out [get_bd_pins v_tc_0/vblank_out] [get_bd_pins v_vid_in_axi4s_0/vid_vblank]
   connect_bd_net -net v_tc_0_vsync_out [get_bd_pins v_tc_0/vsync_out] [get_bd_pins v_vid_in_axi4s_0/vid_vsync]
   connect_bd_net -net xlslice_0_Dout [get_bd_ports B] [get_bd_ports G] [get_bd_ports R] [get_bd_pins mux_video_0/DOUT]

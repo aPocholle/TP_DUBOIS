@@ -1,0 +1,2 @@
+regslice_core
+inverter_hls

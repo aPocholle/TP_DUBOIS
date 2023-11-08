@@ -1,0 +1,20 @@
+
+
+Implementation tool: Xilinx Vivado v.2019.2
+Project:             inverter_hls
+Solution:            solution1
+Device target:       xc7vx485t-ffg1157-1
+Report date:         Wed Nov 08 09:48:14 +0100 2023
+
+#=== Post-Implementation Resource usage ===
+SLICE:           31
+LUT:             84
+FF:              88
+DSP:              0
+BRAM:             0
+SRL:              0
+#=== Final timing ===
+CP required:    10.000
+CP achieved post-synthesis:    2.084
+CP achieved post-implementation:    2.931
+Timing met

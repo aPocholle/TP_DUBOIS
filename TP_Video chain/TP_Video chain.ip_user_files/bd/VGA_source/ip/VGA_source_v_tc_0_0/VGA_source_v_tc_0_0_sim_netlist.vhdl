@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Mon Oct 16 08:59:02 2023
+-- Date        : Mon Oct 16 09:59:31 2023
 -- Host        : gs21-09 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim {c:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video
 --               chain.srcs/sources_1/bd/VGA_source/ip/VGA_source_v_tc_0_0/VGA_source_v_tc_0_0_sim_netlist.vhdl}
@@ -20,25 +20,31 @@ entity VGA_source_v_tc_0_0_tc_generator is
     hsync_out : out STD_LOGIC;
     hblank_out : out STD_LOGIC;
     vsync_out : out STD_LOGIC;
-    vblank_out : out STD_LOGIC;
+    vblank_reg_0 : out STD_LOGIC;
+    active_video_reg_0 : out STD_LOGIC;
     active_chroma_out : out STD_LOGIC;
     reg_update : out STD_LOGIC;
+    gen_vblank_d_reg : out STD_LOGIC;
     \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0\ : out STD_LOGIC;
+    gen_active_video_d_reg : out STD_LOGIC;
     clk : in STD_LOGIC;
     \genr_control_regs[0]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     fsync_in : in STD_LOGIC;
-    \time_control_regs[19]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \time_control_regs[19]\ : in STD_LOGIC_VECTOR ( 5 downto 0 );
     core_d_out : in STD_LOGIC;
     clken : in STD_LOGIC;
     gen_clken : in STD_LOGIC;
     \core_control_regs[0]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    gen_vblank_d : in STD_LOGIC;
+    gen_active_video_d : in STD_LOGIC;
     resetn_out : in STD_LOGIC;
+    p_5_in : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 11 downto 0 );
     \time_control_regs[21]\ : in STD_LOGIC_VECTOR ( 11 downto 0 );
     \time_control_regs[22]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[16]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
-    \time_control_regs[24]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[25]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    \time_control_regs[24]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[23]\ : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -47,6 +53,10 @@ end VGA_source_v_tc_0_0_tc_generator;
 
 architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal active_chroma_i_1_n_0 : STD_LOGIC;
+  signal active_video0 : STD_LOGIC;
+  signal active_video_int_i_1_n_0 : STD_LOGIC;
+  signal active_video_int_reg_n_0 : STD_LOGIC;
+  signal \^active_video_reg_0\ : STD_LOGIC;
   signal all_cfg_i_1_n_0 : STD_LOGIC;
   signal all_cfg_reg_n_0 : STD_LOGIC;
   signal eqOp0_out : STD_LOGIC;
@@ -54,6 +64,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal eqOp11_out : STD_LOGIC;
   signal eqOp12_out : STD_LOGIC;
   signal eqOp13_out : STD_LOGIC;
+  signal eqOp14_out : STD_LOGIC;
   signal eqOp1_out : STD_LOGIC;
   signal eqOp2_out : STD_LOGIC;
   signal eqOp3_out : STD_LOGIC;
@@ -91,6 +102,9 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \eqOp_inferred__15/i__carry_n_1\ : STD_LOGIC;
   signal \eqOp_inferred__15/i__carry_n_2\ : STD_LOGIC;
   signal \eqOp_inferred__15/i__carry_n_3\ : STD_LOGIC;
+  signal \eqOp_inferred__16/i__carry_n_1\ : STD_LOGIC;
+  signal \eqOp_inferred__16/i__carry_n_2\ : STD_LOGIC;
+  signal \eqOp_inferred__16/i__carry_n_3\ : STD_LOGIC;
   signal \eqOp_inferred__2/i__carry_n_1\ : STD_LOGIC;
   signal \eqOp_inferred__2/i__carry_n_2\ : STD_LOGIC;
   signal \eqOp_inferred__2/i__carry_n_3\ : STD_LOGIC;
@@ -181,6 +195,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \i__carry_i_1__10_n_0\ : STD_LOGIC;
   signal \i__carry_i_1__11_n_0\ : STD_LOGIC;
   signal \i__carry_i_1__12_n_0\ : STD_LOGIC;
+  signal \i__carry_i_1__13_n_0\ : STD_LOGIC;
   signal \i__carry_i_1__1_n_0\ : STD_LOGIC;
   signal \i__carry_i_1__2_n_0\ : STD_LOGIC;
   signal \i__carry_i_1__3_n_0\ : STD_LOGIC;
@@ -195,6 +210,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \i__carry_i_2__10_n_0\ : STD_LOGIC;
   signal \i__carry_i_2__11_n_0\ : STD_LOGIC;
   signal \i__carry_i_2__12_n_0\ : STD_LOGIC;
+  signal \i__carry_i_2__13_n_0\ : STD_LOGIC;
   signal \i__carry_i_2__1_n_0\ : STD_LOGIC;
   signal \i__carry_i_2__2_n_0\ : STD_LOGIC;
   signal \i__carry_i_2__3_n_0\ : STD_LOGIC;
@@ -209,6 +225,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \i__carry_i_3__10_n_0\ : STD_LOGIC;
   signal \i__carry_i_3__11_n_0\ : STD_LOGIC;
   signal \i__carry_i_3__12_n_0\ : STD_LOGIC;
+  signal \i__carry_i_3__13_n_0\ : STD_LOGIC;
   signal \i__carry_i_3__1_n_0\ : STD_LOGIC;
   signal \i__carry_i_3__2_n_0\ : STD_LOGIC;
   signal \i__carry_i_3__3_n_0\ : STD_LOGIC;
@@ -223,6 +240,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \i__carry_i_4__10_n_0\ : STD_LOGIC;
   signal \i__carry_i_4__11_n_0\ : STD_LOGIC;
   signal \i__carry_i_4__12_n_0\ : STD_LOGIC;
+  signal \i__carry_i_4__13_n_0\ : STD_LOGIC;
   signal \i__carry_i_4__1_n_0\ : STD_LOGIC;
   signal \i__carry_i_4__2_n_0\ : STD_LOGIC;
   signal \i__carry_i_4__3_n_0\ : STD_LOGIC;
@@ -296,7 +314,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \v0total_reg[8]_i_1_n_1\ : STD_LOGIC;
   signal \v0total_reg[8]_i_1_n_2\ : STD_LOGIC;
   signal \v0total_reg[8]_i_1_n_3\ : STD_LOGIC;
-  signal v_count045_out : STD_LOGIC;
+  signal v_count058_out : STD_LOGIC;
   signal \v_count[0]_i_1_n_0\ : STD_LOGIC;
   signal \v_count[0]_i_4_n_0\ : STD_LOGIC;
   signal v_count_reg : STD_LOGIC_VECTOR ( 11 downto 0 );
@@ -324,11 +342,10 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \v_count_reg[8]_i_1_n_6\ : STD_LOGIC;
   signal \v_count_reg[8]_i_1_n_7\ : STD_LOGIC;
   signal vblank0 : STD_LOGIC;
-  signal vblank_int030_out : STD_LOGIC;
   signal vblank_int_i_1_n_0 : STD_LOGIC;
   signal vblank_int_reg_n_0 : STD_LOGIC;
+  signal \^vblank_reg_0\ : STD_LOGIC;
   signal vsync0 : STD_LOGIC;
-  signal vsync_int035_out : STD_LOGIC;
   signal vsync_int_i_1_n_0 : STD_LOGIC;
   signal vsync_int_reg_n_0 : STD_LOGIC;
   signal NLW_eqOp_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -339,6 +356,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \NLW_eqOp_inferred__13/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_eqOp_inferred__14/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_eqOp_inferred__15/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_eqOp_inferred__16/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_eqOp_inferred__2/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_eqOp_inferred__3/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_eqOp_inferred__4/i__carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -355,7 +373,9 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   signal \NLW_v_count_reg[8]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of U_VIDEO_CTRL_i_1 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of active_video_i_1 : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of hblank_i_1 : label is "soft_lutpair1";
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of \v0fp_start_reg[11]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \v0fp_start_reg[4]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
@@ -364,8 +384,10 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_generator is
   attribute METHODOLOGY_DRC_VIOS of \v0total_reg[4]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \v0total_reg[8]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
 begin
+  active_video_reg_0 <= \^active_video_reg_0\;
   fsync_out(0) <= \^fsync_out\(0);
   \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0\ <= \^generate_en_d_reg[1]_srl2___u_tc_top_detect_en_d_reg_r_0_i_1_0\;
+  vblank_reg_0 <= \^vblank_reg_0\;
 U_VIDEO_CTRL_i_1: unisim.vcomponents.LUT4
     generic map(
       INIT => X"EEEF"
@@ -382,7 +404,7 @@ active_chroma_i_1: unisim.vcomponents.LUT1
       INIT => X"1"
     )
         port map (
-      I0 => \time_control_regs[19]\(4),
+      I0 => \time_control_regs[19]\(5),
       O => active_chroma_i_1_n_0
     );
 active_chroma_reg: unisim.vcomponents.FDRE
@@ -391,6 +413,45 @@ active_chroma_reg: unisim.vcomponents.FDRE
       CE => gen_ce,
       D => active_chroma_i_1_n_0,
       Q => active_chroma_out,
+      R => p_3_in
+    );
+active_video_i_1: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"59"
+    )
+        port map (
+      I0 => \time_control_regs[19]\(4),
+      I1 => hblank_int_reg_n_0,
+      I2 => active_video_int_reg_n_0,
+      O => active_video0
+    );
+active_video_int_i_1: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FF7F7F7FAA000000"
+    )
+        port map (
+      I0 => gen_ce,
+      I1 => eqOp9_out,
+      I2 => eqOp1_out,
+      I3 => eqOp4_out,
+      I4 => eqOp10_out,
+      I5 => active_video_int_reg_n_0,
+      O => active_video_int_i_1_n_0
+    );
+active_video_int_reg: unisim.vcomponents.FDSE
+     port map (
+      C => clk,
+      CE => '1',
+      D => active_video_int_i_1_n_0,
+      Q => active_video_int_reg_n_0,
+      S => p_3_in
+    );
+active_video_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => gen_ce,
+      D => active_video0,
+      Q => \^active_video_reg_0\,
       R => p_3_in
     );
 all_cfg_i_1: unisim.vcomponents.LUT6
@@ -417,7 +478,7 @@ all_cfg_reg: unisim.vcomponents.FDRE
 eqOp_carry: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp13_out,
+      CO(3) => eqOp14_out,
       CO(2) => eqOp_carry_n_1,
       CO(1) => eqOp_carry_n_2,
       CO(0) => eqOp_carry_n_3,
@@ -484,7 +545,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__0/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp12_out,
+      CO(3) => eqOp13_out,
       CO(2) => \eqOp_inferred__0/i__carry_n_1\,
       CO(1) => \eqOp_inferred__0/i__carry_n_2\,
       CO(0) => \eqOp_inferred__0/i__carry_n_3\,
@@ -499,7 +560,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__10/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp4_out,
+      CO(3) => eqOp6_out,
       CO(2) => \eqOp_inferred__10/i__carry_n_1\,
       CO(1) => \eqOp_inferred__10/i__carry_n_2\,
       CO(0) => \eqOp_inferred__10/i__carry_n_3\,
@@ -514,7 +575,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__11/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp6_out,
+      CO(3) => eqOp7_out,
       CO(2) => \eqOp_inferred__11/i__carry_n_1\,
       CO(1) => \eqOp_inferred__11/i__carry_n_2\,
       CO(0) => \eqOp_inferred__11/i__carry_n_3\,
@@ -529,7 +590,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__12/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp7_out,
+      CO(3) => eqOp8_out,
       CO(2) => \eqOp_inferred__12/i__carry_n_1\,
       CO(1) => \eqOp_inferred__12/i__carry_n_2\,
       CO(0) => \eqOp_inferred__12/i__carry_n_3\,
@@ -544,7 +605,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__13/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp1_out,
+      CO(3) => eqOp2_out,
       CO(2) => \eqOp_inferred__13/i__carry_n_1\,
       CO(1) => \eqOp_inferred__13/i__carry_n_2\,
       CO(0) => \eqOp_inferred__13/i__carry_n_3\,
@@ -559,7 +620,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__14/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp3_out,
+      CO(3) => eqOp4_out,
       CO(2) => \eqOp_inferred__14/i__carry_n_1\,
       CO(1) => \eqOp_inferred__14/i__carry_n_2\,
       CO(0) => \eqOp_inferred__14/i__carry_n_3\,
@@ -574,7 +635,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__15/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp2_out,
+      CO(3) => eqOp3_out,
       CO(2) => \eqOp_inferred__15/i__carry_n_1\,
       CO(1) => \eqOp_inferred__15/i__carry_n_2\,
       CO(0) => \eqOp_inferred__15/i__carry_n_3\,
@@ -585,6 +646,21 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
       S(2) => \i__carry_i_2__11_n_0\,
       S(1) => \i__carry_i_3__11_n_0\,
       S(0) => \i__carry_i_4__11_n_0\
+    );
+\eqOp_inferred__16/i__carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => eqOp1_out,
+      CO(2) => \eqOp_inferred__16/i__carry_n_1\,
+      CO(1) => \eqOp_inferred__16/i__carry_n_2\,
+      CO(0) => \eqOp_inferred__16/i__carry_n_3\,
+      CYINIT => '1',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => \NLW_eqOp_inferred__16/i__carry_O_UNCONNECTED\(3 downto 0),
+      S(3) => \i__carry_i_1__13_n_0\,
+      S(2) => \i__carry_i_2__13_n_0\,
+      S(1) => \i__carry_i_3__13_n_0\,
+      S(0) => \i__carry_i_4__13_n_0\
     );
 \eqOp_inferred__2/i__carry\: unisim.vcomponents.CARRY4
      port map (
@@ -619,7 +695,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__4/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp11_out,
+      CO(3) => eqOp12_out,
       CO(2) => \eqOp_inferred__4/i__carry_n_1\,
       CO(1) => \eqOp_inferred__4/i__carry_n_2\,
       CO(0) => \eqOp_inferred__4/i__carry_n_3\,
@@ -634,7 +710,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__5/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp10_out,
+      CO(3) => eqOp11_out,
       CO(2) => \eqOp_inferred__5/i__carry_n_1\,
       CO(1) => \eqOp_inferred__5/i__carry_n_2\,
       CO(0) => \eqOp_inferred__5/i__carry_n_3\,
@@ -649,7 +725,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__6/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp8_out,
+      CO(3) => eqOp9_out,
       CO(2) => \eqOp_inferred__6/i__carry_n_1\,
       CO(1) => \eqOp_inferred__6/i__carry_n_2\,
       CO(0) => \eqOp_inferred__6/i__carry_n_3\,
@@ -664,7 +740,7 @@ eqOp_carry_i_4: unisim.vcomponents.LUT6
 \eqOp_inferred__7/i__carry\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => eqOp9_out,
+      CO(3) => eqOp10_out,
       CO(2) => \eqOp_inferred__7/i__carry_n_1\,
       CO(1) => \eqOp_inferred__7/i__carry_n_2\,
       CO(0) => \eqOp_inferred__7/i__carry_n_3\,
@@ -908,17 +984,15 @@ hblank_i_1: unisim.vcomponents.LUT2
       I1 => hblank_int_reg_n_0,
       O => hblank0
     );
-hblank_int_i_1: unisim.vcomponents.LUT6
+hblank_int_i_1: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"00000000E2EA0000"
+      INIT => X"DFC0"
     )
         port map (
-      I0 => hblank_int_reg_n_0,
-      I1 => gen_ce,
-      I2 => eqOp8_out,
-      I3 => eqOp9_out,
-      I4 => all_cfg_reg_n_0,
-      I5 => \htotal[11]_i_1_n_0\,
+      I0 => eqOp10_out,
+      I1 => eqOp9_out,
+      I2 => gen_ce,
+      I3 => hblank_int_reg_n_0,
       O => hblank_int_i_1_n_0
     );
 hblank_int_reg: unisim.vcomponents.FDRE
@@ -927,7 +1001,7 @@ hblank_int_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => hblank_int_i_1_n_0,
       Q => hblank_int_reg_n_0,
-      R => '0'
+      R => p_3_in
     );
 hblank_reg: unisim.vcomponents.FDRE
      port map (
@@ -1143,9 +1217,9 @@ hsync_int_i_1: unisim.vcomponents.LUT6
       INIT => X"FFFFF4CCFFFFFFFF"
     )
         port map (
-      I0 => eqOp11_out,
+      I0 => eqOp12_out,
       I1 => hsync_int_reg_n_0,
-      I2 => eqOp10_out,
+      I2 => eqOp11_out,
       I3 => gen_ce,
       I4 => \htotal[11]_i_1_n_0\,
       I5 => all_cfg_reg_n_0,
@@ -1710,6 +1784,16 @@ hsync_reg: unisim.vcomponents.FDRE
       I2 => h_count_reg(9),
       O => \i__carry_i_1__12_n_0\
     );
+\i__carry_i_1__13\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"01"
+    )
+        port map (
+      I0 => v_count_reg(11),
+      I1 => v_count_reg(10),
+      I2 => v_count_reg(9),
+      O => \i__carry_i_1__13_n_0\
+    );
 \i__carry_i_1__2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9009000000009009"
@@ -1754,12 +1838,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => v_count_reg(9),
-      I1 => v0bp_start(9),
-      I2 => v0bp_start(11),
-      I3 => v_count_reg(11),
-      I4 => v0bp_start(10),
-      I5 => v_count_reg(10),
+      I0 => h_count_reg(9),
+      I1 => v0bp_start_hori(9),
+      I2 => v0bp_start_hori(11),
+      I3 => h_count_reg(11),
+      I4 => v0bp_start_hori(10),
+      I5 => h_count_reg(10),
       O => \i__carry_i_1__5_n_0\
     );
 \i__carry_i_1__6\: unisim.vcomponents.LUT6
@@ -1767,12 +1851,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => h_count_reg(9),
-      I1 => v0bp_start_hori(9),
-      I2 => v0bp_start_hori(11),
-      I3 => h_count_reg(11),
-      I4 => v0bp_start_hori(10),
-      I5 => h_count_reg(10),
+      I0 => v_count_reg(9),
+      I1 => v0bp_start(9),
+      I2 => v0bp_start(11),
+      I3 => v_count_reg(11),
+      I4 => v0bp_start(10),
+      I5 => v_count_reg(10),
       O => \i__carry_i_1__6_n_0\
     );
 \i__carry_i_1__7\: unisim.vcomponents.LUT6
@@ -1889,6 +1973,16 @@ hsync_reg: unisim.vcomponents.FDRE
       I2 => h_count_reg(6),
       O => \i__carry_i_2__12_n_0\
     );
+\i__carry_i_2__13\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"01"
+    )
+        port map (
+      I0 => v_count_reg(8),
+      I1 => v_count_reg(7),
+      I2 => v_count_reg(6),
+      O => \i__carry_i_2__13_n_0\
+    );
 \i__carry_i_2__2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9009000000009009"
@@ -1933,12 +2027,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => v_count_reg(6),
-      I1 => v0bp_start(6),
-      I2 => v0bp_start(8),
-      I3 => v_count_reg(8),
-      I4 => v0bp_start(7),
-      I5 => v_count_reg(7),
+      I0 => h_count_reg(6),
+      I1 => v0bp_start_hori(6),
+      I2 => v0bp_start_hori(8),
+      I3 => h_count_reg(8),
+      I4 => v0bp_start_hori(7),
+      I5 => h_count_reg(7),
       O => \i__carry_i_2__5_n_0\
     );
 \i__carry_i_2__6\: unisim.vcomponents.LUT6
@@ -1946,12 +2040,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => h_count_reg(6),
-      I1 => v0bp_start_hori(6),
-      I2 => v0bp_start_hori(8),
-      I3 => h_count_reg(8),
-      I4 => v0bp_start_hori(7),
-      I5 => h_count_reg(7),
+      I0 => v_count_reg(6),
+      I1 => v0bp_start(6),
+      I2 => v0bp_start(8),
+      I3 => v_count_reg(8),
+      I4 => v0bp_start(7),
+      I5 => v_count_reg(7),
       O => \i__carry_i_2__6_n_0\
     );
 \i__carry_i_2__7\: unisim.vcomponents.LUT6
@@ -2068,6 +2162,16 @@ hsync_reg: unisim.vcomponents.FDRE
       I2 => h_count_reg(3),
       O => \i__carry_i_3__12_n_0\
     );
+\i__carry_i_3__13\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"01"
+    )
+        port map (
+      I0 => v_count_reg(5),
+      I1 => v_count_reg(4),
+      I2 => v_count_reg(3),
+      O => \i__carry_i_3__13_n_0\
+    );
 \i__carry_i_3__2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9009000000009009"
@@ -2112,12 +2216,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => v_count_reg(3),
-      I1 => v0bp_start(3),
-      I2 => v0bp_start(5),
-      I3 => v_count_reg(5),
-      I4 => v0bp_start(4),
-      I5 => v_count_reg(4),
+      I0 => h_count_reg(3),
+      I1 => v0bp_start_hori(3),
+      I2 => v0bp_start_hori(5),
+      I3 => h_count_reg(5),
+      I4 => v0bp_start_hori(4),
+      I5 => h_count_reg(4),
       O => \i__carry_i_3__5_n_0\
     );
 \i__carry_i_3__6\: unisim.vcomponents.LUT6
@@ -2125,12 +2229,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => h_count_reg(3),
-      I1 => v0bp_start_hori(3),
-      I2 => v0bp_start_hori(5),
-      I3 => h_count_reg(5),
-      I4 => v0bp_start_hori(4),
-      I5 => h_count_reg(4),
+      I0 => v_count_reg(3),
+      I1 => v0bp_start(3),
+      I2 => v0bp_start(5),
+      I3 => v_count_reg(5),
+      I4 => v0bp_start(4),
+      I5 => v_count_reg(4),
       O => \i__carry_i_3__6_n_0\
     );
 \i__carry_i_3__7\: unisim.vcomponents.LUT6
@@ -2247,6 +2351,16 @@ hsync_reg: unisim.vcomponents.FDRE
       I2 => h_count_reg(0),
       O => \i__carry_i_4__12_n_0\
     );
+\i__carry_i_4__13\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"01"
+    )
+        port map (
+      I0 => v_count_reg(2),
+      I1 => v_count_reg(1),
+      I2 => v_count_reg(0),
+      O => \i__carry_i_4__13_n_0\
+    );
 \i__carry_i_4__2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9009000000009009"
@@ -2291,12 +2405,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => v_count_reg(0),
-      I1 => v0bp_start(0),
-      I2 => v0bp_start(2),
-      I3 => v_count_reg(2),
-      I4 => v0bp_start(1),
-      I5 => v_count_reg(1),
+      I0 => h_count_reg(0),
+      I1 => v0bp_start_hori(0),
+      I2 => v0bp_start_hori(2),
+      I3 => h_count_reg(2),
+      I4 => v0bp_start_hori(1),
+      I5 => h_count_reg(1),
       O => \i__carry_i_4__5_n_0\
     );
 \i__carry_i_4__6\: unisim.vcomponents.LUT6
@@ -2304,12 +2418,12 @@ hsync_reg: unisim.vcomponents.FDRE
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => h_count_reg(0),
-      I1 => v0bp_start_hori(0),
-      I2 => v0bp_start_hori(2),
-      I3 => h_count_reg(2),
-      I4 => v0bp_start_hori(1),
-      I5 => h_count_reg(1),
+      I0 => v_count_reg(0),
+      I1 => v0bp_start(0),
+      I2 => v0bp_start(2),
+      I3 => v_count_reg(2),
+      I4 => v0bp_start(1),
+      I5 => v_count_reg(1),
       O => \i__carry_i_4__6_n_0\
     );
 \i__carry_i_4__7\: unisim.vcomponents.LUT6
@@ -2351,6 +2465,31 @@ hsync_reg: unisim.vcomponents.FDRE
       I5 => h_count_reg(1),
       O => \i__carry_i_4__9_n_0\
     );
+\intr_status_int[13]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"24000000"
+    )
+        port map (
+      I0 => \time_control_regs[19]\(4),
+      I1 => gen_active_video_d,
+      I2 => \^active_video_reg_0\,
+      I3 => p_5_in,
+      I4 => resetn_out,
+      O => gen_active_video_d_reg
+    );
+\intr_status_int[13]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"2424FF2424FF2424"
+    )
+        port map (
+      I0 => \time_control_regs[19]\(0),
+      I1 => gen_vblank_d,
+      I2 => \^vblank_reg_0\,
+      I3 => \^active_video_reg_0\,
+      I4 => gen_active_video_d,
+      I5 => \time_control_regs[19]\(4),
+      O => gen_vblank_d_reg
+    );
 last_line_i_1: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000000000E2E2E2"
@@ -2358,7 +2497,7 @@ last_line_i_1: unisim.vcomponents.LUT6
         port map (
       I0 => last_line,
       I1 => gen_ce,
-      I2 => eqOp12_out,
+      I2 => eqOp13_out,
       I3 => \genr_control_regs[0]\(2),
       I4 => fsync_in,
       I5 => p_3_in,
@@ -2377,7 +2516,7 @@ line_end_i_1: unisim.vcomponents.LUT6
       INIT => X"0000002C002C002C"
     )
         port map (
-      I0 => eqOp13_out,
+      I0 => eqOp14_out,
       I1 => line_end,
       I2 => gen_ce,
       I3 => p_3_in,
@@ -2398,7 +2537,7 @@ line_end_v_i_1: unisim.vcomponents.LUT6
       INIT => X"0000002C002C002C"
     )
         port map (
-      I0 => eqOp13_out,
+      I0 => eqOp14_out,
       I1 => line_end_v,
       I2 => gen_ce,
       I3 => p_3_in,
@@ -2428,8 +2567,8 @@ sw_enable_d_i_1: unisim.vcomponents.LUT5
     )
         port map (
       I0 => sw_enable_d,
-      I1 => last_line,
-      I2 => line_end_v,
+      I1 => line_end_v,
+      I2 => last_line,
       I3 => \^generate_en_d_reg[1]_srl2___u_tc_top_detect_en_d_reg_r_0_i_1_0\,
       I4 => resetn_out,
       O => sw_enable_d_i_1_n_0
@@ -3503,8 +3642,8 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
       I1 => fsync_in,
       I2 => p_3_in,
       I3 => gen_ce,
-      I4 => last_line,
-      I5 => line_end_v,
+      I4 => line_end_v,
+      I5 => last_line,
       O => \v_count[0]_i_1_n_0\
     );
 \v_count[0]_i_2\: unisim.vcomponents.LUT3
@@ -3515,7 +3654,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
       I0 => gen_ce,
       I1 => line_end_v,
       I2 => last_line,
-      O => v_count045_out
+      O => v_count058_out
     );
 \v_count[0]_i_4\: unisim.vcomponents.LUT1
     generic map(
@@ -3528,7 +3667,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[0]_i_3_n_7\,
       Q => v_count_reg(0),
       R => \v_count[0]_i_1_n_0\
@@ -3552,7 +3691,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[8]_i_1_n_5\,
       Q => v_count_reg(10),
       R => \v_count[0]_i_1_n_0\
@@ -3560,7 +3699,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[8]_i_1_n_4\,
       Q => v_count_reg(11),
       R => \v_count[0]_i_1_n_0\
@@ -3568,7 +3707,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[0]_i_3_n_6\,
       Q => v_count_reg(1),
       R => \v_count[0]_i_1_n_0\
@@ -3576,7 +3715,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[0]_i_3_n_5\,
       Q => v_count_reg(2),
       R => \v_count[0]_i_1_n_0\
@@ -3584,7 +3723,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[0]_i_3_n_4\,
       Q => v_count_reg(3),
       R => \v_count[0]_i_1_n_0\
@@ -3592,7 +3731,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[4]_i_1_n_7\,
       Q => v_count_reg(4),
       R => \v_count[0]_i_1_n_0\
@@ -3615,7 +3754,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[4]_i_1_n_6\,
       Q => v_count_reg(5),
       R => \v_count[0]_i_1_n_0\
@@ -3623,7 +3762,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[4]_i_1_n_5\,
       Q => v_count_reg(6),
       R => \v_count[0]_i_1_n_0\
@@ -3631,7 +3770,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[4]_i_1_n_4\,
       Q => v_count_reg(7),
       R => \v_count[0]_i_1_n_0\
@@ -3639,7 +3778,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[8]_i_1_n_7\,
       Q => v_count_reg(8),
       R => \v_count[0]_i_1_n_0\
@@ -3662,7 +3801,7 @@ sw_enable_d_reg: unisim.vcomponents.FDRE
 \v_count_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => v_count045_out,
+      CE => v_count058_out,
       D => \v_count_reg[8]_i_1_n_6\,
       Q => v_count_reg(9),
       R => \v_count[0]_i_1_n_0\
@@ -3678,40 +3817,31 @@ vblank_i_1: unisim.vcomponents.LUT2
     );
 vblank_int_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFE2EAEAEA"
+      INIT => X"F777FFFFF0000000"
     )
         port map (
-      I0 => vblank_int_reg_n_0,
-      I1 => gen_ce,
-      I2 => vblank_int030_out,
-      I3 => eqOp3_out,
-      I4 => eqOp2_out,
-      I5 => p_3_in,
+      I0 => eqOp3_out,
+      I1 => eqOp4_out,
+      I2 => last_line,
+      I3 => eqOp2_out,
+      I4 => gen_ce,
+      I5 => vblank_int_reg_n_0,
       O => vblank_int_i_1_n_0
     );
-vblank_int_i_2: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => eqOp1_out,
-      I1 => last_line,
-      O => vblank_int030_out
-    );
-vblank_int_reg: unisim.vcomponents.FDRE
+vblank_int_reg: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => '1',
       D => vblank_int_i_1_n_0,
       Q => vblank_int_reg_n_0,
-      R => '0'
+      S => p_3_in
     );
 vblank_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => gen_ce,
       D => vblank0,
-      Q => vblank_out,
+      Q => \^vblank_reg_0\,
       R => p_3_in
     );
 vsync_i_1: unisim.vcomponents.LUT2
@@ -3725,33 +3855,24 @@ vsync_i_1: unisim.vcomponents.LUT2
     );
 vsync_int_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFE2EAEAEA"
+      INIT => X"F777FFFFF0000000"
     )
         port map (
-      I0 => vsync_int_reg_n_0,
-      I1 => gen_ce,
-      I2 => vsync_int035_out,
-      I3 => eqOp6_out,
-      I4 => eqOp7_out,
-      I5 => p_3_in,
+      I0 => eqOp8_out,
+      I1 => eqOp7_out,
+      I2 => eqOp6_out,
+      I3 => eqOp5_out,
+      I4 => gen_ce,
+      I5 => vsync_int_reg_n_0,
       O => vsync_int_i_1_n_0
     );
-vsync_int_i_2: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => eqOp4_out,
-      I1 => eqOp5_out,
-      O => vsync_int035_out
-    );
-vsync_int_reg: unisim.vcomponents.FDRE
+vsync_int_reg: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => '1',
       D => vsync_int_i_1_n_0,
       Q => vsync_int_reg_n_0,
-      R => '0'
+      S => p_3_in
     );
 vsync_reg: unisim.vcomponents.FDRE
      port map (
@@ -5740,15 +5861,16 @@ entity VGA_source_v_tc_0_0_tc_top is
     hsync_out : out STD_LOGIC;
     hblank_out : out STD_LOGIC;
     vsync_out : out STD_LOGIC;
-    vblank_out : out STD_LOGIC;
+    vblank_reg : out STD_LOGIC;
+    active_video_reg : out STD_LOGIC;
     active_chroma_out : out STD_LOGIC;
     reg_update : out STD_LOGIC;
-    intc_if : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    \genr_status_regs[1]\ : out STD_LOGIC_VECTOR ( 5 downto 0 );
     clk : in STD_LOGIC;
     clken : in STD_LOGIC;
     \genr_control_regs[0]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     fsync_in : in STD_LOGIC;
-    \time_control_regs[19]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \time_control_regs[19]\ : in STD_LOGIC_VECTOR ( 5 downto 0 );
     core_d_out : in STD_LOGIC;
     gen_clken : in STD_LOGIC;
     resetn_out : in STD_LOGIC;
@@ -5757,8 +5879,8 @@ entity VGA_source_v_tc_0_0_tc_top is
     \time_control_regs[21]\ : in STD_LOGIC_VECTOR ( 11 downto 0 );
     \time_control_regs[22]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[16]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
-    \time_control_regs[24]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[25]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    \time_control_regs[24]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[23]\ : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -5766,7 +5888,10 @@ entity VGA_source_v_tc_0_0_tc_top is
 end VGA_source_v_tc_0_0_tc_top;
 
 architecture STRUCTURE of VGA_source_v_tc_0_0_tc_top is
-  signal \GEN_GENERATOR.U_TC_GEN_n_7\ : STD_LOGIC;
+  signal \GEN_GENERATOR.U_TC_GEN_n_10\ : STD_LOGIC;
+  signal \GEN_GENERATOR.U_TC_GEN_n_8\ : STD_LOGIC;
+  signal \GEN_GENERATOR.U_TC_GEN_n_9\ : STD_LOGIC;
+  signal \^active_video_reg\ : STD_LOGIC;
   signal \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_n_0\ : STD_LOGIC;
   signal \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_n_0\ : STD_LOGIC;
   signal \detect_en_d_reg[2]_U_TC_TOP_detect_en_d_reg_r_1_n_0\ : STD_LOGIC;
@@ -5775,69 +5900,71 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_tc_top is
   signal detect_en_d_reg_r_1_n_0 : STD_LOGIC;
   signal detect_en_d_reg_r_n_0 : STD_LOGIC;
   signal \^fsync_out\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal gen_active_video_d : STD_LOGIC;
+  signal gen_vblank_d : STD_LOGIC;
   signal \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_n_0\ : STD_LOGIC;
   signal \generate_en_d_reg[2]_U_TC_TOP_detect_en_d_reg_r_1_n_0\ : STD_LOGIC;
   signal generate_en_d_reg_gate_n_0 : STD_LOGIC;
-  signal \^intc_if\ : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal \^genr_status_regs[1]\ : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal \intr_status_int[10]_i_1_n_0\ : STD_LOGIC;
   signal \intr_status_int[11]_i_1_n_0\ : STD_LOGIC;
   signal \intr_status_int[12]_i_1_n_0\ : STD_LOGIC;
+  signal \intr_status_int[13]_i_1_n_0\ : STD_LOGIC;
   signal \intr_status_int[16]_i_1_n_0\ : STD_LOGIC;
   signal \intr_status_int[9]_i_1_n_0\ : STD_LOGIC;
   signal p_0_in : STD_LOGIC;
   signal p_5_in : STD_LOGIC;
   signal reset : STD_LOGIC;
-  signal \^vblank_out\ : STD_LOGIC;
+  signal \^vblank_reg\ : STD_LOGIC;
   attribute srl_bus_name : string;
   attribute srl_bus_name of \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0\ : label is "U0/\U_TC_TOP/detect_en_d_reg ";
   attribute srl_name : string;
   attribute srl_name of \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0\ : label is "U0/\U_TC_TOP/detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0 ";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of detect_en_d_reg_gate : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of detect_en_d_reg_gate : label is "soft_lutpair3";
   attribute srl_bus_name of \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0\ : label is "U0/\U_TC_TOP/generate_en_d_reg ";
   attribute srl_name of \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0\ : label is "U0/\U_TC_TOP/generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0 ";
-  attribute SOFT_HLUTNM of generate_en_d_reg_gate : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \intr_status_int[10]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \intr_status_int[9]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of generate_en_d_reg_gate : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \intr_status_int[11]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \intr_status_int[9]_i_1\ : label is "soft_lutpair2";
 begin
+  active_video_reg <= \^active_video_reg\;
   fsync_out(0) <= \^fsync_out\(0);
-  intc_if(4 downto 0) <= \^intc_if\(4 downto 0);
-  vblank_out <= \^vblank_out\;
+  \genr_status_regs[1]\(5 downto 0) <= \^genr_status_regs[1]\(5 downto 0);
+  vblank_reg <= \^vblank_reg\;
 \GEN_GENERATOR.U_TC_GEN\: entity work.VGA_source_v_tc_0_0_tc_generator
      port map (
       D(11 downto 0) => D(11 downto 0),
       active_chroma_out => active_chroma_out,
+      active_video_reg_0 => \^active_video_reg\,
       clk => clk,
       clken => clken,
       \core_control_regs[0]\(23 downto 0) => \core_control_regs[0]\(23 downto 0),
       core_d_out => core_d_out,
       fsync_in => fsync_in,
       fsync_out(0) => \^fsync_out\(0),
+      gen_active_video_d => gen_active_video_d,
+      gen_active_video_d_reg => \GEN_GENERATOR.U_TC_GEN_n_10\,
       gen_clken => gen_clken,
-      \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0\ => \GEN_GENERATOR.U_TC_GEN_n_7\,
+      gen_vblank_d => gen_vblank_d,
+      gen_vblank_d_reg => \GEN_GENERATOR.U_TC_GEN_n_8\,
+      \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_i_1_0\ => \GEN_GENERATOR.U_TC_GEN_n_9\,
       \genr_control_regs[0]\(2) => \genr_control_regs[0]\(3),
       \genr_control_regs[0]\(1 downto 0) => \genr_control_regs[0]\(1 downto 0),
       hblank_out => hblank_out,
       hsync_out => hsync_out,
+      p_5_in => p_5_in,
       reg_update => reg_update,
       resetn_out => resetn_out,
       \time_control_regs[16]\(23 downto 0) => \time_control_regs[16]\(23 downto 0),
-      \time_control_regs[19]\(4 downto 0) => \time_control_regs[19]\(4 downto 0),
+      \time_control_regs[19]\(5 downto 0) => \time_control_regs[19]\(5 downto 0),
       \time_control_regs[21]\(11 downto 0) => \time_control_regs[21]\(11 downto 0),
       \time_control_regs[22]\(23 downto 0) => \time_control_regs[22]\(23 downto 0),
       \time_control_regs[23]\(23 downto 0) => \time_control_regs[23]\(23 downto 0),
       \time_control_regs[24]\(23 downto 0) => \time_control_regs[24]\(23 downto 0),
       \time_control_regs[25]\(23 downto 0) => \time_control_regs[25]\(23 downto 0),
-      vblank_out => \^vblank_out\,
+      vblank_reg_0 => \^vblank_reg\,
       vsync_out => vsync_out
-    );
-detect_en_d_r_i_1: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => resetn_out,
-      O => reset
     );
 \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0\: unisim.vcomponents.SRL16E
      port map (
@@ -5909,6 +6036,30 @@ detect_en_d_reg_r_1: unisim.vcomponents.FDRE
       Q => detect_en_d_reg_r_1_n_0,
       R => reset
     );
+gen_active_video_d_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => clken,
+      D => \^active_video_reg\,
+      Q => gen_active_video_d,
+      R => reset
+    );
+gen_vblank_d_i_1: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn_out,
+      O => reset
+    );
+gen_vblank_d_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => clken,
+      D => \^vblank_reg\,
+      Q => gen_vblank_d,
+      R => reset
+    );
 \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0\: unisim.vcomponents.SRL16E
      port map (
       A0 => '1',
@@ -5917,7 +6068,7 @@ detect_en_d_reg_r_1: unisim.vcomponents.FDRE
       A3 => '0',
       CE => clken,
       CLK => clk,
-      D => \GEN_GENERATOR.U_TC_GEN_n_7\,
+      D => \GEN_GENERATOR.U_TC_GEN_n_9\,
       Q => \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_0_n_0\
     );
 \generate_en_d_reg[2]_U_TC_TOP_detect_en_d_reg_r_1\: unisim.vcomponents.FDRE
@@ -5953,7 +6104,7 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       I0 => p_0_in,
       I1 => clken,
       I2 => resetn_out,
-      I3 => \^intc_if\(1),
+      I3 => \^genr_status_regs[1]\(1),
       O => \intr_status_int[10]_i_1_n_0\
     );
 \intr_status_int[11]_i_1\: unisim.vcomponents.LUT4
@@ -5964,7 +6115,7 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       I0 => p_0_in,
       I1 => clken,
       I2 => resetn_out,
-      I3 => \^intc_if\(2),
+      I3 => \^genr_status_regs[1]\(2),
       O => \intr_status_int[11]_i_1_n_0\
     );
 \intr_status_int[12]_i_1\: unisim.vcomponents.LUT6
@@ -5972,20 +6123,33 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       INIT => X"C3000000AAAA0000"
     )
         port map (
-      I0 => \^intc_if\(3),
+      I0 => \^genr_status_regs[1]\(3),
       I1 => \time_control_regs[19]\(0),
-      I2 => \^vblank_out\,
+      I2 => \^vblank_reg\,
       I3 => p_5_in,
       I4 => resetn_out,
       I5 => clken,
       O => \intr_status_int[12]_i_1_n_0\
+    );
+\intr_status_int[13]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BAFFAAAA8A00AAAA"
+    )
+        port map (
+      I0 => \GEN_GENERATOR.U_TC_GEN_n_10\,
+      I1 => \GEN_GENERATOR.U_TC_GEN_n_8\,
+      I2 => p_5_in,
+      I3 => clken,
+      I4 => resetn_out,
+      I5 => \^genr_status_regs[1]\(4),
+      O => \intr_status_int[13]_i_1_n_0\
     );
 \intr_status_int[16]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"C000AA00"
     )
         port map (
-      I0 => \^intc_if\(4),
+      I0 => \^genr_status_regs[1]\(5),
       I1 => \^fsync_out\(0),
       I2 => p_5_in,
       I3 => resetn_out,
@@ -5997,7 +6161,7 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       INIT => X"C0A0"
     )
         port map (
-      I0 => \^intc_if\(0),
+      I0 => \^genr_status_regs[1]\(0),
       I1 => p_0_in,
       I2 => resetn_out,
       I3 => clken,
@@ -6008,7 +6172,7 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       C => clk,
       CE => '1',
       D => \intr_status_int[10]_i_1_n_0\,
-      Q => \^intc_if\(1),
+      Q => \^genr_status_regs[1]\(1),
       R => '0'
     );
 \intr_status_int_reg[11]\: unisim.vcomponents.FDRE
@@ -6016,7 +6180,7 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       C => clk,
       CE => '1',
       D => \intr_status_int[11]_i_1_n_0\,
-      Q => \^intc_if\(2),
+      Q => \^genr_status_regs[1]\(2),
       R => '0'
     );
 \intr_status_int_reg[12]\: unisim.vcomponents.FDRE
@@ -6024,7 +6188,15 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       C => clk,
       CE => '1',
       D => \intr_status_int[12]_i_1_n_0\,
-      Q => \^intc_if\(3),
+      Q => \^genr_status_regs[1]\(3),
+      R => '0'
+    );
+\intr_status_int_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => \intr_status_int[13]_i_1_n_0\,
+      Q => \^genr_status_regs[1]\(4),
       R => '0'
     );
 \intr_status_int_reg[16]\: unisim.vcomponents.FDRE
@@ -6032,7 +6204,7 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       C => clk,
       CE => '1',
       D => \intr_status_int[16]_i_1_n_0\,
-      Q => \^intc_if\(4),
+      Q => \^genr_status_regs[1]\(5),
       R => '0'
     );
 \intr_status_int_reg[9]\: unisim.vcomponents.FDRE
@@ -6040,7 +6212,7 @@ generate_en_d_reg_gate: unisim.vcomponents.LUT2
       C => clk,
       CE => '1',
       D => \intr_status_int[9]_i_1_n_0\,
-      Q => \^intc_if\(0),
+      Q => \^genr_status_regs[1]\(0),
       R => '0'
     );
 end STRUCTURE;
@@ -6187,7 +6359,7 @@ entity VGA_source_v_tc_0_0_v_tc is
   attribute C_GEN_AUTO_SWITCH : integer;
   attribute C_GEN_AUTO_SWITCH of VGA_source_v_tc_0_0_v_tc : entity is 0;
   attribute C_GEN_AVIDEO_EN : integer;
-  attribute C_GEN_AVIDEO_EN of VGA_source_v_tc_0_0_v_tc : entity is 0;
+  attribute C_GEN_AVIDEO_EN of VGA_source_v_tc_0_0_v_tc : entity is 1;
   attribute C_GEN_AVIDEO_POLARITY : integer;
   attribute C_GEN_AVIDEO_POLARITY of VGA_source_v_tc_0_0_v_tc : entity is 1;
   attribute C_GEN_CPARITY : integer;
@@ -6488,7 +6660,6 @@ architecture STRUCTURE of VGA_source_v_tc_0_0_v_tc is
   attribute sigis of s_axi_aclk : signal is "CLK";
   attribute sigis of s_axi_aresetn : signal is "RST";
 begin
-  active_video_out <= \<const0>\;
   field_id_out <= \<const0>\;
   intc_if(31) <= \<const0>\;
   intc_if(30) <= \<const0>\;
@@ -6508,8 +6679,7 @@ begin
   intc_if(16) <= \^intc_if\(16);
   intc_if(15) <= \<const0>\;
   intc_if(14) <= \<const0>\;
-  intc_if(13) <= \<const0>\;
-  intc_if(12 downto 9) <= \^intc_if\(12 downto 9);
+  intc_if(13 downto 9) <= \^intc_if\(13 downto 9);
   intc_if(8) <= \<const0>\;
   intc_if(7) <= \<const0>\;
   intc_if(6) <= \<const0>\;
@@ -6527,6 +6697,7 @@ U_TC_TOP: entity work.VGA_source_v_tc_0_0_tc_top
      port map (
       D(11 downto 0) => \time_control_regs[20]\(11 downto 0),
       active_chroma_out => active_chroma_out,
+      active_video_reg => active_video_out,
       clk => clk,
       clken => clken,
       \core_control_regs[0]\(23 downto 12) => \core_control_regs[0]\(27 downto 16),
@@ -6538,16 +6709,15 @@ U_TC_TOP: entity work.VGA_source_v_tc_0_0_tc_top
       \genr_control_regs[0]\(3) => \genr_control_regs[0]\(5),
       \genr_control_regs[0]\(2 downto 1) => \genr_control_regs[0]\(3 downto 2),
       \genr_control_regs[0]\(0) => \genr_control_regs[0]\(0),
+      \genr_status_regs[1]\(5) => \^intc_if\(16),
+      \genr_status_regs[1]\(4 downto 0) => \^intc_if\(13 downto 9),
       hblank_out => hblank_out,
       hsync_out => hsync_out,
-      intc_if(4) => \^intc_if\(16),
-      intc_if(3 downto 0) => \^intc_if\(12 downto 9),
       reg_update => reg_update,
       resetn_out => vresetn,
       \time_control_regs[16]\(23 downto 12) => \time_control_regs[16]\(27 downto 16),
       \time_control_regs[16]\(11 downto 0) => \time_control_regs[16]\(11 downto 0),
-      \time_control_regs[19]\(4) => \time_control_regs[19]\(5),
-      \time_control_regs[19]\(3 downto 0) => \time_control_regs[19]\(3 downto 0),
+      \time_control_regs[19]\(5 downto 0) => \time_control_regs[19]\(5 downto 0),
       \time_control_regs[21]\(11 downto 0) => \time_control_regs[21]\(11 downto 0),
       \time_control_regs[22]\(23 downto 12) => \time_control_regs[22]\(27 downto 16),
       \time_control_regs[22]\(11 downto 0) => \time_control_regs[22]\(11 downto 0),
@@ -6557,7 +6727,7 @@ U_TC_TOP: entity work.VGA_source_v_tc_0_0_tc_top
       \time_control_regs[24]\(11 downto 0) => \time_control_regs[24]\(11 downto 0),
       \time_control_regs[25]\(23 downto 12) => \time_control_regs[25]\(27 downto 16),
       \time_control_regs[25]\(11 downto 0) => \time_control_regs[25]\(11 downto 0),
-      vblank_out => vblank_out,
+      vblank_reg => vblank_out,
       vsync_out => vsync_out
     );
 U_VIDEO_CTRL: entity work.VGA_source_v_tc_0_0_video_ctrl
@@ -6620,8 +6790,8 @@ U_VIDEO_CTRL: entity work.VGA_source_v_tc_0_0_video_ctrl
       \genr_status_regs[0]\(31 downto 0) => B"00000000000000000000000000000000",
       \genr_status_regs[1]\(31 downto 17) => B"000000000000000",
       \genr_status_regs[1]\(16) => \^intc_if\(16),
-      \genr_status_regs[1]\(15 downto 13) => B"000",
-      \genr_status_regs[1]\(12 downto 9) => \^intc_if\(12 downto 9),
+      \genr_status_regs[1]\(15 downto 14) => B"00",
+      \genr_status_regs[1]\(13 downto 9) => \^intc_if\(13 downto 9),
       \genr_status_regs[1]\(8 downto 0) => B"000000000",
       \genr_status_regs[2]\(31 downto 0) => B"00000000000000000000000000000000",
       \genr_status_regs[3]\(31 downto 0) => B"00000000000000000000000000000000",
@@ -6769,8 +6939,8 @@ U_VIDEO_CTRL: entity work.VGA_source_v_tc_0_0_video_ctrl
       \time_status_regs[14]\(31 downto 0) => B"00000000000000000000000000000000",
       \time_status_regs[15]\(31 downto 0) => B"00000000000000000000000000000000",
       \time_status_regs[16]\(31 downto 0) => B"00000000000000000000000000000000",
-      \time_status_regs[17]\(31 downto 2) => B"000000000000000000000000000000",
-      \time_status_regs[17]\(1) => \^intc_if\(12),
+      \time_status_regs[17]\(31 downto 3) => B"00000000000000000000000000000",
+      \time_status_regs[17]\(2 downto 1) => \^intc_if\(13 downto 12),
       \time_status_regs[17]\(0) => '0',
       \time_status_regs[18]\(31 downto 0) => B"00000000000000000000000000000000",
       \time_status_regs[19]\(31 downto 0) => B"00000000000000000000000000000000",
@@ -6837,6 +7007,7 @@ entity VGA_source_v_tc_0_0 is
     hblank_out : out STD_LOGIC;
     vsync_out : out STD_LOGIC;
     vblank_out : out STD_LOGIC;
+    active_video_out : out STD_LOGIC;
     resetn : in STD_LOGIC;
     fsync_out : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
@@ -6852,7 +7023,6 @@ end VGA_source_v_tc_0_0;
 
 architecture STRUCTURE of VGA_source_v_tc_0_0 is
   signal NLW_U0_active_chroma_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_U0_active_video_out_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_field_id_out_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_irq_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_s_axi_arready_UNCONNECTED : STD_LOGIC;
@@ -6957,7 +7127,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0 is
   attribute C_GEN_AUTO_SWITCH : integer;
   attribute C_GEN_AUTO_SWITCH of U0 : label is 0;
   attribute C_GEN_AVIDEO_EN : integer;
-  attribute C_GEN_AVIDEO_EN of U0 : label is 0;
+  attribute C_GEN_AVIDEO_EN of U0 : label is 1;
   attribute C_GEN_AVIDEO_POLARITY : integer;
   attribute C_GEN_AVIDEO_POLARITY of U0 : label is 1;
   attribute C_GEN_CPARITY : integer;
@@ -7052,6 +7222,7 @@ architecture STRUCTURE of VGA_source_v_tc_0_0 is
   attribute C_S_AXI_DATA_WIDTH of U0 : label is 32;
   attribute downgradeipidentifiedwarnings of U0 : label is "yes";
   attribute x_interface_info : string;
+  attribute x_interface_info of active_video_out : signal is "xilinx.com:interface:video_timing:2.0 vtiming_out ACTIVE_VIDEO";
   attribute x_interface_info of clk : signal is "xilinx.com:signal:clock:1.0 clk_intf CLK";
   attribute x_interface_parameter : string;
   attribute x_interface_parameter of clk : signal is "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF vtiming_in:vtiming_out, ASSOCIATED_RESET resetn, ASSOCIATED_CLKEN clken, FREQ_HZ 25265957, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
@@ -7069,7 +7240,7 @@ U0: entity work.VGA_source_v_tc_0_0_v_tc
       active_chroma_in => '0',
       active_chroma_out => NLW_U0_active_chroma_out_UNCONNECTED,
       active_video_in => '0',
-      active_video_out => NLW_U0_active_video_out_UNCONNECTED,
+      active_video_out => active_video_out,
       clk => clk,
       clken => clken,
       det_clken => '1',

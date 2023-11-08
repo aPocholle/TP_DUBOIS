@@ -1,8 +1,8 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
---Date        : Mon Oct 16 09:57:58 2023
---Host        : gs21-09 running 64-bit major release  (build 9200)
+--Date        : Wed Nov  8 12:03:21 2023
+--Host        : gs21-06 running 64-bit major release  (build 9200)
 --Command     : generate_target VGA_source.bd
 --Design      : VGA_source
 --Purpose     : IP block netlist
@@ -19,10 +19,11 @@ entity VGA_source is
     clk : in STD_LOGIC;
     hsync_out_0 : out STD_LOGIC;
     reset_n : in STD_LOGIC;
+    sw1 : in STD_LOGIC;
     vsync_out_0 : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of VGA_source : entity is "VGA_source,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=VGA_source,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of VGA_source : entity is "VGA_source,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=VGA_source,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=4,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of VGA_source : entity is "VGA_source.hwdef";
 end VGA_source;
@@ -73,13 +74,6 @@ architecture STRUCTURE of VGA_source is
     fsync_out : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component VGA_source_v_tc_0_0;
-  component VGA_source_mux_video_0_0 is
-  port (
-    DIN : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    DOUT : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    Sel_ActVideo : in STD_LOGIC
-  );
-  end component VGA_source_mux_video_0_0;
   component VGA_source_v_axi4s_vid_out_0_0 is
   port (
     aclk : in STD_LOGIC;
@@ -191,6 +185,13 @@ architecture STRUCTURE of VGA_source is
     dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component VGA_source_VDD_0;
+  component VGA_source_mux_video_0_0 is
+  port (
+    DIN : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    DOUT : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    Sel_ActVideo : in STD_LOGIC
+  );
+  end component VGA_source_mux_video_0_0;
   signal GND_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal VDD_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal c_counter_binary_0_Q : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -276,7 +277,7 @@ c_counter_binary_0: component VGA_source_c_counter_binary_0_0
       CE => v_tc_0_active_video_out,
       CLK => clk_wiz_0_clk_out2,
       Q(7 downto 0) => c_counter_binary_0_Q(7 downto 0),
-      SCLR => '0'
+      SCLR => v_tc_0_hsync_out
     );
 clk_wiz_0: component VGA_source_clk_wiz_0_0
      port map (

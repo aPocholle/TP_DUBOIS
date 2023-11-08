@@ -65,6 +65,7 @@ ENTITY VGA_source_v_tc_0_0 IS
     hblank_out : OUT STD_LOGIC;
     vsync_out : OUT STD_LOGIC;
     vblank_out : OUT STD_LOGIC;
+    active_video_out : OUT STD_LOGIC;
     resetn : IN STD_LOGIC;
     fsync_out : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
@@ -211,6 +212,7 @@ ARCHITECTURE VGA_source_v_tc_0_0_arch OF VGA_source_v_tc_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF resetn: SIGNAL IS "XIL_INTERFACENAME resetn_intf, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF resetn: SIGNAL IS "xilinx.com:signal:reset:1.0 resetn_intf RST";
+  ATTRIBUTE X_INTERFACE_INFO OF active_video_out: SIGNAL IS "xilinx.com:interface:video_timing:2.0 vtiming_out ACTIVE_VIDEO";
   ATTRIBUTE X_INTERFACE_INFO OF vblank_out: SIGNAL IS "xilinx.com:interface:video_timing:2.0 vtiming_out VBLANK";
   ATTRIBUTE X_INTERFACE_INFO OF vsync_out: SIGNAL IS "xilinx.com:interface:video_timing:2.0 vtiming_out VSYNC";
   ATTRIBUTE X_INTERFACE_INFO OF hblank_out: SIGNAL IS "xilinx.com:interface:video_timing:2.0 vtiming_out HBLANK";
@@ -303,7 +305,7 @@ BEGIN
       C_GEN_VSYNC_EN => 1,
       C_GEN_HBLANK_EN => 1,
       C_GEN_VBLANK_EN => 1,
-      C_GEN_AVIDEO_EN => 0,
+      C_GEN_AVIDEO_EN => 1,
       C_GEN_ACHROMA_EN => 0,
       C_GEN_FIELDID_EN => 0,
       C_DET_FIELDID_EN => 0
@@ -326,6 +328,7 @@ BEGIN
       hblank_out => hblank_out,
       vsync_out => vsync_out,
       vblank_out => vblank_out,
+      active_video_out => active_video_out,
       resetn => resetn,
       s_axi_aresetn => '1',
       s_axi_awaddr => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 9)),

@@ -1,0 +1,442 @@
+
+*** Running vivado
+    with args -log bd_0_hls_inst_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_0_hls_inst_0.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source bd_0_hls_inst_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.cache/ip 
+Command: synth_design -top bd_0_hls_inst_0 -part xc7vx485tffg1157-1 -directive sdx_optimization_effort_high -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-1540] The version limit for your license is '2022.09' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11400 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1016.398 ; gain = 233.508
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'bd_0_hls_inst_0' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.vhd:86]
+INFO: [Synth 8-3491] module 'inverter_hls' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:12' bound to instance 'U0' of component 'inverter_hls' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'inverter_hls' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:42]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:56]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:59]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:63]
+	Parameter DataWidth bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_s_axis_video_V_data_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:140]
+INFO: [Synth 8-638] synthesizing module 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:22]
+	Parameter DataWidth bound to: 8 - type: integer 
+	Parameter W bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'ibuf' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:575' bound to instance 'ibuf_inst' of component 'ibuf' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'xil_defaultlib_ibuf' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:587]
+	Parameter W bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'xil_defaultlib_ibuf' (1#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:587]
+	Parameter W bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'obuf' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:620' bound to instance 'obuf_inst' of component 'obuf' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:76]
+INFO: [Synth 8-638] synthesizing module 'xil_defaultlib_obuf' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:632]
+	Parameter W bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'xil_defaultlib_obuf' (2#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:632]
+INFO: [Synth 8-256] done synthesizing module 'regslice_both' (3#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:22]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_s_axis_video_V_keep_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:154]
+INFO: [Synth 8-638] synthesizing module 'regslice_both__parameterized1' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:22]
+	Parameter DataWidth bound to: 1 - type: integer 
+	Parameter W bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'ibuf' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:575' bound to instance 'ibuf_inst' of component 'ibuf' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'xil_defaultlib_ibuf__parameterized0' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:587]
+	Parameter W bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'xil_defaultlib_ibuf__parameterized0' (3#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:587]
+	Parameter W bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'obuf' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:620' bound to instance 'obuf_inst' of component 'obuf' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:76]
+INFO: [Synth 8-638] synthesizing module 'xil_defaultlib_obuf__parameterized0' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:632]
+	Parameter W bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'xil_defaultlib_obuf__parameterized0' (3#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:632]
+INFO: [Synth 8-256] done synthesizing module 'regslice_both__parameterized1' (3#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:22]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_s_axis_video_V_strb_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:168]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_s_axis_video_V_user_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:182]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_s_axis_video_V_last_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:196]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_s_axis_video_V_id_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:210]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_s_axis_video_V_dest_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:224]
+	Parameter DataWidth bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_m_axis_video_V_data_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:238]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_m_axis_video_V_keep_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:252]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_m_axis_video_V_strb_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:266]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_m_axis_video_V_user_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:280]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_m_axis_video_V_last_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:294]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_m_axis_video_V_id_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:308]
+	Parameter DataWidth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'regslice_both' declared at 'c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/regslice_core.vhd:7' bound to instance 'regslice_both_m_axis_video_V_dest_V_U' of component 'regslice_both' [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:322]
+INFO: [Synth 8-256] done synthesizing module 'inverter_hls' (4#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/8279/hdl/vhdl/inverter_hls.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'bd_0_hls_inst_0' (5#1) [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.vhd:86]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1091.762 ; gain = 308.871
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1091.762 ; gain = 308.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1091.762 ; gain = 308.871
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1091.762 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/constraints/inverter_hls_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/constraints/inverter_hls_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1195.207 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1204.805 ; gain = 9.598
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 4     
+	                2 Bit    Registers := 39    
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 26    
+	   4 Input      2 Bit        Muxes := 14    
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 57    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module xil_defaultlib_ibuf 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module xil_defaultlib_obuf 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module regslice_both 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module xil_defaultlib_ibuf__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module xil_defaultlib_obuf__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module regslice_both__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module inverter_hls 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2800 (col length:140)
+BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     1|
+|2     |LUT2 |    11|
+|3     |LUT3 |    16|
+|4     |LUT4 |    24|
+|5     |LUT5 |    29|
+|6     |LUT6 |    23|
+|7     |FDRE |    87|
+|8     |FDSE |     1|
++------+-----+------+
+
+Report Instance Areas: 
++------+------------------------------------------+---------------------------------------+------+
+|      |Instance                                  |Module                                 |Cells |
++------+------------------------------------------+---------------------------------------+------+
+|1     |top                                       |                                       |   192|
+|2     |  U0                                      |inverter_hls                           |   192|
+|3     |    regslice_both_m_axis_video_V_data_V_U |regslice_both                          |    39|
+|4     |      ibuf_inst                           |xil_defaultlib_ibuf_34                 |    23|
+|5     |      obuf_inst                           |xil_defaultlib_obuf_35                 |    12|
+|6     |    regslice_both_m_axis_video_V_dest_V_U |regslice_both__parameterized1          |     9|
+|7     |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_32 |     4|
+|8     |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_33 |     5|
+|9     |    regslice_both_m_axis_video_V_id_V_U   |regslice_both__parameterized1_0        |     9|
+|10    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_30 |     4|
+|11    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_31 |     5|
+|12    |    regslice_both_m_axis_video_V_keep_V_U |regslice_both__parameterized1_1        |     9|
+|13    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_28 |     4|
+|14    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_29 |     5|
+|15    |    regslice_both_m_axis_video_V_last_V_U |regslice_both__parameterized1_2        |     9|
+|16    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_26 |     4|
+|17    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_27 |     5|
+|18    |    regslice_both_m_axis_video_V_strb_V_U |regslice_both__parameterized1_3        |     9|
+|19    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_24 |     4|
+|20    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_25 |     5|
+|21    |    regslice_both_m_axis_video_V_user_V_U |regslice_both__parameterized1_4        |     9|
+|22    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_22 |     4|
+|23    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_23 |     5|
+|24    |    regslice_both_s_axis_video_V_data_V_U |regslice_both_5                        |    42|
+|25    |      ibuf_inst                           |xil_defaultlib_ibuf                    |    20|
+|26    |      obuf_inst                           |xil_defaultlib_obuf                    |    22|
+|27    |    regslice_both_s_axis_video_V_dest_V_U |regslice_both__parameterized1_6        |     9|
+|28    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_20 |     4|
+|29    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_21 |     5|
+|30    |    regslice_both_s_axis_video_V_id_V_U   |regslice_both__parameterized1_7        |     9|
+|31    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_18 |     4|
+|32    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_19 |     5|
+|33    |    regslice_both_s_axis_video_V_keep_V_U |regslice_both__parameterized1_8        |     9|
+|34    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_16 |     4|
+|35    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_17 |     5|
+|36    |    regslice_both_s_axis_video_V_last_V_U |regslice_both__parameterized1_9        |     9|
+|37    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_14 |     4|
+|38    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_15 |     5|
+|39    |    regslice_both_s_axis_video_V_strb_V_U |regslice_both__parameterized1_10       |     9|
+|40    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0_12 |     4|
+|41    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0_13 |     5|
+|42    |    regslice_both_s_axis_video_V_user_V_U |regslice_both__parameterized1_11       |     9|
+|43    |      ibuf_inst                           |xil_defaultlib_ibuf__parameterized0    |     4|
+|44    |      obuf_inst                           |xil_defaultlib_obuf__parameterized0    |     5|
++------+------------------------------------------+---------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1204.805 ; gain = 308.871
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1204.805 ; gain = 421.914
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1204.805 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1228.605 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+52 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1228.605 ; gain = 895.922
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1228.605 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/bd_0_hls_inst_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP bd_0_hls_inst_0, cache-ID = ec9913c8b4659f21
+INFO: [Coretcl 2-1174] Renamed 43 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1228.605 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/ap576391/Documents/Dubois/TP/inverter_hls/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/bd_0_hls_inst_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file bd_0_hls_inst_0_utilization_synth.rpt -pb bd_0_hls_inst_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Nov  8 09:44:36 2023...

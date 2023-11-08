@@ -2,11 +2,11 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Mon Oct 16 10:00:40 2023
-# Process ID: 5344
-# Current directory: C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/impl_1
+# Start of session at: Wed Nov  8 12:04:21 2023
+# Process ID: 1168
+# Current directory: C:/Users/ap576391/Documents/TP_DUBOIS/TP_Video chain/TP_Video chain.runs/impl_1
 # Command line: vivado.exe -log VGA_source_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source VGA_source_wrapper.tcl -notrace
-# Log file: C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/impl_1/VGA_source_wrapper.vdi
-# Journal file: C:/Users/ap576391/Documents/Dubois/TP1/TP_Video chain/TP_Video chain.runs/impl_1\vivado.jou
+# Log file: C:/Users/ap576391/Documents/TP_DUBOIS/TP_Video chain/TP_Video chain.runs/impl_1/VGA_source_wrapper.vdi
+# Journal file: C:/Users/ap576391/Documents/TP_DUBOIS/TP_Video chain/TP_Video chain.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source VGA_source_wrapper.tcl -notrace
