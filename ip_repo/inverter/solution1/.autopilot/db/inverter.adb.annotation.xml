@@ -1,6 +1,0 @@
-<annotationInfo>
-<annotationInfo>
-<item  id="43" filename="inverter/inverter.cpp" linenumber="16" name="xor_ln214" contextFuncName="inverter" moduleName="inverter" rtlName="xor_ln214_fu_139_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="8" fileDirectory="C:\Users\ap576391\Documents\TP_DUBOIS\ip_repo"><\/item>
-<item  id="44" filename="inverter/inverter.cpp" linenumber="15" name="tmp_data_V_1" contextFuncName="inverter" moduleName="inverter" rtlName="m_axis_video_TDATA_int" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="8" fileDirectory="C:\Users\ap576391\Documents\TP_DUBOIS\ip_repo"><\/item>
-<\/annotationInfo>
-</annotationInfo>

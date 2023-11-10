@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Wed Nov  8 12:05:52 2023
-| Host         : gs21-06 running 64-bit major release  (build 9200)
+| Date         : Fri Nov 10 16:38:28 2023
+| Host         : DESKTOP-Q8QIOJU running 64-bit major release  (build 9200)
 | Command      : report_methodology -file VGA_source_wrapper_methodology_drc_routed.rpt -pb VGA_source_wrapper_methodology_drc_routed.pb -rpx VGA_source_wrapper_methodology_drc_routed.rpx
 | Design       : VGA_source_wrapper
 | Device       : xc7z020clg484-1

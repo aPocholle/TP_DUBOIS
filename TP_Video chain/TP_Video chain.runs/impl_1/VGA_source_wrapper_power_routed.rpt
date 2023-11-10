@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Wed Nov  8 12:05:53 2023
-| Host             : gs21-06 running 64-bit major release  (build 9200)
+| Date             : Fri Nov 10 16:38:29 2023
+| Host             : DESKTOP-Q8QIOJU running 64-bit major release  (build 9200)
 | Command          : report_power -file VGA_source_wrapper_power_routed.rpt -pb VGA_source_wrapper_power_summary_routed.pb -rpx VGA_source_wrapper_power_routed.rpx
 | Design           : VGA_source_wrapper
 | Device           : xc7z020clg484-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.250        |
+| Total On-Chip Power (W)  | 0.253        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.142        |
+| Dynamic (W)              | 0.145        |
 | Device Static (W)        | 0.108        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 82.1         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.004 |        6 |       --- |             --- |
-| Slice Logic             |     0.001 |     3056 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      880 |     53200 |            1.65 |
-|   Register              |    <0.001 |     1630 |    106400 |            1.53 |
+| Slice Logic             |     0.001 |     3097 |       --- |             --- |
+|   LUT as Logic          |     0.001 |      897 |     53200 |            1.69 |
+|   Register              |    <0.001 |     1645 |    106400 |            1.55 |
 |   CARRY4                |    <0.001 |      193 |     13300 |            1.45 |
-|   Others                |     0.000 |      107 |       --- |             --- |
+|   Others                |     0.000 |      109 |       --- |             --- |
 |   LUT as Shift Register |     0.000 |        2 |     17400 |            0.01 |
-| Signals                 |     0.001 |     2025 |       --- |             --- |
-| Block RAM               |    <0.001 |      1.5 |       140 |            1.07 |
+| Signals                 |     0.002 |     2051 |       --- |             --- |
+| Block RAM               |     0.002 |      1.5 |       140 |            1.07 |
 | MMCM                    |     0.135 |        1 |         4 |           25.00 |
 | I/O                     |    <0.001 |       16 |       200 |            8.00 |
 | Static Power            |     0.108 |          |           |                 |
-| Total                   |     0.250 |          |           |                 |
+| Total                   |     0.253 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.015 |       0.007 |      0.008 |
+| Vccint    |       1.000 |     0.018 |       0.010 |      0.008 |
 | Vccaux    |       1.800 |     0.086 |       0.075 |      0.011 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -153,12 +153,12 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| VGA_source_wrapper    |     0.142 |
-|   VGA_source_i        |     0.142 |
+| VGA_source_wrapper    |     0.145 |
+|   VGA_source_i        |     0.145 |
 |     clk_wiz_0         |     0.136 |
 |       inst            |     0.136 |
-|     v_axi4s_vid_out_0 |     0.002 |
-|       inst            |     0.002 |
+|     v_axi4s_vid_out_0 |     0.005 |
+|       inst            |     0.005 |
 |     v_tc_1            |     0.002 |
 |       U0              |     0.002 |
 |     v_vid_in_axi4s_0  |     0.002 |

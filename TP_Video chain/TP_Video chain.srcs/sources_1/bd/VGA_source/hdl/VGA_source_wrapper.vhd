@@ -1,8 +1,8 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
---Date        : Wed Nov  8 12:03:21 2023
---Host        : gs21-06 running 64-bit major release  (build 9200)
+--Date        : Fri Nov 10 16:35:27 2023
+--Host        : DESKTOP-Q8QIOJU running 64-bit major release  (build 9200)
 --Command     : generate_target VGA_source_wrapper.bd
 --Design      : VGA_source_wrapper
 --Purpose     : IP block netlist

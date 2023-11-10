@@ -1,2 +1,2 @@
-ERROR: [Common 17-165] Too many positional options when parsing 'chain.tmp/interface_v1_0_project/interface_v1_0_project.hw/webtalk/labtool_webtalk.log', please type 'webtalk -help' for usage info.
+ERROR: [Common 17-165] Too many positional options when parsing 'chain.tmp/inverter_rtl_v1_0_project/inverter_rtl_v1_0_project.hw/webtalk/labtool_webtalk.log', please type 'webtalk -help' for usage info.
 

@@ -39,4 +39,10 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==VGA_source_xlco
 # IP: bd/VGA_source/ip/VGA_source_VDD_0/VGA_source_VDD_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==VGA_source_VDD_0 || ORIG_REF_NAME==VGA_source_VDD_0} -quiet] -quiet
 
+# IP: bd/VGA_source/ip/VGA_source_inverter_0_0/VGA_source_inverter_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==VGA_source_inverter_0_0 || ORIG_REF_NAME==VGA_source_inverter_0_0} -quiet] -quiet
+
+# IP: bd/VGA_source/ip/VGA_source_inverter_rtl_0_1/VGA_source_inverter_rtl_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==VGA_source_inverter_rtl_0_1 || ORIG_REF_NAME==VGA_source_inverter_rtl_0_1} -quiet] -quiet
+
 # XDC: bd/VGA_source/VGA_source_ooc.xdc

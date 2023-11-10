@@ -134,8 +134,11 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../TP_Video chain.srcs/source
 "../../../bd/VGA_source/ip/VGA_source_VDD_0/sim/VGA_source_VDD_0.v" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/VGA_source/ipshared/bab2/hdl/interface_v1_0.vhd" \
-"../../../bd/VGA_source/ip/VGA_source_interface_0_3/sim/VGA_source_interface_0_3.vhd" \
+"../../../../TP_Video chain.srcs/sources_1/bd/VGA_source/ipshared/c934/hdl/vhdl/inverter_regslice_both.vhd" \
+"../../../../TP_Video chain.srcs/sources_1/bd/VGA_source/ipshared/c934/hdl/vhdl/inverter.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_inverter_0_0/sim/VGA_source_inverter_0_0.vhd" \
+"../../../bd/VGA_source/ipshared/3fec/hdl/inverter_rtl_v1_0.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_inverter_rtl_0_1/sim/VGA_source_inverter_rtl_0_1.vhd" \
 "../../../bd/VGA_source/sim/VGA_source.vhd" \
 
 vlog -work xil_defaultlib \

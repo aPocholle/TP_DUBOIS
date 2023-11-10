@@ -19,7 +19,8 @@
       "v_vid_in_axi4s_0": "",
       "VDD": "",
       "GND": "",
-      "mux_video_0": ""
+      "mux_video_0": "",
+      "inverter_0": ""
     },
     "ports": {
       "reset_n": {
@@ -299,25 +300,23 @@
             "direction": "I"
           }
         }
+      },
+      "inverter_0": {
+        "vlnv": "xilinx.com:hls:inverter:1.0",
+        "xci_name": "VGA_source_inverter_0_0"
       }
     },
     "interface_nets": {
-      "v_tc_1_vtiming_out": {
-        "interface_ports": [
-          "v_tc_1/vtiming_out",
-          "v_axi4s_vid_out_0/vtiming_in"
-        ]
-      },
       "v_vid_in_axi4s_0_vtiming_out": {
         "interface_ports": [
           "v_tc_1/vtiming_in",
           "v_vid_in_axi4s_0/vtiming_out"
         ]
       },
-      "v_vid_in_axi4s_0_video_out": {
+      "v_tc_1_vtiming_out": {
         "interface_ports": [
-          "v_vid_in_axi4s_0/video_out",
-          "v_axi4s_vid_out_0/video_in"
+          "v_tc_1/vtiming_out",
+          "v_axi4s_vid_out_0/vtiming_in"
         ]
       }
     },
@@ -398,7 +397,8 @@
           "clk_wiz_0/clk_out1",
           "proc_sys_reset_1/slowest_sync_clk",
           "v_vid_in_axi4s_0/aclk",
-          "v_axi4s_vid_out_0/aclk"
+          "v_axi4s_vid_out_0/aclk",
+          "inverter_0/ap_clk"
         ]
       },
       "v_tc_0_active_video_out": {
@@ -427,14 +427,16 @@
           "v_vid_in_axi4s_0/aclken",
           "v_axi4s_vid_out_0/vid_io_out_ce",
           "v_tc_1/clken",
-          "v_tc_1/det_clken"
+          "v_tc_1/det_clken",
+          "inverter_0/ap_start"
         ]
       },
       "proc_sys_reset_1_peripheral_aresetn": {
         "ports": [
           "proc_sys_reset_1/peripheral_aresetn",
           "v_vid_in_axi4s_0/aresetn",
-          "v_axi4s_vid_out_0/aresetn"
+          "v_axi4s_vid_out_0/aresetn",
+          "inverter_0/ap_rst_n"
         ]
       },
       "v_axi4s_vid_out_0_vtg_ce": {
@@ -467,6 +469,12 @@
         "ports": [
           "v_tc_0/vsync_out",
           "v_vid_in_axi4s_0/vid_vsync"
+        ]
+      },
+      "sw1_1": {
+        "ports": [
+          "sw1",
+          "inverter_0/VidOrig_nVideoInv"
         ]
       }
     }

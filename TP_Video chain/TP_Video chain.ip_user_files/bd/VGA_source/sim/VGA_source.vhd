@@ -1,8 +1,8 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
---Date        : Wed Nov  8 11:56:32 2023
---Host        : gs21-06 running 64-bit major release  (build 9200)
+--Date        : Fri Nov 10 16:35:27 2023
+--Host        : DESKTOP-Q8QIOJU running 64-bit major release  (build 9200)
 --Command     : generate_target VGA_source.bd
 --Design      : VGA_source
 --Purpose     : IP block netlist
@@ -23,7 +23,7 @@ entity VGA_source is
     vsync_out_0 : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of VGA_source : entity is "VGA_source,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=VGA_source,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=12,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=4,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of VGA_source : entity is "VGA_source,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=VGA_source,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=13,numReposBlks=13,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=5,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of VGA_source : entity is "VGA_source.hwdef";
 end VGA_source;
@@ -192,40 +192,66 @@ architecture STRUCTURE of VGA_source is
     Sel_ActVideo : in STD_LOGIC
   );
   end component VGA_source_mux_video_0_0;
-  component VGA_source_interface_0_3 is
+  component VGA_source_inverter_0_0 is
   port (
-    VidOrig_nVideoInv : in STD_LOGIC;
-    s00_axis_aclk : in STD_LOGIC;
-    s00_axis_aresetn : in STD_LOGIC;
-    s00_axis_tready : out STD_LOGIC;
-    s00_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    s00_axis_tstrb : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s00_axis_tlast : in STD_LOGIC;
-    s00_axis_tvalid : in STD_LOGIC;
-    m00_axis_aclk : in STD_LOGIC;
-    m00_axis_aresetn : in STD_LOGIC;
-    m00_axis_tvalid : out STD_LOGIC;
-    m00_axis_tdata : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    m00_axis_tstrb : out STD_LOGIC_VECTOR ( 0 to 0 );
-    m00_axis_tlast : out STD_LOGIC;
-    m00_axis_tready : in STD_LOGIC
+    ap_clk : in STD_LOGIC;
+    ap_rst_n : in STD_LOGIC;
+    ap_start : in STD_LOGIC;
+    ap_done : out STD_LOGIC;
+    ap_idle : out STD_LOGIC;
+    ap_ready : out STD_LOGIC;
+    s_axis_video_TVALID : in STD_LOGIC;
+    s_axis_video_TREADY : out STD_LOGIC;
+    s_axis_video_TDATA : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    s_axis_video_TDEST : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axis_video_TKEEP : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axis_video_TSTRB : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axis_video_TUSER : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axis_video_TLAST : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axis_video_TID : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axis_video_TVALID : out STD_LOGIC;
+    m_axis_video_TREADY : in STD_LOGIC;
+    m_axis_video_TDATA : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axis_video_TDEST : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axis_video_TKEEP : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axis_video_TSTRB : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axis_video_TUSER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axis_video_TLAST : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axis_video_TID : out STD_LOGIC_VECTOR ( 0 to 0 );
+    VidOrig_nVideoInv : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  end component VGA_source_interface_0_3;
+  end component VGA_source_inverter_0_0;
+  component VGA_source_inverter_rtl_0_1 is
+  port (
+    ACLK : in STD_LOGIC;
+    ARESETN : in STD_LOGIC;
+    s_axis_tready : out STD_LOGIC;
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    s_axis_tstrb : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axis_tlast : in STD_LOGIC;
+    s_axis_tvalid : in STD_LOGIC;
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axis_tstrb : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axis_tlast : out STD_LOGIC;
+    m_axis_tready : in STD_LOGIC
+  );
+  end component VGA_source_inverter_rtl_0_1;
   signal GND_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal VDD_dout : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal VidOrig_nVideoInv_1_1 : STD_LOGIC;
   signal c_counter_binary_0_Q : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal clk_in1_0_1 : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_clk_out2 : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
-  signal interface_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal interface_0_M00_AXIS_TLAST : STD_LOGIC;
-  signal interface_0_M00_AXIS_TREADY : STD_LOGIC;
-  signal interface_0_M00_AXIS_TVALID : STD_LOGIC;
+  signal inverter_rtl_0_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal inverter_rtl_0_M_AXIS_TLAST : STD_LOGIC;
+  signal inverter_rtl_0_M_AXIS_TREADY : STD_LOGIC;
+  signal inverter_rtl_0_M_AXIS_TVALID : STD_LOGIC;
   signal proc_sys_reset_0_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_1_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal resetn_0_1 : STD_LOGIC;
+  signal sw1_1 : STD_LOGIC;
   signal v_axi4s_vid_out_0_vid_active_video : STD_LOGIC;
   signal v_axi4s_vid_out_0_vid_data : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal v_axi4s_vid_out_0_vid_hsync : STD_LOGIC;
@@ -251,7 +277,19 @@ architecture STRUCTURE of VGA_source is
   signal v_vid_in_axi4s_0_vtiming_out_VBLANK : STD_LOGIC;
   signal v_vid_in_axi4s_0_vtiming_out_VSYNC : STD_LOGIC;
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal NLW_interface_0_m00_axis_tstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inverter_0_ap_done_UNCONNECTED : STD_LOGIC;
+  signal NLW_inverter_0_ap_idle_UNCONNECTED : STD_LOGIC;
+  signal NLW_inverter_0_ap_ready_UNCONNECTED : STD_LOGIC;
+  signal NLW_inverter_0_m_axis_video_TVALID_UNCONNECTED : STD_LOGIC;
+  signal NLW_inverter_0_s_axis_video_TREADY_UNCONNECTED : STD_LOGIC;
+  signal NLW_inverter_0_m_axis_video_TDATA_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal NLW_inverter_0_m_axis_video_TDEST_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inverter_0_m_axis_video_TID_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inverter_0_m_axis_video_TKEEP_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inverter_0_m_axis_video_TLAST_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inverter_0_m_axis_video_TSTRB_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inverter_0_m_axis_video_TUSER_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inverter_rtl_0_m_axis_tstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_0_mb_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_0_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_0_interconnect_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -285,10 +323,10 @@ begin
   B(3 downto 0) <= xlslice_0_Dout(3 downto 0);
   G(3 downto 0) <= xlslice_0_Dout(3 downto 0);
   R(3 downto 0) <= xlslice_0_Dout(3 downto 0);
-  VidOrig_nVideoInv_1_1 <= sw1;
   clk_in1_0_1 <= clk;
   hsync_out_0 <= v_axi4s_vid_out_0_vid_hsync;
   resetn_0_1 <= reset_n;
+  sw1_1 <= sw1;
   vsync_out_0 <= v_axi4s_vid_out_0_vid_vblank;
 GND: component VGA_source_VDD_0
      port map (
@@ -303,7 +341,7 @@ c_counter_binary_0: component VGA_source_c_counter_binary_0_0
       CE => v_tc_0_active_video_out,
       CLK => clk_wiz_0_clk_out2,
       Q(7 downto 0) => c_counter_binary_0_Q(7 downto 0),
-      SCLR => '0'
+      SCLR => v_tc_0_hsync_out
     );
 clk_wiz_0: component VGA_source_clk_wiz_0_0
      port map (
@@ -313,23 +351,48 @@ clk_wiz_0: component VGA_source_clk_wiz_0_0
       locked => clk_wiz_0_locked,
       resetn => resetn_0_1
     );
-interface_0: component VGA_source_interface_0_3
+inverter_0: component VGA_source_inverter_0_0
      port map (
-      VidOrig_nVideoInv => VidOrig_nVideoInv_1_1,
-      m00_axis_aclk => clk_wiz_0_clk_out1,
-      m00_axis_aresetn => proc_sys_reset_1_peripheral_aresetn(0),
-      m00_axis_tdata(7 downto 0) => interface_0_M00_AXIS_TDATA(7 downto 0),
-      m00_axis_tlast => interface_0_M00_AXIS_TLAST,
-      m00_axis_tready => interface_0_M00_AXIS_TREADY,
-      m00_axis_tstrb(0) => NLW_interface_0_m00_axis_tstrb_UNCONNECTED(0),
-      m00_axis_tvalid => interface_0_M00_AXIS_TVALID,
-      s00_axis_aclk => clk_wiz_0_clk_out1,
-      s00_axis_aresetn => proc_sys_reset_1_peripheral_aresetn(0),
-      s00_axis_tdata(7 downto 0) => v_vid_in_axi4s_0_video_out_TDATA(7 downto 0),
-      s00_axis_tlast => v_vid_in_axi4s_0_video_out_TLAST,
-      s00_axis_tready => v_vid_in_axi4s_0_video_out_TREADY,
-      s00_axis_tstrb(0) => '1',
-      s00_axis_tvalid => v_vid_in_axi4s_0_video_out_TVALID
+      VidOrig_nVideoInv(0) => sw1_1,
+      ap_clk => clk_wiz_0_clk_out1,
+      ap_done => NLW_inverter_0_ap_done_UNCONNECTED,
+      ap_idle => NLW_inverter_0_ap_idle_UNCONNECTED,
+      ap_ready => NLW_inverter_0_ap_ready_UNCONNECTED,
+      ap_rst_n => proc_sys_reset_1_peripheral_aresetn(0),
+      ap_start => VDD_dout(0),
+      m_axis_video_TDATA(7 downto 0) => NLW_inverter_0_m_axis_video_TDATA_UNCONNECTED(7 downto 0),
+      m_axis_video_TDEST(0) => NLW_inverter_0_m_axis_video_TDEST_UNCONNECTED(0),
+      m_axis_video_TID(0) => NLW_inverter_0_m_axis_video_TID_UNCONNECTED(0),
+      m_axis_video_TKEEP(0) => NLW_inverter_0_m_axis_video_TKEEP_UNCONNECTED(0),
+      m_axis_video_TLAST(0) => NLW_inverter_0_m_axis_video_TLAST_UNCONNECTED(0),
+      m_axis_video_TREADY => '1',
+      m_axis_video_TSTRB(0) => NLW_inverter_0_m_axis_video_TSTRB_UNCONNECTED(0),
+      m_axis_video_TUSER(0) => NLW_inverter_0_m_axis_video_TUSER_UNCONNECTED(0),
+      m_axis_video_TVALID => NLW_inverter_0_m_axis_video_TVALID_UNCONNECTED,
+      s_axis_video_TDATA(7 downto 0) => B"00000000",
+      s_axis_video_TDEST(0) => '0',
+      s_axis_video_TID(0) => '0',
+      s_axis_video_TKEEP(0) => '1',
+      s_axis_video_TLAST(0) => '0',
+      s_axis_video_TREADY => NLW_inverter_0_s_axis_video_TREADY_UNCONNECTED,
+      s_axis_video_TSTRB(0) => '1',
+      s_axis_video_TUSER(0) => '0',
+      s_axis_video_TVALID => '0'
+    );
+inverter_rtl_0: component VGA_source_inverter_rtl_0_1
+     port map (
+      ACLK => clk_wiz_0_clk_out1,
+      ARESETN => proc_sys_reset_1_peripheral_aresetn(0),
+      m_axis_tdata(7 downto 0) => inverter_rtl_0_M_AXIS_TDATA(7 downto 0),
+      m_axis_tlast => inverter_rtl_0_M_AXIS_TLAST,
+      m_axis_tready => inverter_rtl_0_M_AXIS_TREADY,
+      m_axis_tstrb(0) => NLW_inverter_rtl_0_m_axis_tstrb_UNCONNECTED(0),
+      m_axis_tvalid => inverter_rtl_0_M_AXIS_TVALID,
+      s_axis_tdata(7 downto 0) => v_vid_in_axi4s_0_video_out_TDATA(7 downto 0),
+      s_axis_tlast => v_vid_in_axi4s_0_video_out_TLAST,
+      s_axis_tready => v_vid_in_axi4s_0_video_out_TREADY,
+      s_axis_tstrb(0) => '1',
+      s_axis_tvalid => v_vid_in_axi4s_0_video_out_TVALID
     );
 mux_video_0: component VGA_source_mux_video_0_0
      port map (
@@ -372,11 +435,11 @@ v_axi4s_vid_out_0: component VGA_source_v_axi4s_vid_out_0_0
       fifo_read_level(11 downto 0) => NLW_v_axi4s_vid_out_0_fifo_read_level_UNCONNECTED(11 downto 0),
       locked => NLW_v_axi4s_vid_out_0_locked_UNCONNECTED,
       overflow => NLW_v_axi4s_vid_out_0_overflow_UNCONNECTED,
-      s_axis_video_tdata(7 downto 0) => interface_0_M00_AXIS_TDATA(7 downto 0),
-      s_axis_video_tlast => interface_0_M00_AXIS_TLAST,
-      s_axis_video_tready => interface_0_M00_AXIS_TREADY,
+      s_axis_video_tdata(7 downto 0) => inverter_rtl_0_M_AXIS_TDATA(7 downto 0),
+      s_axis_video_tlast => inverter_rtl_0_M_AXIS_TLAST,
+      s_axis_video_tready => inverter_rtl_0_M_AXIS_TREADY,
       s_axis_video_tuser => '0',
-      s_axis_video_tvalid => interface_0_M00_AXIS_TVALID,
+      s_axis_video_tvalid => inverter_rtl_0_M_AXIS_TVALID,
       status(31 downto 0) => NLW_v_axi4s_vid_out_0_status_UNCONNECTED(31 downto 0),
       underflow => NLW_v_axi4s_vid_out_0_underflow_UNCONNECTED,
       vid_active_video => v_axi4s_vid_out_0_vid_active_video,

@@ -1,57 +1,58 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.669371",
-   "Default View_TopLeft":"172,-338",
+   "Default View_ScaleFactor":"0.656089",
+   "Default View_TopLeft":"-116,-216",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port reset_n -pg 1 -lvl 0 -x -380 -y 140 -defaultsOSRD
-preplace port clk -pg 1 -lvl 0 -x -380 -y 180 -defaultsOSRD
-preplace port hsync_out_0 -pg 1 -lvl 8 -x 1880 -y 20 -defaultsOSRD
-preplace port vsync_out_0 -pg 1 -lvl 8 -x 1880 -y 40 -defaultsOSRD
-preplace port sw1 -pg 1 -lvl 0 -x -380 -y 220 -defaultsOSRD
-preplace portBus R -pg 1 -lvl 8 -x 1880 -y -50 -defaultsOSRD
-preplace portBus B -pg 1 -lvl 8 -x 1880 -y -100 -defaultsOSRD
-preplace portBus G -pg 1 -lvl 8 -x 1880 -y -80 -defaultsOSRD
+preplace port reset_n -pg 1 -lvl 0 -x -480 -y 140 -defaultsOSRD
+preplace port clk -pg 1 -lvl 0 -x -480 -y 180 -defaultsOSRD
+preplace port hsync_out_0 -pg 1 -lvl 7 -x 2010 -y 20 -defaultsOSRD
+preplace port vsync_out_0 -pg 1 -lvl 7 -x 2010 -y 40 -defaultsOSRD
+preplace port sw1 -pg 1 -lvl 0 -x -480 -y 220 -defaultsOSRD
+preplace portBus R -pg 1 -lvl 7 -x 2010 -y -50 -defaultsOSRD
+preplace portBus B -pg 1 -lvl 7 -x 2010 -y -100 -defaultsOSRD
+preplace portBus G -pg 1 -lvl 7 -x 2010 -y -80 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x -260 -y 200 -defaultsOSRD
-preplace inst c_counter_binary_0 -pg 1 -lvl 4 -x 690 -y -350 -defaultsOSRD
-preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 20 -y 210 -defaultsOSRD
-preplace inst v_tc_0 -pg 1 -lvl 3 -x 330 -y -70 -defaultsOSRD
-preplace inst v_axi4s_vid_out_0 -pg 1 -lvl 6 -x 1420 -y 50 -defaultsOSRD
-preplace inst v_tc_1 -pg 1 -lvl 6 -x 1420 -y -260 -defaultsOSRD
-preplace inst proc_sys_reset_1 -pg 1 -lvl 4 -x 690 -y 390 -defaultsOSRD
-preplace inst v_vid_in_axi4s_0 -pg 1 -lvl 5 -x 1040 -y -220 -defaultsOSRD
-preplace inst VDD -pg 1 -lvl 4 -x 690 -y -70 -defaultsOSRD
-preplace inst GND -pg 1 -lvl 4 -x 690 -y 50 -defaultsOSRD
-preplace inst mux_video_0 -pg 1 -lvl 7 -x 1730 -y -50 -defaultsOSRD
-preplace netloc clk_wiz_0_clk_out2 1 1 5 -170 0 190 -190 460 -210 860 -20 1210
-preplace netloc resetn_0_1 1 0 4 -350 120 -150 110 N 110 490
-preplace netloc clk_in1_0_1 1 0 1 -360J 180n
+preplace inst c_counter_binary_0 -pg 1 -lvl 4 -x 790 -y -350 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 120 -y 210 -defaultsOSRD
+preplace inst v_tc_0 -pg 1 -lvl 3 -x 440 -y -70 -defaultsOSRD
+preplace inst v_axi4s_vid_out_0 -pg 1 -lvl 6 -x 1790 -y 90 -defaultsOSRD
+preplace inst v_tc_1 -pg 1 -lvl 6 -x 1790 -y -280 -defaultsOSRD
+preplace inst proc_sys_reset_1 -pg 1 -lvl 4 -x 790 -y 390 -defaultsOSRD
+preplace inst v_vid_in_axi4s_0 -pg 1 -lvl 5 -x 1280 -y -220 -defaultsOSRD
+preplace inst VDD -pg 1 -lvl 4 -x 790 -y -70 -defaultsOSRD
+preplace inst GND -pg 1 -lvl 4 -x 790 -y 50 -defaultsOSRD
+preplace inst mux_video_0 -pg 1 -lvl 6 -x 1790 -y -120 -defaultsOSRD
+preplace inst inverter_0 -pg 1 -lvl 5 -x 1280 -y 110 -defaultsOSRD
+preplace netloc clk_wiz_0_clk_out2 1 1 5 -170 0 290 -190 570 -210 970 -30 1510
+preplace netloc resetn_0_1 1 0 4 -440 120 -150 110 N 110 570
+preplace netloc clk_in1_0_1 1 0 1 -460J 180n
 preplace netloc clk_wiz_0_locked 1 1 3 -160 430 N 430 N
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 4 200 50 480 -10 N -10 1220
-preplace netloc xlslice_0_Dout 1 7 1 1860 -100n
-preplace netloc v_axi4s_vid_out_0_vid_active_video 1 6 1 1590 -40n
-preplace netloc v_axi4s_vid_out_0_vid_data 1 6 1 1580 -60n
-preplace netloc v_axi4s_vid_out_0_vid_hsync 1 6 2 1580 20 NJ
-preplace netloc v_axi4s_vid_out_0_vid_vblank 1 6 2 1590 40 NJ
-preplace netloc clk_wiz_0_clk_out1 1 1 5 -160 100 N 100 520 -130 890 10 N
-preplace netloc v_tc_0_active_video_out 1 3 2 480J -270 860
-preplace netloc v_tc_0_hblank_out 1 3 2 490J -260 870
-preplace netloc c_counter_binary_0_Q 1 4 1 870 -350n
-preplace netloc VDD_dout 1 4 2 900 -30 1190
-preplace netloc proc_sys_reset_1_peripheral_aresetn 1 4 2 880 50 N
-preplace netloc v_axi4s_vid_out_0_vtg_ce 1 5 2 1240 -110 1570
-preplace netloc GND_dout 1 4 2 870 130 NJ
-preplace netloc v_tc_0_hsync_out 1 3 2 470J -430 900
-preplace netloc v_tc_0_vblank_out 1 3 2 500J -250 N
-preplace netloc v_tc_0_vsync_out 1 3 2 510J -230 N
-preplace netloc v_tc_1_vtiming_out 1 5 2 1230 -370 1570
-preplace netloc v_vid_in_axi4s_0_vtiming_out 1 5 1 1180 -310n
-preplace netloc v_vid_in_axi4s_0_video_out 1 5 1 1200 -260n
-levelinfo -pg 1 -380 -260 20 330 690 1040 1420 1730 1880
-pagesize -pg 1 -db -bbox -sgen -480 -570 2010 700
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 4 300 50 590 -10 1000 -20 1500
+preplace netloc xlslice_0_Dout 1 6 1 1980 -120n
+preplace netloc v_axi4s_vid_out_0_vid_active_video 1 5 2 1520 -410 1960
+preplace netloc v_axi4s_vid_out_0_vid_data 1 5 2 1550 -400 1950
+preplace netloc v_axi4s_vid_out_0_vid_hsync 1 6 1 1980 20n
+preplace netloc v_axi4s_vid_out_0_vid_vblank 1 6 1 1990 40n
+preplace netloc clk_wiz_0_clk_out1 1 1 5 -160 100 N 100 590 110 1020 0 1480
+preplace netloc v_tc_0_active_video_out 1 3 2 590J -270 960
+preplace netloc v_tc_0_hblank_out 1 3 2 600J -260 970
+preplace netloc c_counter_binary_0_Q 1 4 1 970 -350n
+preplace netloc VDD_dout 1 4 2 990 -410 1490
+preplace netloc proc_sys_reset_1_peripheral_aresetn 1 4 2 1030 220 1500
+preplace netloc v_axi4s_vid_out_0_vtg_ce 1 5 2 1530 -420 1970
+preplace netloc GND_dout 1 4 2 1010 -10 1470J
+preplace netloc v_tc_0_hsync_out 1 3 2 580J -430 980
+preplace netloc v_tc_0_vblank_out 1 3 2 610J -250 N
+preplace netloc v_tc_0_vsync_out 1 3 2 620J -230 N
+preplace netloc sw1_1 1 0 5 -450J 90 NJ 90 NJ 90 610J 160 N
+preplace netloc v_tc_1_vtiming_out 1 5 2 1540 -390 1940
+preplace netloc v_vid_in_axi4s_0_vtiming_out 1 5 1 1470 -330n
+levelinfo -pg 1 -480 -260 120 440 790 1280 1790 2010
+pagesize -pg 1 -db -bbox -sgen -580 -570 2140 700
 "
 }
 {
-   "da_clkrst_cnt":"4"
+   "da_clkrst_cnt":"5"
 }

@@ -214,6 +214,12 @@ proc create_root_design { parentCell } {
    CONFIG.USE_LOCKED {true} \
  ] $clk_wiz_0
 
+  # Create instance: inverter_0, and set properties
+  set inverter_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:inverter:1.0 inverter_0 ]
+
+  # Create instance: inverter_rtl_0, and set properties
+  set inverter_rtl_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:inverter_rtl:1.0 inverter_rtl_0 ]
+
   # Create instance: mux_video_0, and set properties
   set block_name mux_video
   set block_cell_name mux_video_0
@@ -305,21 +311,23 @@ proc create_root_design { parentCell } {
  ] $v_vid_in_axi4s_0
 
   # Create interface connections
+  connect_bd_intf_net -intf_net inverter_rtl_0_M_AXIS [get_bd_intf_pins inverter_rtl_0/M_AXIS] [get_bd_intf_pins v_axi4s_vid_out_0/video_in]
   connect_bd_intf_net -intf_net v_tc_1_vtiming_out [get_bd_intf_pins v_axi4s_vid_out_0/vtiming_in] [get_bd_intf_pins v_tc_1/vtiming_out]
-  connect_bd_intf_net -intf_net v_vid_in_axi4s_0_video_out [get_bd_intf_pins v_axi4s_vid_out_0/video_in] [get_bd_intf_pins v_vid_in_axi4s_0/video_out]
+  connect_bd_intf_net -intf_net v_vid_in_axi4s_0_video_out [get_bd_intf_pins inverter_rtl_0/S_AXIS] [get_bd_intf_pins v_vid_in_axi4s_0/video_out]
   connect_bd_intf_net -intf_net v_vid_in_axi4s_0_vtiming_out [get_bd_intf_pins v_tc_1/vtiming_in] [get_bd_intf_pins v_vid_in_axi4s_0/vtiming_out]
 
   # Create port connections
   connect_bd_net -net GND_dout [get_bd_pins GND/dout] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_reset] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_reset]
-  connect_bd_net -net VDD_dout [get_bd_pins VDD/dout] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce] [get_bd_pins v_tc_1/clken] [get_bd_pins v_tc_1/det_clken] [get_bd_pins v_vid_in_axi4s_0/aclken] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_ce]
+  connect_bd_net -net VDD_dout [get_bd_pins VDD/dout] [get_bd_pins inverter_0/ap_start] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce] [get_bd_pins v_tc_1/clken] [get_bd_pins v_tc_1/det_clken] [get_bd_pins v_vid_in_axi4s_0/aclken] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_ce]
   connect_bd_net -net c_counter_binary_0_Q [get_bd_pins c_counter_binary_0/Q] [get_bd_pins v_vid_in_axi4s_0/vid_data]
   connect_bd_net -net clk_in1_0_1 [get_bd_ports clk] [get_bd_pins clk_wiz_0/clk_in1]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins v_axi4s_vid_out_0/aclk] [get_bd_pins v_vid_in_axi4s_0/aclk]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins inverter_0/ap_clk] [get_bd_pins inverter_rtl_0/ACLK] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins v_axi4s_vid_out_0/aclk] [get_bd_pins v_vid_in_axi4s_0/aclk]
   connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins c_counter_binary_0/CLK] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_clk] [get_bd_pins v_tc_0/clk] [get_bd_pins v_tc_1/clk] [get_bd_pins v_vid_in_axi4s_0/vid_io_in_clk]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked] [get_bd_pins proc_sys_reset_1/dcm_locked]
   connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins v_tc_0/resetn] [get_bd_pins v_tc_1/resetn]
-  connect_bd_net -net proc_sys_reset_1_peripheral_aresetn [get_bd_pins proc_sys_reset_1/peripheral_aresetn] [get_bd_pins v_axi4s_vid_out_0/aresetn] [get_bd_pins v_vid_in_axi4s_0/aresetn]
+  connect_bd_net -net proc_sys_reset_1_peripheral_aresetn [get_bd_pins inverter_0/ap_rst_n] [get_bd_pins inverter_rtl_0/ARESETN] [get_bd_pins proc_sys_reset_1/peripheral_aresetn] [get_bd_pins v_axi4s_vid_out_0/aresetn] [get_bd_pins v_vid_in_axi4s_0/aresetn]
   connect_bd_net -net resetn_0_1 [get_bd_ports reset_n] [get_bd_pins clk_wiz_0/resetn] [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in]
+  connect_bd_net -net sw1_1 [get_bd_ports sw1] [get_bd_pins inverter_0/VidOrig_nVideoInv]
   connect_bd_net -net v_axi4s_vid_out_0_vid_active_video [get_bd_pins mux_video_0/Sel_ActVideo] [get_bd_pins v_axi4s_vid_out_0/vid_active_video]
   connect_bd_net -net v_axi4s_vid_out_0_vid_data [get_bd_pins mux_video_0/DIN] [get_bd_pins v_axi4s_vid_out_0/vid_data]
   connect_bd_net -net v_axi4s_vid_out_0_vid_hsync [get_bd_ports hsync_out_0] [get_bd_pins v_axi4s_vid_out_0/vid_hsync]
