@@ -1,7 +1,0 @@
-<annotationInfo>
-<annotationInfo>
-<item  id="43" filename="inverter.cpp" linenumber="16" name="icmp_ln761" contextFuncName="inverter_hls" moduleName="inverter_hls" rtlName="icmp_ln761_fu_139_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="11" fileDirectory="C:\Users\ap576391\Documents\Dubois\TP"><\/item>
-<item  id="44" filename="inverter.cpp" linenumber="16" name="zext_ln295" contextFuncName="inverter_hls" moduleName="inverter_hls" rtlName="zext_ln295_fu_145_p1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\ap576391\Documents\Dubois\TP"><\/item>
-<item  id="45" filename="inverter.cpp" linenumber="15" name="tmp_data_V_1" contextFuncName="inverter_hls" moduleName="inverter_hls" rtlName="m_axis_video_TDATA_int" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="8" fileDirectory="C:\Users\ap576391\Documents\Dubois\TP"><\/item>
-<\/annotationInfo>
-</annotationInfo>

@@ -1,0 +1,12 @@
+vhdl xil_defaultlib  \
+"../../../bd/VGA_source/ip/VGA_source_c_counter_binary_0_0/sim/VGA_source_c_counter_binary_0_0.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_proc_sys_reset_0_0/sim/VGA_source_proc_sys_reset_0_0.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_v_tc_0_0/sim/VGA_source_v_tc_0_0.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_mux_video_0_0/sim/VGA_source_mux_video_0_0.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_v_tc_0_1/sim/VGA_source_v_tc_0_1.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_proc_sys_reset_0_1/sim/VGA_source_proc_sys_reset_0_1.vhd" \
+"../../../bd/VGA_source/ipshared/04f4/hdl/inverter_rtl_v1_0.vhd" \
+"../../../bd/VGA_source/ip/VGA_source_inverter_rtl_0_1/sim/VGA_source_inverter_rtl_0_1.vhd" \
+"../../../bd/VGA_source/sim/VGA_source.vhd" \
+
+nosort
